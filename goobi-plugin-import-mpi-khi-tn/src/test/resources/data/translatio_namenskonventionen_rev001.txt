@@ -1,0 +1,158 @@
+﻿Aufbau der grundlegenden Verzeichnisstruktur im Translatio Nummorum Projekt
+===========================================================================
+#
+# Hinweis fuer Konfiguration des Textviewers: Text ist auf TABSIZE von "4" optimiert
+#
+
+Versionshinweis:
+================
+
+v.1.00 (15:34 Montag, 1. März 2010):
+			- Adaptiert vom Futurismusprojekt
+			- Auflösung etwas runtergedreht: 
+				- MasterScans mit 240 DPI (statt 300) und im JPEG Format (fuer Kacheln?)
+				- "Screen"-Daten mit 96 DPI (statt 150)
+				- Overviews nicht mehr 400 Pixel hoch, sondern 400 Pixel breit
+					(zur not mit HTML Parametern verkleinerbar)
+				- transcripts - Verzeichnis
+				
+				
+Grobe Struktur
+==============
+
+/																			# Wurzel
+|-------- digital_obj
+			|-------- books		
+			|			|-------- IdentNr.1
+			|			|			|-------- ...
+			|			|			|-------- ...
+			|			|-------- IdentNr.2
+			|			|			|-------- ...
+			|			|			|-------- ...
+			|			|-------- ...
+			|			...
+			|																
+			|																
+			|-------- others	
+			|			|-------- futur-o-#######					# Beispiel fuer 3 Seiten Dokum.
+			|			|			|-------- 0001_screen.jpg
+			|			|			|-------- 0002_screen.jpg
+			|			|			|-------- 0003_screen.jpg
+			|			|			|-------- 0001_overview.jpg
+			|			|			|-------- 0002_overview.jpg
+			|			|			|-------- 0003_overview.jpg
+			|			|			|-------- 0001_thumb.jpg
+			|			|			|-------- 0002_thumb.jpg
+			|			|			|-------- 0003_thumb.jpg
+			|			|-------- futur-o-#######
+			|			|			|-------- ...
+			|			|			|-------- ...
+			|			|-------- ...
+			|			...
+			|																
+			|-------- periodicals	
+			|			|-------- IdentNr.1
+			|			|			|-------- ...
+			|			|			|-------- ...
+			|			|-------- IdentNr.2
+			|			|			|-------- ...
+			|			|			|-------- ...
+			|			|-------- ...
+			|			...
+			|																
+			|																
+			|																
+			|																
+|-------- transcripts
+			|																
+			|-------- arrow003.png			# GrafikElement fuer trans_num.xslt
+			|-------- monumentum.xml		# Kompakte ID Tabelle für Census MünzDB
+			|-------- trans_num.css			# HTML-Stylesheet fuer trans_num.xslt
+			|-------- trans_num.xslt		# Zum Transform. der Transkripte ins HTML-Format
+			|																
+			|-------- b304254f_-_transcript.xml		# diverse Transkripte
+			|-------- b215879f_-_transcript.xml		# ...
+			|-------- b229517f_-_transcript.xml		
+			|																
+			|																
+			|																
+|-------- xml												# Inhaltsangaben (METS/MODS)
+			|-------- IdentNr.1.xml
+			|-------- IdentNr.2.xml
+			|-------- IdentNr.3.xml
+			|-------- ...
+			|																
+			|-------- other_-_TN-o-0000001.xml		# 	für sich stehende Manuscripte ohne 
+			|-------- other_-_TN-o-0000002.xml		#	offizielle ID Nr. (auch Briefe und 
+			|-------- other_-_...					#   Poster etc.)
+			|																
+			|																
+
+			
+			
+			
+
+			
+Detailaufbau eines Eintrages im "digital_obj/periodicals" Zweig:
+////////////////////////////////////////////////////////////////
+
+
+ZDB88147-8	(Normalr Weise OPAC Identnr., wenn nicht verfgbr dann ZDB Nr. )
+   |
+   |--- anno01-001
+			|-------- page_master_0001.jpg 		# Seitenstruktur Originalscans (240 dpi)
+			|-------- page_master_0002.jpg 
+			|-------- page_master_0003.jpg 
+			|-------- page_master_0004.jpg 
+			|-------- page_screen_0001.jpg		# Seitenstruktur Webdetail-Bilder (96 dpi)
+			|-------- page_screen_0002.jpg
+			|-------- page_screen_0003.jpg
+			|-------- page_screen_0004.jpg
+			|-------- page_overview_0001.jpg	# Seitenstruktur Overview (400 Pixel breit)
+			|-------- page_overview_0002.jpg
+			|-------- page_overview_0003.jpg
+			|-------- page_overview_0004.jpg
+			|-------- page_thumb_0001.jpg		# Seitenstruktur Thumbnails (75 Pixel hoch)
+			|-------- page_thumb_0002.jpg
+			|-------- page_thumb_0003.jpg
+			|-------- page_thumb_0004.jpg
+			|-------- page_ocr_0001.txt		# Resultat der Zeichenerkennung (OCR) ohne enthaltenem
+			|-------- page_ocr_0002.txt		# Layout fuer das Durchsuchen der Scans
+			|-------- page_ocr_0003.txt
+			|-------- page_ocr_0004.txt
+			|-------- obj_0001.jpg		# von der Seitenstruktur geloeste Artikel (auch Schemata)
+			|-------- obj_0002.jpg		# immer spaltenweise von oben links aus gezaehlt
+			|-------- obj_0003.jpg		# 150 dpi
+			|-------- obj_0004.jpg
+			|-------- obj_ocr_0001.txt	# Texterkennung ohne Layout ueber die Artikel 
+			|-------- obj_ocr_0002.txt	# (ob wir das Layout fuer die Suche nutzen - mal sehen)
+			|-------- obj_ocr_0003.txt
+			|-------- obj_ocr_0004.txt
+			|-------- obj_ocr_...			
+			|-------- obj_...
+			|-------- image_0001.jpg		# Bilder/NonTextDarst. - rausgeloest aus ArtklStruktur
+			|-------- image_0002.jpg		# immer spaltenweise von oben links aus gezaehlt
+			|-------- image_0003.jpg		# 150 dpi
+			|-------- image_...
+   |--- anno01-002
+			|-------- page_master_0001.jpg 
+			|-------- page_master_0002.jpg 
+			|-------- page_master_0003.jpg 
+			|-------- page_master_0004.jpg 
+						...
+   |
+   |--- anno02-029
+   			|-------- page_master_0001.jpg 
+			|-------- page_master_0002.jpg 
+			|-------- page_master_0003.jpg 
+			|-------- page_master_0004.jpg 
+						...
+
+			
+
+Formate:
+	.txt in utf-8			
+			
+
+
+

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<data>
+	<place SWD="SWD:4062501-1">
+		Venedig
+	</place>
+	<place SWD="SWD:4050471-2">
+		Rom
+	</place>
+	<place SWD="SWD:4036770-8">
+		Lyon
+	</place>
+	<place SWD="SWD:4002364-3">
+		Antwerpen
+	</place>
+	<place SWD="SWD:4057878-1">
+		Straßburg
+	</place>
+	<place SWD="SWD:4001783-7">
+		Amsterdam
+	</place>
+	<place SWD="SWD:4044660-8">
+		Paris
+	</place>
+	<place SWD="SWD:4069688-1">
+		Brügge
+	</place>
+	<place SWD="SWD:4004617-5">
+		Basel
+	</place>
+	<place SWD="SWD:4059081-1">
+		Tarragona
+	</place>
+	<place SWD="SWD:9999999-9">
+		Not_Specified
+	</place>
+</data>

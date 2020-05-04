@@ -1,0 +1,24 @@
+Hinweise fuer die Dateneingabe im Translatio Nummorum Projekt
+=============================================================
+
+
+Unterstriche bei Dateien
+------------------------
+
+Bitte bei Dateien, die sich auf eine Signatur beziehen folgendes beachten::
+
+- keine Leerzeichen (*nicht* "E 6110")
+- keine Bindestriche oder Minuszeichen (*nicht* "E-6110")
+
+- sondern Leerzeichen in Unterstriche umwandeln
+	- also *richtig* "E_6110" 
+		
+
+
+
+
+		
+
+		
+.. This Documentation was done in reStructuredText Format 
+.. (http://docutils.sourceforge.net/rst.html)

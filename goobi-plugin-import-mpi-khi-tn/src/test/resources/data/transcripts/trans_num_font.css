@@ -1,0 +1,21 @@
+/* VOM KHI mitbeinflussten freien Font DejaVuSans einbinden */
+
+/* IE6/7/8 */
+
+@font-face {
+  font-family:DejaVuSans;
+  src: url(DejaVuSans.eot);
+}
+
+/* FF3.5+/Safari/Opera10 */
+
+@font-face {
+  font-family:DejaVuSans;
+  src: url(DejaVuSans-KHI.ttf);
+  font-weight:normal;
+  font-style:normal;
+  /*
+  yes, gotta write both normal - and webkit will render also bold and italic fine (paradox, I know). However Safari 5 looks ugly this way.
+  */
+}
+

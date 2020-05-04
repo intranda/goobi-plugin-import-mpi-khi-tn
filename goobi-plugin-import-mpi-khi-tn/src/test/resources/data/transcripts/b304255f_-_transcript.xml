@@ -1,0 +1,1411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+				KHI Translatio Nummorum Transcript Extended Format 
+			-->
+<?xml-stylesheet type="text/xsl" href="trans_num.xslt" ?>
+	<content>
+<signature>E 6109</signature>
+<opacid>b304255f</opacid>
+<alternID Type="AlephSys">000081246</alternID>
+<alternID Type="BVB">BV037650274</alternID>
+<br pphys="pphys1" p=""/>
+<br pphys="pphys2" p=""/>
+<handwritten num="g1"/>
+<br pphys="pphys3" p=""/>
+<br pphys="pphys4" p=""/>
+<br pphys="pphys5" p="1"/>
+<img num="img1-1"><sp>LE IMAGINI CON TVTTI I RIVERSI TROVATI ET LE VITE DE GLI IMPERATORI TRATTE DALLE MEDAGLIE ET DALLE HISTORIE DE GLI ANTICHI. LIBRO PRIMO
+<PND num="119099950">ENEA VICO</PND> PARM. F. L' ANNO. M DXLVIII.</sp></img>
+<br pphys="pphys6" p=""/>
+<br pphys="pphys7" p="2"/>
+<c><sp>CON PRIVILEGIO.</sp></c>
+<p>Del sommo Pontefice <PND num="118592068">Papa Paulo III</PND> per anni X.</p>
+<p>Della Cesarea Maesta per anni X.</p>
+<p>Del Christianissimo Re per anni X.</p>
+<p>Et dell'inclito Senato Veneto per anni XX.</p>
+<br pphys="pphys8" p=""/>
+<c><PND num="133724603">ANTONIO ZANTANI</PND> A' LETTORI.</c>
+<p>L<sp>O ARDENTE</sp> studio, che io conosco in molti di cercare, &amp; d'hauere grande, &amp; bella copia di medaglie, &amp; la somma dilettatione, che si prende dal leggere le antiche memorie; mi ha messo nello animo uno honesto piacere di satisfare in quello, che io potrò, con una sola fatica, à molti delle predette cose desiderosi. là onde io intendo di dare in luce le imagini de gli imperatori tratte dalle antiche medaglie con tutte quelle maniere di riuersi che alle mani peruenute mi sono, come che non picciol fatica in ciò habbi hauuta, &amp; aggiugnerui la somma delle uite, &amp; operationi fatte da quegli. Et hauendo hormai dato fine al primo uolume, che contiene i dodeci primi imperatori, non ho potuto cõtenermi di nõ porgerlo à i bramosi spiriti di tale professione, à guisa, che molti maestri satisfanno à quelli, che i loro lauori desiderano col farne loro parte promettendogli il restante. Prendete adunque ò lettori questa dimostratione di buona uolontate uerso uoi, &amp; quanto con l'occhio del corpo riguarderete le effigie de gli antichi, tanto con il lume dello intelletto considerate le loro attioni, prendendo que'begli essempi del uiuere, che si conuengono. Poca è la fatica di guardare, &amp; di leggere, ma la utilitate, &amp; il frutto è copioso, &amp; grande, perche si uede, &amp; istima quanto può la uirtute, à che infelicitade si uolga l'errore, di quale giouamento sia l'honesta cõuersatione, come ageuolmente si mutano i pensieri de gli
+<br pphys="pphys9" p="3"/> huomini, come uno uirtuoso è ueramente libero, &amp; uno scelerato seruo. &amp; finalmente come niuno fugge la prouidentia di Dio nel riceuere le pene, ò i premi, ch'egli s'habbia meritato. Vedete adunque, &amp; leggete, &amp; le cose uedute, &amp; lette bene spesso nell'animo riuolgete, &amp; con le honeste opere seguitate.</p>
+<br pphys="pphys10" p=""/>
+<sec/>
+<c><PND num="133724603">ANTONIO ZANTANI</PND> A' LETTORI.</c>
+<p>I<sp>O POTEVA</sp> (come alcuni altri costumano di fare) forzarmi nella presente opera de interpretare, &amp; dichiarire i riuersci delle medaglie, ma riputando io tale fatica in molte parti essere &amp; difficile, &amp; uana, ho uoluto lasciare al giudicio di ciescaduno questa cura, &amp; pensiero. come che molto bene possa auuenire, che la continoua diligenza d'alcuni studiosi, accompagnata dal giudicio, &amp; bello intendimento di uarie cose, possa ritrouare accõcie, &amp; uere interpretationi, &amp; molti altri essere atti piu presto ad indouinare, che giudicare la uerità. oltra che il rischio di errare è grandissimo, il frutto dubbio, &amp; poco, &amp; molto habbia dello impossibile per la oscurità delle cose auolte nella longhezza, &amp; nella ingiuria del tempo: percioche le cose dalla memoria nostra lontane sogliono seco recare ignoranza, &amp; l'antichita guasta, &amp; corrompe i segni di quelle, come si uede in molte lettere, che sicure non hanno potuto restare nella finezza &amp; durezza dei marmi, ò dei metalli. per questa cagione ho giudicato essere à bastanza trauagliarmi nella inuentione, &amp; uarietà di molte Medaglie, &amp; porgere quelle à giudiciosi huomini, lasciando loro il campo aperto, &amp; libero di ritrouare le intelligenze belle, &amp; secrete delle cose per uia delle historie. Emmi piacciuto anche separare le medaglie, che sono in rame, da quelle che sono in oro, &amp; in argento per fare piu certa la uoglia di molti che si dilettano delle antiche memorie, &amp; non
+<br pphys="pphys11" p="4"/> hanno le facultati di poterle comperare, &amp; possedere. per questo adunque io uorrei, che ogniuno da me pregato fusse à prendere in buona parte questa mia piu presto diletteuole, che curiosa fatica, la quale satisfacendo in parte al disiderio naturale, che di sapere in ciascuno si troua, fugge le quistioni, &amp; le contentioni fieuoli, &amp; curiose di molti, che, per darne uno essempio, contrastano la stella, che è nella medaglia di. C. essere la stella di Venere dalla quale egli discese, ouero il fatto di lui, ò pure una cometa, come per certissime auttoritate si pruoua. Lasciero adũque l'arca di questo pretioso tesoro aperta, in quella ogn'uno potra riporui (dirò cosi) leuere &amp; certe ricchezze delle sue inuentioni, acquistate con il sudore, &amp; con le fatiche honeste delli studi suoi.</p>
+<br pphys="pphys12" p=""/>
+<br pphys="pphys13" p="5"/>
+<br pphys="pphys14" p=""/>
+<!-- 5v -->
+<img num="imgg2-1">
+
+		<ptr xml:id="TN003_00013"/>
+		
+<linkcontainer>
+<cm CID="10056230" type="monument"/>
+</linkcontainer>
+<sp>ERA <PND num="118518275">CESARE</PND> DI STATVRA GRANDE, DI CORPO MACILENTE, DI COLOR BIANCO. NERI HAVEA GLI OCCHI, MOBILI, ET VIVACI. CALVO ERA, ET DA DOGLIA DI TESTA SPESSO MOLESTATO. GIVOCAVA BENE D'OGNI SORTE DI ARME, NEI VIAGGI, ET NELLE SPEDITIONI PRESTISSIMO, NELLA CVRA DEL CORPO ESQVISITO. REGNO ANNI III. VISSE ANNI LVI. L'ANNO DEL MONDO, V M. C. LIX. ET DI <SWD num="4050471-2">ROMA</SWD>, DCCVI.</sp></img>
+<br pphys="pphys15" p="6"/>
+<sec/>
+<p>LA innata uirtù di <PND num="118518275">Giulio Cesare</PND> da gli studi delle buone arti, &amp; da gli essempi della patria eccitata fu prima per necessitate ai nemici di lui manifestata, poi da se stessa con piu illustre significatione al mõdo si fece conoscere, &amp; finalmẽte da sdegno cõmossa contra à suoi medesimi si riuolse: imperò che alla prontezza mirabile dello ingegno suo cosi uolentieri ubidiua quella del corpo, che spesso si haueano prima gli auisi delle imprese da lui spedite,che i consigli delle deliberationi, fu anchor giouinetto da <PND num="11864260X">Lucio Silla</PND> per seguitato per la rifutata da lui parentella. fuggi la sorte nascondendosi in luoghi secreti, &amp; riscuotendosi con pretio da quelli, che per nome di <PND num="11864260X">Silla</PND> rittenuto lhaueano, diede nei corsali fuggendo, &amp; poi con dinari liberato, con i medesimi cõflisse, superogli, &amp; presi tutti gli pose in croce, hauendogli di cio poco inanzi sendo prigione giocosamente minacciati: &amp; in questo fu il ualor suo dalla necessità discoperto. Gli amici mancato <PND num="11864260X">Silla</PND> nella patria lo riuocorno, doue fu illustre per molti gradi d'honori, &amp; dentro, &amp; di fuori di molte dignitati ornato: imperoche in <SWD num="4055964-6">Hispagna</SWD> in questore, &amp; edile, &amp; põtifice, &amp; pretore, &amp; in consule eletto, &amp; creato diede molti chiari segni di eloquenza, di humanitade, di magnificenza, &amp; di fortezza: cinquantadue fiate combatte; &amp; uinsei uincitori, nõ da altro, che dalla propia uirtu gli augurii della battaglia prendendo: donaua, &amp; perdonaua, sappea dire, &amp; fare: sottomise al Romano imperio tutta la <SWD num="4155151-5">Francia</SWD>, ottocento castella, &amp; trecento popoli superando: scrisse egli stesso, i fatti suoi non meno con uerità,
+<f>1</f>
+<br pphys="pphys16" p=""/> che con somma scieltezza, &amp; puritade: In fine la sua uirtute nelle spesse uittorie essercitata, &amp; impatiente delle ripulse à sdegno grandissimo lo cõmosse contra <PND num="118595636">Gn.Pomp.</PND> che d'impedimento gli era nella dimanda del consolato: fu per questo istimato non hauere troppo buona mente uerso la patria: perseguendo adunque le inimicitie cominciate, in <SWD num="4115953-6">Pharsaglia</SWD> uinse <PND num="118595636">Pompeo</PND>, &amp; piu fiero diuenuto seguendo il corso delle uittorie, ruppe il perfido Re di <SWD num="4068430-1">Egitto</SWD> fratello di <PND num="11856322X">Cleopatra</PND>, &amp; quella fauorita fece sola regina, &amp; con prestezza mirabile disfece <PND num="900003580">Farnace</PND> figliuolo di <PND num="118734210">Mithridate</PND> con tre sole parole auisandone gli amici, scriuẽdo. VENNI, VIDDI VINSI. Ecco la materia di tre honoratissimi triõfi à i quali un'altra presto s'aggiunse, impero che in un giorno tre uittorie nobilissime riportando, sconfise in <SWD num="4035589-5">Libia</SWD> <PND num="900000260">Scipione</PND>, <PND num="900006070">Afranio</PND>, &amp; il <PND num="900006530">re Iuba</PND> eccellentissimi capitani: doue in un mese quattro fiate uittorioso, &amp; trionfante riuide la patria, &amp; finalmente alla quinta, &amp; ultima pompa con dispiacere de i liberi huomini si conduse. imperò che fu fatta per la uittoria, che egli hebbe in <SWD num="4055964-6">Hispagna</SWD> cõtra i figliuoli di <PND num="118595636">Pompeo</PND>, &amp; molta nobiltà Romana, &amp; ueramente queste cose da lui fatte posero ne gli huomini una certa credenza della sua deitade, la quale del tutto ferma restata sarebbe se tra le molte uirtuti, alcuni uitii, tra le uittorie alcuna perdita, &amp; tra la felicitate finalmente la morte sua non si fusse trapposta. ecco quello, che il nome di Cesare diede à gli Imperatori, quello, che gli anni distinse, quello, che per molti segni del cielo fu dimostrato esser uno singularissimo huomo, da i piu diletti, &amp; istimati
+<br pphys="pphys17" p="7"/> da lui con perfida congiura di <PND num="118516361">Brutto</PND>, &amp; <PND num="118746200">Cassio</PND> nel senato aspramente ferito, &amp; morto dorme con gli altri principi della terra, appari della ignota plebe</p>
+<br pphys="pphys18" p=""/>
+<br pphys="pphys19" p="8"/>
+<img num="img8-1" digilibpara="mk=0.3425/0.3181,0.5869/0.3219">
+<legend>
+
+		<ptr xml:id="TN003_00014"/>
+		
+<emptylink digilibno="1"/>
+
+
+		<ptr xml:id="TN003_00015"/>
+		
+<emptylink digilibno="2"/>
+</legend>
+</img>
+<br pphys="pphys20" p=""/>
+<!-- 8v -->
+<img num="imgg3-1" digilibpara="mk=0.3434/0.3005,0.5883/0.3043,0.8156/0.3137,0.3409/0.4744,0.5858/0.4744,0.8106/0.482,0.3409/0.6465,0.5833/0.6465,0.8156/0.6521,0.3434/0.8166,0.5808/0.8223,0.8156/0.826">
+<legend>
+<emptylink digilibno="1"/>
+
+
+		<ptr xml:id="TN003_00017"/>
+		
+<emptylink digilibno="2"/>
+
+
+		<ptr xml:id="TN003_00018"/>
+		
+<emptylink digilibno="3"/>
+
+
+		<ptr xml:id="TN003_00019"/>
+		
+<cm digilibno="4" CID="10018587" type="monument"/>
+
+
+		<ptr xml:id="TN003_00020"/>
+		
+<emptylink digilibno="5"/>
+
+
+		<ptr xml:id="TN003_00021"/>
+		
+<emptylink digilibno="6"/>
+
+
+		<ptr xml:id="TN003_00022"/>
+		
+<emptylink digilibno="7"/>
+
+
+		<ptr xml:id="TN003_00023"/>
+		
+<cm digilibno="8" CID="10059058" type="monument"/>
+
+
+		<ptr xml:id="TN003_00024"/>
+		
+<cm digilibno="9" CID="10056363" type="monument"/>
+
+
+		<ptr xml:id="TN003_00025"/>
+		
+<emptylink digilibno="10"/>
+
+
+		<ptr xml:id="TN003_00026"/>
+		
+<cm digilibno="11" CID="10057260" type="monument"/>
+
+<emptylink digilibno="12"/>
+</legend>
+</img>
+<br pphys="pphys21" p="9"/>
+<img num="img9-1" digilibpara="mk=0.3518/0.3181,0.5696/0.3181,0.7949/0.3181,0.5721/0.4848">
+<legend>
+
+		<ptr xml:id="TN003_00028"/>
+		
+<cm digilibno="1" CID="10056230" type="monument"/>
+
+
+		<ptr xml:id="TN003_00029"/>
+		
+<emptylink digilibno="2"/>
+
+
+		<ptr xml:id="TN003_00030"/>
+		
+<emptylink digilibno="3"/>
+
+
+		<ptr xml:id="TN003_00031"/>
+		
+<cm digilibno="4" CID="10025405" type="monument"/>
+</legend>
+</img>
+<br pphys="pphys22" p=""/>
+<!-- 9v -->
+<img num="imgg4-1" digilibpara="mk=0.3285/0.3182,0.5666/0.3182">
+<legend>
+
+		<ptr xml:id="TN003_05000"/>
+		
+<emptylink digilibno="1"/>
+
+
+		<ptr xml:id="TN003_05001"/>
+		
+<cm digilibno="2" CID="10025405" type="monument"/>
+</legend>
+</img>
+<br pphys="pphys23" p="10"/>
+<sec/>
+<p>SI come <PND num="118518275">Giulio Cesare</PND> non hebbe chi piede inanzi gli mettesse nel fare le belle, &amp; uirtuose opere, cosi delle uirtuti altrui nõ anchora manifeste, fu rarissimo conoscitore, &amp; quasi indouino. come chiaramẽte apparue nel giudicare <PND num="118505122">Ottauio</PND> di <PND num="900000560">Accia</PND> figliuolo allui nipote, ma per adottione, &amp; della facultà, &amp; del nome herede, al giuditio so presagio di <PND num="118518275">Cesare</PND> successe, che <PND num="118505122">Ottauio</PND> nello imperio, &amp; nella gloria per propia uirtute allui simigliante si fece. raro fu che crescendo egli in ricchezze, &amp; felicitate, ogn'hora facesse delle uirtuti acquisto maggiore. fusse piu amato da i popoli, meno desiderasse la signoria, &amp; piu sicuro, &amp; tranquillo regesse l'imperio, che bene si diede al Ihora ad intẽdere al mondo, (benche i successi de grãdi huomini habbiano le cause occulte) che il donatore della pace, il Re legitimo del mõdo, &amp; il sole della giustitia douesse spargere i suoi chiarissimi rai per l'uniuerso mõdo, &amp; quello ritrouare pacifico, &amp; tranquillo sotto l'imperio di uno giustissimo, &amp; benignissimo capo. Direi della splendidezza del sangue suo, se quiui altro si ricercasse, che la uera nobilitade: la quale dalla uirtute nascendo poco istima il potere della fortuna, dirò adunque delle uirtuti, delle opere, &amp; delle grandezze di <PND num="118505122">Ottauio</PND>, il quale hebbe il cognome di Augusto, &amp; lo diede à i successori dell'imperio, essendo bene conueniente, che colui il nome dia à ciascuno, che la dritta regula del uiuere &amp; lo illustre essempio ha dato del signoreggiare. fuggiua le guerre, &amp; riportaua le uittorie, fuggiua gli honori, &amp; sempre trionfaua, fuggiua le uendette, &amp; aspramente gli erro
+<f>2</f>
+<br pphys="pphys24" p=""/>ri della militia correggeua, queste conditioni gli piacquero nel progresso del suo imperio, perche da prima pensando allui appartenerse il uendicare la morte di <PND num="118518275">Cesare</PND>, &amp; di stabilire le cose da lui fatte con ubidire al senato, che questo gli per suadeua, perseguito <PND num="118503529">Marcoantonio</PND> due fiate, &amp; il fratello di <PND num="118503529">Marcoantonio</PND>, <PND num="118516361">Brutto</PND>, &amp; <PND num="118746200">Cassio</PND>, &amp; finalmente il figliuolo di <PND num="118595636">Pompeio</PND>. onde uittorioso per mare, &amp; per terra si diede al reggimento dello stato. hauendo molti capi di congiure, che come le teste dell'hidra continuamente risorgeuano, risecati, condusse in <SWD num="4027833-5">Italia</SWD> uentiotto colonie, &amp; diede loro tanti priuileggi, &amp; commodi, che à cittadini Romani pari si giudica uano, ridusse lo <SWD num="4068430-1">Egitto</SWD> in forma di prouincia aumentando l'imperio, dal che hebbe il nome di Augusto di molto stato, &amp; à quello sottomettendo i Cantabri, Aquitani, Rheti, Vindelici, Dalmati, &amp; tirando alla diuotione dello imperio gli ultimi habitatori della terra. hebbe da gli Indi, Scithi, Garamanti, &amp; Ethiopi legati, &amp; doni: donò anche egli, &amp; nel donare hauea piu rispetto alla uirtute, che alla nobilitate. era splendidissimo nelle fabriche, la doue non si poteua satiare d'adornare la cittate: uolẽdo che alla bellezza del corpo suo, la bellezza d'ogni altra cosa corrispondesse, &amp; però era chiamato hora per lo nome di Romulo, hora per lo nome di Augusto. &amp; hora per padre della patria, donatore della libertà, &amp; conseruatore della salute. doue che l'honore, che egli si sforzaua di far alli dei col sacrificargli &amp; drizzar gli altari, &amp; tempi, il medesimo permetteuano i dei, che egli fusse da i popoli restituito. Tre fiate hebbe il trionfo. l'una per la uittoria nel
+<br pphys="pphys25" p="11"/> la Dalmatia, l'altra per la uittoria della Preuesa di <PND num="118503529">Marcoantonio</PND>, l'altra per la uittoria di <SWD num="4001138-0">Alessandria</SWD>. chiuse il tempio di <PND num="118775979">Giano</PND> tre uolte, &amp; finalmente dimostro quanto gioua essendo nati per far cose grandi l'hauere hauuto da primi anni la disciplina sotto alcuno eccellentissimo capitano, come fu <PND num="118518275">Cesare</PND>. Visse anni <sp>LXXVI.</sp> Spatio ueramente quanto alla uita conueniente, ma quanto alle opere che egli fece, breue, &amp; poco, però principio di gloria sempiterna.</p>
+<br pphys="pphys26" p=""/>
+<br pphys="pphys27" p="12"/>
+<img num="img12-1" digilibpara="mk=0.329/0.3337,0.5702/0.3301,0.7955/0.3313,0.3322/0.5029,0.5669/0.5017,0.7987/0.5029,0.337/0.6662,0.5654/0.6697,0.7907/0.6746,0.3353/0.8379,0.5669/0.8402,0.7971/0.8426">
+<legend>
+
+		<ptr xml:id="TN003_00001"/>
+		
+<cm digilibno="1" CID="10042569" type="monument"/>
+
+
+		<ptr xml:id="TN003_00002"/>
+		
+<cm digilibno="2" CID="10025889" type="monument"/>
+
+
+		<ptr xml:id="TN003_00003"/>
+		
+<cm digilibno="3" CID="10040687" type="monument"/>
+
+
+		<ptr xml:id="TN003_00004"/>
+		
+<cm digilibno="4" CID="10051684" type="monument"/>
+
+
+		<ptr xml:id="TN003_00005"/>
+		
+<cm digilibno="5" CID="10051685" type="monument"/>
+
+
+		<ptr xml:id="TN003_00006"/>
+		
+<cm digilibno="6" CID="10051688" type="monument"/>
+
+
+		<ptr xml:id="TN003_00007"/>
+		
+<cm digilibno="7" CID="10042552" type="monument"/>
+
+
+		<ptr xml:id="TN003_00008"/>
+		
+<cm digilibno="8" CID="10051741" type="monument"/>
+
+
+		<ptr xml:id="TN003_00009"/>
+		
+<cm digilibno="9" CID="10051679" type="monument"/>
+
+
+		<ptr xml:id="TN003_00010"/>
+		
+<cm digilibno="10" CID="10051690" type="monument"/>
+
+
+		<ptr xml:id="TN003_00011"/>
+		
+<cm digilibno="11" CID="10051696" type="monument"/>
+
+<emptylink digilibno="12"/>
+</legend>
+</img>
+<br pphys="pphys28" p=""/>
+<!-- 12v -->
+<img num="imgg5-1" digilibpara="mk=0.3155/0.3039,0.5538/0.3008,0.7892/0.302,0.3153/0.4729,0.5473/0.4789,0.7826/0.4753,0.3217/0.6389,0.5588/0.6377,0.781/0.6462,0.3202/0.8098,0.5538/0.8134,0.7875/0.811">
+<legend>
+
+		<ptr xml:id="TN003_00032"/>
+		
+<cm digilibno="1" CID="10044305" type="monument"/>
+
+
+		<ptr xml:id="TN003_00033"/>
+		
+<cm digilibno="2" CID="10025088" type="monument"/>
+
+
+		<ptr xml:id="TN003_00034"/>
+		
+<cm digilibno="3" CID="10051675" type="monument"/>
+
+
+		<ptr xml:id="TN003_00035"/>
+		
+<cm digilibno="4" CID="10025414" type="monument"/>
+
+
+		<ptr xml:id="TN003_00036"/>
+		
+<cm digilibno="5" CID="10040209" type="monument"/>
+
+
+		<ptr xml:id="TN003_00037"/>
+		
+<cm digilibno="6" CID="10051679" type="monument"/>
+
+
+		<ptr xml:id="TN003_00038"/>
+		
+<cm digilibno="7" CID="10044331" type="monument"/>
+
+
+		<ptr xml:id="TN003_00039"/>
+		
+<cm digilibno="8" CID="10044338" type="monument"/>
+
+
+		<ptr xml:id="TN003_00040"/>
+		
+<cm digilibno="9" CID="10025387" type="monument"/>
+<cm digilibno="9" CID="10045214" type="monument"/>
+
+
+		<ptr xml:id="TN003_00041"/>
+		
+<cm digilibno="10" CID="10042575" type="monument"/>
+
+
+		<ptr xml:id="TN003_00042"/>
+		
+<cm digilibno="11" CID="10051457" type="monument"/>
+<cm digilibno="11" CID="10051461" type="monument"/>
+<cm digilibno="11" CID="10051464" type="monument"/>
+
+
+		<ptr xml:id="TN003_00043"/>
+		
+<cm digilibno="12" CID="10051681" type="monument"/>
+</legend>
+</img>
+<br pphys="pphys29" p="13"/>
+<img num="img13-1" digilibpara="mk=0.3402/0.3297,0.5814/0.3202,0.8098/0.319,0.3386/0.5004,0.5798/0.4946,0.8035/0.4911,0.337/0.6737,0.5766/0.6677,0.8083/0.6619,0.3466/0.8386,0.5766/0.8386,0.8098/0.8339">
+<legend>
+
+		<ptr xml:id="TN003_00044"/>
+		
+<cm digilibno="1" CID="10024478" type="monument"/>
+
+<emptylink digilibno="2"/>
+
+
+		<ptr xml:id="TN003_00046"/>
+		
+<cm digilibno="3" CID="10051699" type="monument"/>
+
+
+		<ptr xml:id="TN003_00047"/>
+		
+<cm digilibno="4" CID="10051675" type="monument"/>
+
+
+		<ptr xml:id="TN003_00048"/>
+		
+<cm digilibno="5" CID="10051743" type="monument"/>
+
+
+		<ptr xml:id="TN003_00049"/>
+		
+<emptylink digilibno="6"/>
+
+
+		<ptr xml:id="TN003_00050"/>
+		
+<cm digilibno="7" CID="10051746" type="monument"/>
+
+
+		<ptr xml:id="TN003_00051"/>
+		
+<cm digilibno="8" CID="10051749" type="monument"/>
+
+
+		<ptr xml:id="TN003_00052"/>
+		
+<cm digilibno="9" CID="10042634" type="monument"/>
+
+
+		<ptr xml:id="TN003_00053"/>
+		
+<cm digilibno="10" CID="10060006" type="monument"/>
+
+
+		<ptr xml:id="TN003_00054"/>
+		
+<cm digilibno="11" CID="10051751" type="monument"/>
+
+
+		<ptr xml:id="TN003_00055"/>
+		
+<cm digilibno="12" CID="10060008" type="monument"/>
+</legend>
+</img>
+<br pphys="pphys30" p=""/>
+<!-- 13v -->
+<img num="imgg6-1" digilibpara="mk=0.3192/0.3099,0.5483/0.3135,0.7806/0.3064,0.308/0.4833,0.5387/0.4833">
+<legend>
+
+		<ptr xml:id="TN003_00056"/>
+		
+<cm digilibno="1" CID="10060008" type="monument"/>
+
+
+		<ptr xml:id="TN003_00057"/>
+		
+<cm digilibno="2" CID="10060017" type="monument"/>
+
+
+		<ptr xml:id="TN003_00058"/>
+		
+<cm digilibno="3" CID="10060029" type="monument"/>
+
+
+		<ptr xml:id="TN003_00059"/>
+		
+<emptylink digilibno="4"/>
+
+<emptylink digilibno="5"/>
+</legend>
+</img>
+<br pphys="pphys31" p="14"/>
+<img num="img14-1">
+<legend>
+
+		<ptr xml:id="TN003_00061"/>
+		
+<cm digilibno="1" CID="10025479" type="monument"/>
+
+
+		<ptr xml:id="TN003_00062"/>
+		
+<cm digilibno="2" CID="10024990" type="monument"/>
+<cm digilibno="2" CID="10044624" type="monument"/>
+
+
+		<ptr xml:id="TN003_00063"/>
+		
+<cm digilibno="3" CID="10051754" type="monument"/>
+
+
+		<ptr xml:id="TN003_00064"/>
+		
+<cm digilibno="4" CID="10040722" type="monument"/>
+
+
+		<ptr xml:id="TN003_00065"/>
+		
+<cm digilibno="5" CID="10043046" type="monument"/>
+
+
+		<ptr xml:id="TN003_00066"/>
+		
+<emptylink digilibno="6"/>
+
+
+		<ptr xml:id="TN003_00067"/>
+		
+<cm digilibno="7" CID="10040722" type="monument"/>
+
+
+		<ptr xml:id="TN003_00068"/>
+		
+<cm digilibno="8" CID="10051759" type="monument"/>
+<cm digilibno="8" CID="10051764" type="monument"/>
+
+
+		<ptr xml:id="TN003_00069"/>
+		
+<cm digilibno="9" CID="10040698" type="monument"/>
+
+
+		<ptr xml:id="TN003_00070"/>
+		
+<cm digilibno="10" CID="10051836" type="monument"/>
+
+
+		<ptr xml:id="TN003_00071"/>
+		
+<cm digilibno="11" CID="10051866" type="monument"/>
+
+
+		<ptr xml:id="TN003_00072"/>
+		
+<cm digilibno="12" CID="10025737" type="monument"/>
+</legend>
+</img>
+<br pphys="pphys32" p=""/>
+<!-- 14v -->
+<img num="imgg7-1" digilibpara="mk=0.3534/0.2864,0.5911/0.2851,0.8127/0.2936,0.3501/0.4536,0.5911/0.444,0.8192/0.45,0.3599/0.6221,0.596/0.6221,0.8273/0.6221,0.355/0.805,0.5928/0.7977,0.8257/0.7966">
+
+<legend>
+
+		<ptr xml:id="TN003_00073"/>
+		
+<cm digilibno="1" CID="10050085" type="monument"/>
+<cm digilibno="1" CID="10050102" type="monument"/>
+
+
+		<ptr xml:id="TN003_00074"/>
+		
+<cm digilibno="2" CID="10040693" type="monument"/>
+
+
+		<ptr xml:id="TN003_00075"/>
+		
+<cm digilibno="3" CID="10025232" type="monument"/>
+
+
+		<ptr xml:id="TN003_00076"/>
+		
+<cm digilibno="4" CID="10043938" type="monument"/>
+
+
+		<ptr xml:id="TN003_00077"/>
+		
+<cm digilibno="5" CID="10021231" type="monument"/>
+
+
+		<ptr xml:id="TN003_00078"/>
+		
+<cm digilibno="6" CID="10040118" type="monument"/>
+
+
+		<ptr xml:id="TN003_00079"/>
+		
+<cm digilibno="7" CID="10025473" type="monument"/>
+
+
+		<ptr xml:id="TN003_00080"/>
+		
+<cm digilibno="8" CID="10041904" type="monument"/>
+
+
+		<ptr xml:id="TN003_00081"/>
+		
+<cm digilibno="9" CID="10052655" type="monument"/>
+
+
+		<ptr xml:id="TN003_00082"/>
+		
+<cm digilibno="10" CID="10042021" type="monument"/>
+
+
+		<ptr xml:id="TN003_00083"/>
+		
+<cm digilibno="11" CID="10052663" type="monument"/>
+
+
+		<ptr xml:id="TN003_00084"/>
+		
+<cm digilibno="12" CID="10052666" type="monument"/>
+</legend>
+</img>
+<br pphys="pphys33" p="15"/>
+<img num="img15-1" digilibpara="mk=0.3592/0.302,0.5954/0.302,0.8236/0.3032,0.3608/0.4741,0.5954/0.4693,0.8252/0.4729,0.3624/0.6353,0.5954/0.6413,0.822/0.6485,0.3462/0.8219,0.5809/0.8267,0.8139/0.8291">
+
+<legend>
+
+		<ptr xml:id="TN003_00085"/>
+		
+<cm digilibno="1" CID="10024982" type="monument"/>
+
+
+		<ptr xml:id="TN003_00086"/>
+		
+<cm digilibno="2" CID="10025012" type="monument"/>
+
+
+		<ptr xml:id="TN003_00087"/>
+		
+<cm digilibno="3" CID="10009462" type="monument"/>
+
+
+		<ptr xml:id="TN003_00088"/>
+		
+<cm digilibno="4" CID="10018976" type="monument"/>
+
+
+		<ptr xml:id="TN003_00089"/>
+		
+<cm digilibno="5" CID="10041764" type="monument"/>
+
+
+		<ptr xml:id="TN003_00090"/>
+		
+<cm digilibno="6" CID="10024178" type="monument"/>
+
+
+		<ptr xml:id="TN003_00091"/>
+		
+<cm digilibno="7" CID="10041929" type="monument"/>
+
+
+		<ptr xml:id="TN003_00092"/>
+		
+<cm digilibno="8" CID="10025265" type="monument"/>
+
+
+		<ptr xml:id="TN003_00093"/>
+		
+<cm digilibno="9" CID="10041734" type="monument"/>
+
+
+		<ptr xml:id="TN003_00094"/>
+		
+<cm digilibno="10" CID="10025208" type="monument"/>
+
+
+		<ptr xml:id="TN003_00095"/>
+		
+<cm digilibno="11" CID="10018855" type="monument"/>
+
+<emptylink digilibno="12"/>
+</legend>
+</img>
+<br pphys="pphys34" p=""/>
+<!-- 15v -->
+<img num="imgg8-1" digilibpara="mk=0.3631/0.296,0.5977/0.29,0.8241/0.2912,0.3696/0.462,0.6058/0.4524,0.8355/0.456,0.368/0.6329,0.5977/0.6329,0.8306/0.6304,0.3664/0.805,0.6042/0.8002,0.8306/0.8062">
+
+<legend>
+
+		<ptr xml:id="TN003_00097"/>
+		
+<cm digilibno="1" CID="10040972" type="monument"/>
+
+
+		<ptr xml:id="TN003_00098"/>
+		
+<cm digilibno="2" CID="10024189" type="monument"/>
+
+
+		<ptr xml:id="TN003_00099"/>
+		
+<cm digilibno="3" CID="10042789" type="monument"/>
+
+
+		<ptr xml:id="TN003_00100"/>
+		
+<cm digilibno="4" CID="10040184" type="monument"/>
+
+
+		<ptr xml:id="TN003_00101"/>
+		
+<cm digilibno="5" CID="10036047" type="monument"/>
+<cm digilibno="5" CID="10036075" type="monument"/>
+
+
+		<ptr xml:id="TN003_00102"/>
+		
+<cm digilibno="6" CID="10025214" type="monument"/>
+
+
+		<ptr xml:id="TN003_00103"/>
+		
+<cm digilibno="7" CID="10052668" type="monument"/>
+
+
+		<ptr xml:id="TN003_00104"/>
+		
+<cm digilibno="8" CID="10042662" type="monument"/>
+
+
+		<ptr xml:id="TN003_00105"/>
+		
+<cm digilibno="9" CID="10049840" type="monument"/>
+
+
+		<ptr xml:id="TN003_00106"/>
+		
+<cm digilibno="10" CID="10042874" type="monument"/>
+
+
+		<ptr xml:id="TN003_00107"/>
+		
+<cm digilibno="11" CID="10042718" type="monument"/>
+
+
+		<ptr xml:id="TN003_00108"/>
+		
+<cm digilibno="12" CID="10037757" type="monument"/>
+
+</legend>
+</img>
+<br pphys="pphys35" p="16"/>
+<img num="img16-1" digilibpara="mk=0.3296/0.311,0.5638/0.314,0.7947/0.3091,0.3489/0.4729,0.5928/0.456,0.8126/0.4681,0.3489/0.6365,0.5815/0.6365,0.8108/0.6365,0.3505/0.811,0.5815/0.811,0.8158/0.8134">
+
+<legend>
+
+
+		<ptr xml:id="TN003_00109"/>
+		
+<cm digilibno="1" CID="10042767" type="monument"/>
+
+
+		<ptr xml:id="TN003_00110"/>
+		
+<cm digilibno="2" CID="10041572" type="monument"/>
+
+
+		<ptr xml:id="TN003_00111"/>
+		
+<cm digilibno="3" CID="10025488" type="monument"/>
+
+
+		<ptr xml:id="TN003_00112"/>
+		
+<cm digilibno="4" CID="10041998" type="monument"/>
+
+
+		<ptr xml:id="TN003_00113"/>
+		
+<cm digilibno="5" CID="10037748" type="monument"/>
+
+
+		<ptr xml:id="TN003_00114"/>
+		
+<cm digilibno="6" CID="10037762" type="monument"/>
+
+
+		<ptr xml:id="TN003_00115"/>
+		
+<cm digilibno="7" CID="10019038" type="monument"/>
+<cm digilibno="7" CID="10053219" type="monument"/>
+<cm digilibno="7" CID="10053229" type="monument"/>
+
+
+		<ptr xml:id="TN003_00116"/>
+		
+<cm digilibno="8" CID="10042617" type="monument"/>
+
+
+		<ptr xml:id="TN003_00117"/>
+		
+<cm digilibno="9" CID="10041020" type="monument"/>
+
+
+		<ptr xml:id="TN003_00118"/>
+		
+<cm digilibno="10" CID="10050083" type="monument"/>
+
+
+		<ptr xml:id="TN003_00119"/>
+		
+<cm digilibno="11" CID="10041855" type="monument"/>
+
+
+		<ptr xml:id="TN003_00120"/>
+		
+<cm digilibno="12" CID="10025241" type="monument"/>
+
+</legend>
+</img>
+<br pphys="pphys36" p=""/>
+<!-- 16v -->
+<img num="imgg9-1" digilibpara="mk=0.3348/0.308,0.575/0.2972,0.8104/0.2948,0.3513/0.4596,0.5898/0.456,0.8251/0.456,0.3545/0.6425,0.5866/0.6413,0.8235/0.6365,0.3578/0.8219,0.58/0.8194,0.8202/0.811">
+
+<legend>
+
+
+		<ptr xml:id="TN003_00121"/>
+		
+<cm digilibno="1" CID="10040931" type="monument"/>
+
+
+		<ptr xml:id="TN003_00122"/>
+		
+<cm digilibno="2" CID="10024585" type="monument"/>
+<cm digilibno="2" CID="10055404" type="monument"/>
+
+
+		<ptr xml:id="TN003_00123"/>
+		
+<cm digilibno="3" CID="10042031" type="monument"/>
+
+
+		<ptr xml:id="TN003_00124"/>
+		
+<cm digilibno="4" CID="10040944" type="monument"/>
+<cm digilibno="4" CID="10044004" type="monument"/>
+
+
+		<ptr xml:id="TN003_00125"/>
+		
+<cm digilibno="5" CID="10041007" type="monument"/>
+
+
+		<ptr xml:id="TN003_00126"/>
+		
+<cm digilibno="6" CID="10054952" type="monument"/>
+
+
+		<ptr xml:id="TN003_00127"/>
+		
+<cm digilibno="7" CID="10042066" type="monument"/>
+
+
+		<ptr xml:id="TN003_00128"/>
+		
+<cm digilibno="8" CID="10040987" type="monument"/>
+
+
+		<ptr xml:id="TN003_00129"/>
+		
+<cm digilibno="9" CID="10040190" type="monument"/>
+
+
+		<ptr xml:id="TN003_00130"/>
+		
+<cm digilibno="10" CID="10024606" type="monument"/>
+
+
+		<ptr xml:id="TN003_00131"/>
+		
+<cm digilibno="11" CID="10037801" type="monument"/>
+
+
+		<ptr xml:id="TN003_00132"/>
+		
+<cm digilibno="12" CID="10056100" type="monument"/>
+
+</legend>
+</img>
+<br pphys="pphys37" p="17"/>
+<img num="img17-1" digilibpara="mk=0.3994/0.3264,0.6284/0.3256,0.8597/0.3313,0.4077/0.4894,0.6389/0.4816,0.8597/0.4951,0.4025/0.6608,0.6363/0.6627,0.8623/0.6685,0.4/0.8477,0.6181/0.8477,0.8467/0.8439">
+
+<legend>
+
+
+		<ptr xml:id="TN003_00133"/>
+		
+<cm digilibno="1" CID="10040199" type="monument"/>
+
+
+		<ptr xml:id="TN003_00134"/>
+		
+<cm digilibno="2" CID="10042583" type="monument"/>
+
+
+		<ptr xml:id="TN003_00135"/>
+		
+<cm digilibno="3" CID="10041956" type="monument"/>
+
+
+		<ptr xml:id="TN003_00136"/>
+		
+<cm digilibno="4" CID="10042088" type="monument"/>
+
+
+		<ptr xml:id="TN003_00137"/>
+		
+<cm digilibno="5" CID="10056666" type="monument"/>
+
+
+		<ptr xml:id="TN003_00138"/>
+		
+<cm digilibno="6" CID="10056812" type="monument"/>
+
+
+		<ptr xml:id="TN003_00139"/>
+		
+<cm digilibno="7" CID="10056829" type="monument"/>
+
+
+		<ptr xml:id="TN003_00140"/>
+		
+<cm digilibno="8" CID="10041956" type="monument"/>
+
+
+		<ptr xml:id="TN003_00141"/>
+		
+<cm digilibno="9" CID="10042798" type="monument"/>
+
+
+		<ptr xml:id="TN003_00142"/>
+		
+<cm digilibno="10" CID="18207567" type="monument"/>
+
+
+		<ptr xml:id="TN003_00143"/>
+		
+<cm digilibno="11" CID="10041880" type="monument"/>
+
+
+		<ptr xml:id="TN003_00144"/>
+		
+<cm digilibno="12" CID="10025000" type="monument"/>
+<cm digilibno="12" CID="10056479" type="monument"/>
+<cm digilibno="12" CID="10056484" type="monument"/>
+
+</legend>
+</img>
+<br pphys="pphys38" p=""/>
+<!-- 17v -->
+<img num="imgg10-1" digilibpara="mk=0.3996/0.3325,0.632/0.3285,0.8622/0.3333,0.4068/0.4909,0.6385/0.4873,0.8589/0.4969,0.4068/0.6666,0.6418/0.6642,0.867/0.6654,0.4019/0.8459,0.632/0.8423,0.8622/0.8447">
+
+<legend>
+
+		<ptr xml:id="TN003_00145"/>
+		
+<cm digilibno="1" CID="10041579" type="monument"/>
+
+
+		<ptr xml:id="TN003_00146"/>
+		
+<cm digilibno="2" CID="10059993" type="monument"/>
+
+
+		<ptr xml:id="TN003_00147"/>
+		
+<cm digilibno="3" CID="10041729" type="monument"/>
+
+
+		<ptr xml:id="TN003_00148"/>
+		
+<cm digilibno="4" CID="10025222" type="monument"/>
+
+
+		<ptr xml:id="TN003_00149"/>
+		
+<cm digilibno="5" CID="10057493" type="monument"/>
+<cm digilibno="5" CID="10057499" type="monument"/>
+
+
+		<ptr xml:id="TN003_00150"/>
+		
+<cm digilibno="6" CID="10019495" type="monument"/>
+
+
+		<ptr xml:id="TN003_00151"/>
+		
+<cm digilibno="7" CID="10041998" type="monument"/>
+
+
+		<ptr xml:id="TN003_00152"/>
+		
+<cm digilibno="8" CID="10009462" type="monument"/>
+
+
+		<ptr xml:id="TN003_00153"/>
+		
+<cm digilibno="9" CID="10057505" type="monument"/>
+
+
+		<ptr xml:id="TN003_00154"/>
+		
+<cm digilibno="10" CID="10041791" type="monument"/>
+
+
+		<ptr xml:id="TN003_00155"/>
+		
+<cm digilibno="11" CID="10057512" type="monument"/>
+
+</legend>
+</img>
+<br pphys="pphys39" p="18"/>
+<br pphys="pphys40" p=""/>
+<!-- 18v -->
+<img num="imgg11-1">
+
+		<ptr xml:id="TN003_00158"/>
+		
+<linkcontainer>
+<cm CID="10057733" type="monument"/>
+<cm CID="10057746" type="monument"/>
+</linkcontainer>
+<sp>FV <PND num="118622501">TIBERIO</PND> DI CORPO GRANDE, ET GAGLIARDO, LARGO NEL PETTO ET NE I FIANCHI ASSAI PROPORTIONATO, ERA DI COLOR BIANCO, PORTAVA I CAPELLI DISTESI, HAVEA GLI OCCHI GRANDI, ET ASSAI DI NOTTE VEDEVA PORTAVA LA TESTA CHINA, ET IL VISO RACCOLTO, ET ERA TARDO NEL PARLARE, ET DI NATVRA TACITVRNA, VISSE ANNI LXXX, REGNO ANNI XXV.</sp></img>
+<br pphys="pphys41" p="19"/>
+<sec/>
+<p><PND num="118622501">T<sp>IBERIO</sp></PND> per la uirtu, &amp; disciplina militare chiamato Nerone, cioè forte, &amp; gagliardo in lingua de Sabini, aggiunse poi al predetto nome alcuna simiglianza de costumi, perche in fine dello imperio diuenne crudelissimo, &amp; pieno d'auaritia, &amp; per fidia, essendo stato prima humanissimo, &amp; pieno d'ogni uirtu. O'mutabile uolonta de gli huomini, quanto sono difcili da essere conosciuti i progressi tuoi, quãto è da temere, quanto da sperare, quanto d'aspettare il fine per giudicare drittamente. Vedi che hoggi <PND num="118622501">Tiberio</PND> abbraccia gli amici, scaccia gli adulatori, &amp; con ogni gẽtilezza, &amp; nettezza si uede, &amp; dimane si spoglia di humanitade, &amp; di ueritade. hoggi è uerso i dei pietoso, uerso gl'huomini benigno, dimane di spreggia ogni culto, &amp; ogni deuuto officio. hoggi allui di uolonta si dona il senato, dimani prende letitia incredibile della morte sua, segno manifesto di strana mutation de costumi: doueui pure riguardare ò <PND num="118622501">Tiberio</PND> come in uno specchio nelle uirtuti di <PND num="118505122">Ottauio</PND>, cui prima figliastro, poi genero, &amp; in fine addottiuo figliuolo ti uedesti, doueua pure fino da <SWD num="4028586-8">Hierosolima</SWD> peruenire à te l'odore della bonta di quello, che fu la salute nostra, &amp; con quello ricreare l'anima tua, come accennasti di uolere. doueui finalmente riconoscere la propia uirtu di te stesso, &amp; tenerla nei suoi gloriosi termini, che sono senza fine per honore della nobilita de Claudi, da i quali discendesti: troppo grande, &amp; generoso dono hauresti al mondo fatto conseruandoti uirtuoso. uedi di quanta pace, &amp; di quanto imperio herede rimaso sei, uedi
+<f>3</f>
+<br pphys="pphys42" p=""/> che tanto dura la tua felicitade, quãto le tue uirtuti, ma poi che mutasti modi, &amp; costumi, &amp; che in parte peggiore te riuoltasti, turbossi la pace uniuersale; &amp; rimettendosi il uigore dell'antica militia, <SWD num="PJTN008-0">Parthi</SWD>, la <SWD num="4085930-7">Armenia</SWD>, <SWD num="4070197-9">Daci</SWD>, la <SWD num="PJTN008-1">Misia</SWD>, <SWD num="4105355-2">Sarmati</SWD>, la <SWD num="4044473-9">Pannonia</SWD>, &amp; i uicini popoli la <SWD num="4019150-3">Gallia</SWD> saccheggiorno, &amp; la Chiesa comincio à sentire l'aspra percossa de i perfidi tiranni, e tu misero, &amp; infelice giudice delle male tue operationi, con la propia mano di quelle ne fai giusta, &amp; conueneuole uendetta.</p>
+<!-- 20a r -->
+<br pphys="pphys43" p="20"/>
+<img num="img20-1" digilibpara="mk=0.4122/0.2723,0.6425/0.2745">
+<legend>
+
+		<ptr xml:id="TN003_00159"/>
+		
+<cm digilibno="1" CID="10057752" type="monument"/>
+
+
+		<ptr xml:id="TN003_00160"/>
+		
+<cm digilibno="2" CID="10057760" type="monument"/>
+</legend>
+</img>
+<br pphys="pphys44" p=""/>
+<!-- 20a v -->
+<img num="imgg12-1" digilibpara="mk=0.3215/0.2561,0.5518/0.2561">
+<legend>
+
+		<ptr xml:id="TN003_00161"/>
+		
+<cm digilibno="1" CID="10030389" type="monument"/>
+
+
+		<ptr xml:id="TN003_00162"/>
+		
+<cm digilibno="2" CID="10057977" type="monument"/>
+</legend>
+</img>
+<br pphys="pphys45" p=""/>
+<br pphys="pphys46" p=""/>
+<!-- 20b v -->
+<img num="imgg13-1">
+
+		<ptr xml:id="TN003_00163"/>
+		
+<linkcontainer>
+<cm CID="10025292" type="monument"/>
+<cm CID="10025731" type="monument"/>
+<cm CID="10025021" type="monument"/>
+</linkcontainer>
+<sp>FV <PND num="118518410">GAIO</PND> ALTO DI STATVRA. BRVTTO DI CORPO, PALIDO DI COLORE. GLI OCCHI HAVEVA, ET LE TEMPIE RITTRATTE IN DENTRO. LA FRONTE LARGA, ET ARCIGNA, DI RARA CAPILLATVRA, MA PILOSO NEL RESTO, HORRIBILE NELLO ASPETTO, ET A QVESTA NATVRALE APPARENZA AGGIVGNEVA LA INDVSTRIA. LE GAMBE HAVEA SOTTILISSIME, ET ERA DI DEBOLE COMPLESSIONE PER CHE CADEVA DEL MALE CADVCO, ET SPESSO SPESSO GLI VENIVANO ALCVNI ISFINIMENTI DI VITA, ET ERA DA HORRIBILI SOGNI SPAVENTATO</sp></img>
+<br pphys="pphys47" p="21"/>
+<sec/>
+<p>M<sp>OLTI</sp> essempi sono delle cose occulte, &amp; risseruate nello abisso della prouidenza diuina, tra lequali una uen'è degna di consideratione, che è questa, come da honestissimo. &amp; uirtuosissimo padre nasca figliuolo di natura de'l tutto contraria. Largo, &amp; ampio testimonio ne sono l'historie, &amp; tra le altre questa di <PND num="118518410">Caio Cesare Caligula</PND> per cognome. il quale nacque di <PND num="118538748">Germanico</PND> huomo senza pari ualoroso, &amp; da bene, &amp; sopra modo amato da ciescaduno, degno ueramente &amp; per la bellezza del corpo, &amp; per le uirtuti dello animo di hauere lo imperio di tutto il mondo, &amp; quello eternalmente possedere. ma bene indegno di cosi fatto figliuolo, ilquale con noui, &amp; inusitati modi, &amp; maniere de stratij, &amp; crudeltadi fè parere i uitij del suo precessore assai minori, &amp; tanto era horribile, &amp; brutto di aspetto, che monstruoso fu giudicato. fece ne prim'anni assai buona pruoua, ma seguendo il corso del suo naturale ingegno cadè in ogni sorte di sceleragine: puo ben essere i scusato d'alcuni, che <PND num="900002460">Cesonia</PND> con incanti guasto l'hauea. ma chi considera bene quanto Iddio s'adira cõtra coloro, che lo disprezzano, &amp; pari allui si stimano, potrà chiaramente giudicare il peccato esser pena del peccato, la onde istimandosi <PND num="118518410">Caligula</PND> eguale à tutti gli dei, &amp; per tale facendosi adorare, per giusto giudicio di quel dio, che lui non conobbe, rouinando in molti, &amp; in humani uitij, non lasciò adietro sorte di lussuria, di rapina, di perfidia, di crudeltà, &amp; atrocitade: imperoche tre sorelle bruttamente si sottomise, ne riguardo à matrona, che andata gli fusse per fantasia.
+<f>4</f>
+<br pphys="pphys48" p=""/> Rubbò, &amp; ispogliò quanto puote, uccise, &amp; fè uccidere ogni sorte di persone, caualieri, senatori, amici, giuocatori, huomini, &amp; dõne; infinitamente dolendosi, che'l popolo Romano non hauesse un solo collo, accio che per un colpo spicare piu ageuolmente si potesse. ramaricauasi, che la terra non s'aprisse, che la fame gli huomini non consumasse, ò la pestilenza non gli togliesse. Non si deono cosi enormi errori commettere alle carte; però che forse nõ sono creduti, ò forse fanno dubitare alcuni della prouidenza diuina. ma nell'uno &amp; nell'altro caso in bene si puo ciascuno sano intelletto risoluere, considerando la seguente punitione, che al detto fu data: imperò che mentre che egli si ferignamente si gouernaua, fu per cõmissione del senato dalle sue guardie miseramente ucciso con trentatre ferite, essendo di anni uintiotto, &amp; molestando con l'ombra sua dopo la morte gli hortolani uicini alla sua sepultura. Regno anni III. mesi X. giorni VIII.</p>
+<!-- 22a r -->
+<br pphys="pphys49" p="22"/>
+<img num="img22-1" digilibpara="mk=0.4331/0.2777,0.6682/0.2767,0.8991/0.2755,0.4471/0.4452,0.6699/0.4428,0.904/0.4416,0.6796/0.6113">
+
+<legend>
+
+		<ptr xml:id="TN003_00164"/>
+		
+<cm digilibno="1" CID="10025292" type="monument"/>
+<cm digilibno="1" CID="10043074" type="monument"/>
+
+
+		<ptr xml:id="TN003_00165"/>
+		
+<cm digilibno="2" CID="10025021" type="monument"/>
+<cm digilibno="2" CID="10043079" type="monument"/>
+<cm digilibno="2" CID="10043084" type="monument"/>
+
+
+		<ptr xml:id="TN003_00166"/>
+		
+<cm digilibno="3" CID="10025731" type="monument"/>
+
+
+		<ptr xml:id="TN003_00167"/>
+		
+<cm digilibno="4" CID="10051192" type="monument"/>
+<cm digilibno="4" CID="10032852" type="monument"/>
+
+
+		<ptr xml:id="TN003_00168"/>
+		
+<cm digilibno="5" CID="10044178" type="monument"/>
+
+
+		<ptr xml:id="TN003_00169"/>
+		
+<cm digilibno="6" CID="10044178" type="monument"/>
+
+
+		<ptr xml:id="TN003_00170"/>
+		
+<cm digilibno="7" CID="10043089" type="monument"/>
+<cm digilibno="7" CID="10044384" type="monument"/>
+
+</legend>
+</img>
+<br pphys="pphys50" p=""/>
+<!-- 22a v -->
+<img num="imgg14-1" digilibpara="mk=0.2702/0.2992,0.5039/0.298">
+
+<legend>
+
+		<ptr xml:id="TN003_00171"/>
+		
+<cm digilibno="1" CID="10043046" type="monument"/>
+
+
+		<ptr xml:id="TN003_00172"/>
+		
+<cm digilibno="2" CID="10051201" type="monument"/>
+<cm digilibno="2" CID="10025167" type="monument"/>
+
+</legend>
+</img>
+<br pphys="pphys51" p=""/>
+<!-- 22b r -->
+<img num="imgg15-1">
+
+		<ptr xml:id="TN003_00173"/>
+		
+<linkcontainer>
+<cm CID="10025731" type="monument"/>
+</linkcontainer>
+</img>
+<br pphys="pphys52" p=""/>
+<!-- 22b v -->
+<img num="imgg16-1">
+
+		<ptr xml:id="TN003_00174"/>
+		
+<linkcontainer>
+<cm CID="10050429" type="monument"/>
+<cm CID="10050192" type="monument"/>
+<cm CID="10050378" type="monument"/>
+</linkcontainer>
+<sp><PND num="118521063">CLAVDIO</PND> ERA DI BELLO ASPETTO, ET DEGNO DI VENERATIONE, DI STATVRA GRANDE, ET DI COLLO GROSSO. MANCAVANGLI LE GINOCCHIA DI SOTTO PER DEBOLEZZA DE NERVI. OGNI POCO DI MOVIMENTO DELLA BOCCA IL FACEVA DEFORME. TREMAVAGLI IL CAPO, ERA DI POCO SONNO, LVSSVRIOSO, ET DEDITO AL GIOCO. VISSE ANNI LXIIII REGNO ANNI XIIII.</sp></img>
+<br pphys="pphys53" p="23"/>
+<sec/>
+<p>LE occasioni sogliono dimostrare il ualore de gl: huomini, &amp; come quelle sono spesso dal caso, &amp; dalla fortuna offerite, cosi dal giudicio, &amp; conoscimento de'mortali accettate sono. Destassi adũque la uirtute, &amp; si dimostra chiaramente, quando meno da gli huomini uiene aspettata, come apparue in <PND num="118521063">T. Claudio</PND>, il quale dalla sua giouanezza fu da i suoi medesimi &amp; uile, &amp; negligente riputato, la onde niuno ardiua de imporgli carico alcuno dubitando del suo poco ualore. Era però honorato rispetto alla grande parentella, perche fu di <PND num="118538748">Germanico</PND> fratello, &amp; di <PND num="118622501">Tiberio</PND> figliuolo, &amp; per la uicinanza che hanno alcuni uitij con le uirtuti, essendo timido fugli attribuito à mansuetudine, essendo pegro fu stimato prudente, &amp; riseruato. per questo fu da soldati chiamato, et salutato imperatore. Destossi nello splendore di tanta grandezza, onde apoco apoco addestrandosi riusci lodato, &amp; istimato. Nel giudicare spesso si ritraggeua dal rigore delle leggi alla equitate. prouide alla copia delle uettouaglie, hebbe caro di conseruare gli edificij: &amp; molti ne fece piu presto grandi, che necessarij. fabricò il porto d'<SWD num="4044080-1">Ostia</SWD>: era ne i conuiti sontuosissimo, &amp; ingordo. Macchiò la uita sua con alcuni homicidi, tra quali furono quegli di <PND num="900005610">Pompeio</PND>, &amp; <PND num="900002170">Lucio Sillano</PND> suoi generi, &amp; quegli di trentacinque senatori, &amp; di trecento caualieri. successero poi molte cose mal fatte rispetto alla mala uita di Messalina sua moglie, che à simiglianza della sua dishonesta uita ridusse molte uergini, &amp; matrone. per ilche i suoi liberti pigliata s'haueano troppo licentiosa maniera di peccati:
+<f>5</f>
+<br pphys="pphys54" p=""/> in fine prese per moglie <PND num="11864405X">Agrippina</PND> di <PND num="118538748">Germanico</PND> suo fratello figliuola, laquale à suoi figliuoli proccacciando lo imperio, con insidie prima i figliastri, &amp; poi con ueleno uccise il marito.</p>
+<br pphys="pphys55" p="24"/>
+<img num="img24-1" digilibpara="mk=0.3784/0.3333,0.6084/0.3405,0.8401/0.3477,0.3735/0.5054,0.6117/0.5054,0.8384/0.5138,0.3686/0.6726,0.6002/0.6823,0.8319/0.6883">
+
+<legend>
+
+		<ptr xml:id="TN003_00175"/>
+		
+<cm digilibno="1" CID="10044231" type="monument"/>
+<cm digilibno="1" CID="10044300" type="monument"/>
+
+
+		<ptr xml:id="TN003_00176"/>
+		
+<cm digilibno="2" CID="10044215" type="monument"/>
+
+
+		<ptr xml:id="TN003_00177"/>
+		
+<cm digilibno="3" CID="10044195" type="monument"/>
+
+
+		<ptr xml:id="TN003_00178"/>
+		
+<cm digilibno="4" CID="10050134" type="monument"/>
+
+
+		<ptr xml:id="TN003_00179"/>
+		
+<cm digilibno="5" CID="10044210" type="monument"/>
+
+
+		<ptr xml:id="TN003_00180"/>
+		
+<cm digilibno="6" CID="10045169" type="monument"/>
+
+
+		<ptr xml:id="TN003_00181"/>
+		
+<cm digilibno="7" CID="10025781" type="monument"/>
+
+
+		<ptr xml:id="TN003_00182"/>
+		
+<cm digilibno="8" CID="10052491" type="monument"/>
+
+<emptylink digilibno="9"/>
+</legend>
+</img>
+<br pphys="pphys56" p=""/>
+<!-- 24 v -->
+<img num="imgg17-1">
+<linkcontainer>
+<emptylink/>
+</linkcontainer>
+<sp>FV <PND num="118586998">DOMITIO NERONE</PND> DI STATVRA RAGIONEVOLE. HAVEA LE CARNI BRVTTE, ET LENTIGINOSE. ERA DI FACCIA PIV BELLA, CHE GRATIATA, D'OCCHI CELESTI, ALQVANTO GROSSI. HAVEA IL COLLO, ET IL CORPO GROSSO, MA LE GAMBE SOTTILISSIME ERA SANO, ET DI BVONA COMPLESSIONE. BENCHE FVSSE LVSSVRIOSISSIMO. VISSE ANNI XXXII REGNO ANNI XIIII</sp></img>
+<br pphys="pphys57" p="25"/>
+<sec/>
+<p><PND num="118586998">D<sp>OMITIO</sp> Nerone</PND> da cui tutti gli empi, &amp; scelerati, tutti i crudeli, &amp; feroci preso hanno il cognome, con il zio <PND num="118518410">Caligula</PND> hebbe grande simiglianza di costumi, eccetto ne i primi cinque anni dello imperio, nei quali die segno di moderato, &amp; honesto principe. ma poi senza freno, &amp; sciolto in ogni homicidio, rapina, incesto, &amp; feritate proruppe. imperoche uccise gran parte del senato, molti de gli amici, i precettori, il fratello, la madre, &amp; finalmente se stesso. Arse di notabile incédio per diletto la cittate, sminui lo imperio, &amp; la riputatione, essendogli tolta l'<SWD num="4085930-7">Armenia</SWD> da <SWD num="PJTN008-0">Parthi</SWD>, &amp; sotto il giogo mandati i Romani. perdè la <SWD num="4069666-2">Bertagna</SWD>, &amp; alhora il Romano imperio usci di mano de descendenti d'<PND num="118505122">Augusto</PND>, &amp; di <PND num="119226014">Liuia</PND>. Non è lecito commettere à gli scritti le cose fatte, &amp; sopportate nella persona sua: ne si conuiene dire la sua bestialitate. l'honore della madre, à questo richiama: il sesso uirile offeso si uergogna: la humanitate uituperata si risente di molte ingiurie, &amp; dispreggi horribili sopportati. in sine l'antica pace turbata, i capi della religione miseramente troncati, il culto diuino senza pietà negletto, &amp; sprezzato, conducono il misero Imperatore, solo schiauo de suoi peccati, per l'odio del senato, de gli amici, di Dio, &amp; di se stesso, à riuoltare il ferro nelle sue propie carni, con grande allegrezza d'ogn'uno.</p>
+<f>6</f>
+<br pphys="pphys58" p=""/>
+<br pphys="pphys59" p="26"/>
+<img num="img26-1" digilibpara="mk=0.4048/0.3116,0.6405/0.314,0.8731/0.3128,0.4146/0.4825,0.6471/0.4849,0.878/0.4837,0.4162/0.651,0.6471/0.6534,0.8813/0.6522,0.4162/0.8315,0.6471/0.8327,0.8813/0.8303">
+<legend>
+
+		<ptr xml:id="TN003_00185"/>
+		
+<emptylink digilibno="1"/>
+
+
+		<ptr xml:id="TN003_00186"/>
+		
+<cm digilibno="2" CID="10053293" type="monument"/>
+
+<emptylink digilibno="3"/>
+
+
+		<ptr xml:id="TN003_00188"/>
+		
+<emptylink digilibno="4"/>
+
+
+		<ptr xml:id="TN003_00189"/>
+		
+<cm digilibno="5" CID="10053298" type="monument"/>
+
+<emptylink digilibno="6"/>
+
+
+		<ptr xml:id="TN003_00191"/>
+		
+<cm digilibno="7" CID="10056947" type="monument"/>
+
+
+		<ptr xml:id="TN003_00192"/>
+		
+<cm digilibno="8" CID="10052517" type="monument"/>
+
+
+		<ptr xml:id="TN003_00193"/>
+		
+<emptylink digilibno="9"/>
+
+
+		<ptr xml:id="TN003_00194"/>
+		
+<emptylink digilibno="10"/>
+
+
+		<ptr xml:id="TN003_00195"/>
+		
+<emptylink digilibno="11"/>
+
+
+		<ptr xml:id="TN003_00196"/>
+		
+<cm digilibno="12" CID="10056369" type="monument"/>
+</legend>
+</img>
+<br pphys="pphys60" p=""/>
+<!-- 26 v -->
+<img num="imgg18-1" digilibpara="mk=0.2922/0.2992,0.5303/0.2992,0.7684/0.3004,0.2922/0.4699,0.527/0.4735,0.7651/0.4747,0.2922/0.6454,0.5286/0.6538,0.7668/0.6526,0.2955/0.8245,0.532/0.8233,0.7684/0.8257">
+<legend>
+
+		<ptr xml:id="TN003_00197"/>
+		
+<cm digilibno="1" CID="10052520" type="monument"/>
+
+
+		<ptr xml:id="TN003_00198"/>
+		
+<cm digilibno="2" CID="10009417" type="monument"/>
+
+
+		<ptr xml:id="TN003_00199"/>
+		
+<emptylink digilibno="3"/>
+
+
+		<ptr xml:id="TN003_00200"/>
+		
+<emptylink digilibno="4"/>
+
+
+		<ptr xml:id="TN003_00201"/>
+		
+<cm digilibno="5" CID="10053305" type="monument"/>
+
+
+		<ptr xml:id="TN003_00202"/>
+		
+<emptylink digilibno="6"/>
+
+<emptylink digilibno="7"/>
+<emptylink digilibno="8"/>
+
+
+		<ptr xml:id="TN003_00205"/>
+		
+<cm digilibno="9" CID="10053265" type="monument"/>
+
+
+		<ptr xml:id="TN003_00206"/>
+		
+<emptylink digilibno="10"/>
+
+
+		<ptr xml:id="TN003_00207"/>
+		
+<cm digilibno="11" CID="10053308" type="monument"/>
+
+<emptylink digilibno="12"/>
+</legend>
+</img>
+<br pphys="pphys61" p="27"/>
+<img num="img27-1" digilibpara="mk=mk=0.4367/0.2995,0.665/0.3055,0.9014/0.3019,0.4351/0.4649,0.6715/0.4673,0.9096/0.4673,0.6781/0.6437">
+
+<legend>
+
+		<ptr xml:id="TN003_00209"/>
+		
+<emptylink digilibno="1"/>
+
+
+		<ptr xml:id="TN003_00210"/>
+		
+<cm digilibno="2" CID="10044984" type="monument"/>
+
+
+		<ptr xml:id="TN003_00211"/>
+		
+<cm digilibno="3" CID="10045132" type="monument"/>
+
+
+		<ptr xml:id="TN003_00212"/>
+		
+<emptylink digilibno="4"/>
+
+
+		<ptr xml:id="TN003_00213"/>
+		
+<cm digilibno="5" CID="10045061" type="monument"/>
+<cm digilibno="5" CID="10045066" type="monument"/>
+<cm digilibno="5" CID="10045075" type="monument"/>
+
+
+		<ptr xml:id="TN003_00214"/>
+		
+<cm digilibno="6" CID="10045009" type="monument"/>
+
+
+		<ptr xml:id="TN003_00215"/>
+		
+<cm digilibno="7" CID="10045093" type="monument"/>
+
+</legend>
+</img>
+<br pphys="pphys62" p=""/>
+<!-- 27 v -->
+<img num="imgg19-1"><sp>ERA <PND num="118716166">SERGIO GALBA</PND> DI COMMVNE STATVRA. CALVO, DI OCCHI CELESTI, DI NASO AQVILINO. ALLE PODAGRE, ET CHIRAGRE STRANAMENTE SOTTOPOSTO, ET FVOR DI MISVRA DAL FIANCO DESTRO GLI ERA LA CARNE CRESCIVTA. POCO DI FEMINE SI DELETAVA, MA MOLTO ALLA GOLA DEDITO. VISSE ANNI LXXIII. REGNO MESI VII</sp></img>
+<br pphys="pphys63" p="28"/>
+<sec/>
+<p><PND num="118716166">S<sp>ERGIO</sp> Galba</PND> di nobile famiglia de Sulpitij disceso essendo stato nella militia famoso, &amp; nei ciuili negotij prestante, fu dallo essercito in <SWD num="4055964-6">Hispagna</SWD> imperator eletto; corresse la militia se ueramente, &amp; diede buono principio al regimento dello imperio. Ma diede poi ad intendere, che non è assai sicuro di uiuere honestamente, chiunque abbandona il consiglio propio, &amp; abbraccia quello d'altrui: imperò che talmente si diede in preda à tre persone, che egli nulla faceua senza la saputa, &amp; uolonta loro: l'uno era <PND num="900004240">T. Giunio</PND> auarissimo huomo, che in <SWD num="4055964-6">Hispagna</SWD> gli fu legato, l'altro <PND num="900003880">Cornelio Lacone</PND> arrogante, bestiale, &amp; insupportabile, l'ultimo era <PND num="900003670">Icello</PND> suo liberto indegnamente à grado salito: dal uario, &amp; diuerso consiglio di questi uariamente, &amp; diuersamente <PND num="118716166">Galba</PND> si gouernaua, ne mai di uno proposito si uedeua. ò miseri, &amp; infelici Principi, che hauete si fatti consiglieri al lato. ò male auuenturati sudditi, che da si fatti principi siete gouernati: Hauendosi adunque l'Imperatore fatto suoi gli errori, &amp; le colpe altrui, benche egli non fusse senza alcun uitio; conuenne in fine anchora delle pene participare. conuertito adunque in odio, &amp; dispreggio quel fauore col quale egli prese l'imperio, fu ammazzato nel foro, per commissione di <PND num="118787357">Siluio Ottone</PND>, fugli tagliata, &amp; uenduta la testa, &amp; lascio l'imperio, &amp; la morte al successore.</p>
+<f>7</f>
+<br pphys="pphys64" p=""/>
+<br pphys="pphys65" p="29"/>
+<img num="img29-1"/>
+<br pphys="pphys66" p=""/>
+<img num="imgg20-1"/>
+<br pphys="pphys67" p="30"/>
+<img num="img30-1"/>
+<br pphys="pphys68" p=""/>
+<img num="imgg21-1"/>
+<br pphys="pphys69" p="31"/>
+<br pphys="pphys70" p=""/>
+<img num="imgg22-1"><sp>FRA <PND num="118787357">OTHONE</PND> PICCIOLO DI PRSONA,MALE IN GAMBA, CALVO, ET PERO CON RIPOSTA, ET ACCONCIA ZAZERETTA SI COPRIVA. DILICATO, PVLITO, ET VSAVA DI RADERSI OGNI GIORNO. SIMILE A <PND num="118622501">TIBERIO</PND> DI VOLTO, ET DI FATTEZZE VISSE ANNI XXXVII REGNO MESI IIII</sp></img>
+<br pphys="pphys71" p="32"/>
+<sec/>
+<p><PND num="118787357">O<sp>THONE</sp> Siluio</PND> si contentò che la fortuna per breue spatio di tempo lo imperio dimostrato gli hauesse, perche in meno di mesi quattro, ch' egli regnò, uccise se medesimo nobile fu ueramente, come quello che da gli antichi Siluij da <SWD num="4256379-3">Ferento</SWD> discendesse, fu seuero amministratore de i magistrati, &amp; in eseguire le sue sentenze nõ riguardaua ad alcuno: meritò che il senato con honore non usitato gli ponesse una statua su'l <SWD num="4262371-6">monte Palatino</SWD>, &amp; <PND num="118521063">Claudio</PND> lo annouerasse tra patritij, &amp; con bella, &amp; ornatà, oratione ne lo lodasse, per hauere una congiura d'uno caualiere romano contra esso <PND num="118521063">Claudio</PND> manifestata. chi puo conoscere le uie, &amp; il fine de gli huomini? ecco <PND num="118787357">Othone</PND> da primi anni prodigo, iniurioso, temerario, dal proprio padre biasimato, caro per la conformità de costumi à <PND num="118586998">Nerone</PND>, &amp; occupatore dell'imperio con la uccisione del precessore, hauuto l'imperio alla liberalitate si uolge, odia la guerra ciuile, ama i soldati, fugge il nome odiato, &amp; desidera l'unione, &amp; la pace: imperò che à fauore, all'altezza dell'imperio solleuato abbraccia i soldati, s'offerisce al senato, che di commune consentimento reggerebbe. &amp; uedendo che la guerra presa con <PND num="118805495">Vitellio</PND>, che era in <SWD num="4104343-1">Germania</SWD>, benche al principio bene seguita gli fusse, pure alla fine dimostrandogli la occasione pericolo, &amp; perdita di' molti suoi soldati, con deliberato consiglio uccise se stesso, dicendo che egli non era di tanto prezzo, che per sua cagione si rinouasse la guerra ciuile, furono per tale morte spese molte lagrime da soldati, che infinitamente l'amauano,
+<f>8</f>
+<br pphys="pphys72" p=""/> &amp; per segno maggiore di beniuolenza molti con l'uccidere se stessi lo uolsero in anima accompagnare.</p>
+<br pphys="pphys73" p="33"/>
+<img num="img33-1"/>
+<br pphys="pphys74" p=""/>
+<img num="imgg23-1"/>
+<br pphys="pphys75" p="34"/>
+<br pphys="pphys76" p=""/>
+<img num="imgg24-1"><sp><PND num="118805495">VITELLIO</PND> ERA DI STATVRA GRANDE SPROPORCIONATO, GRASSO, ET HAVEA LA FACCIA PER LO VINO, CHE EGLI SENZA RETENIMENTO BEVEA, ROSSA, ET MACCHIATA, RIDEVA NEL VEDERE VCCIDER GLI HVOMINI, ET CON VILISSIME PERSONE PRATICAVA VISSE ANNI. LVII REGNO MESI. VIII.</sp></img>
+<br pphys="pphys77" p="35"/>
+<sec/>
+<p>P<sp>ERMETTE</sp> Iddio spesse fiate, che alcuni posti sieno in altezza di grado, &amp; di honore, perche poi nel conspetto de gli huomini si ueda la giustitia diuina. Nacque <PND num="118805495">Vitellio</PND> di honoreuole, &amp; illustre famiglia, ma con la crudeltade, auaritia, &amp; intemperanza sua oscurò la poco da lui pregiata nobilitade, fu dotto, &amp; eloquẽte, ma di reo, &amp; peruerso animo, &amp; come sollecito imitatore di <PND num="118586998">Nerone</PND> fu d'ogni humana, &amp; diuina legge dispreggiatore, uccise gli amici, arse i tempi, spogliò la città, &amp; in breue spatio di tempo non huomo reo, non tiranno crudele, ma fiera empia, et feroce diuenne. ma ecco à passi lenti la uendetta di Dio lo cogliè in <SWD num="4050471-2">Roma</SWD>, ritornato che fu di <SWD num="4104343-1">Germania</SWD>, doue i soldati l'haueano salutato imperatore, &amp; fa che l'antiguarda di <PND num="11862671X">Vespasiano</PND>, che d'<SWD num="4075699-3">Oriente</SWD> ritornaua, lo piglia, lo schernisce, &amp; lo afflige per tutta la città, &amp; finalmente da piu ponture di ferro trappassato lo getta nel <SWD num="4119609-0">Teuere</SWD>. fine conueniente &amp; alle sceleraggine della sua passata uita, &amp; à i precedenti segni del suo nascimento.</p>
+<br pphys="pphys78" p=""/>
+<br pphys="pphys79" p="36"/>
+<img num="img36-1"/>
+<br pphys="pphys80" p=""/>
+<img num="imgg25-1"/>
+<br pphys="pphys81" p="37"/>
+<img num="img37-1"/>
+<br pphys="pphys82" p=""/>
+<img num="imgg26-1"><sp><PND num="11862671X">VESPASIANO</PND> FV DI STATVRA QVADRATA, ET SODA. LA FACCIA HAVEVA GONFIA, ERA SANO, ET PROSPEROSO, LIETO, ET MOTTEGGIEVOLE BENIGNO, E GRATO QVANTO SI PVO DIRE. VISSE ANNI LXVIIII, MESE I DI III REGNO ANNI VIIII.</sp></img>
+<br pphys="pphys83" p="38"/>
+<sec/>
+<p>P<sp>IACQVE</sp> à Iddio dopo molte oscure, &amp; tra uagliose procelle, dalle quali era stata la republica trauagliata, dimostrare al mondo la luce, &amp; la quiete del buon gouerno permettendo, &amp; quasi chiaramente prononciando il successore ad <PND num="118787357">Othone</PND>, dal che nacque, che <PND num="11862671X">Vespasiano</PND> per sue proprie uirtuti chiaro, &amp; illustre abbraccio lo imperio da lddio offertogli molte uolte. confirmò quello usitato &amp; trito prouerbio, che dice non sa bene commandare, chi non ha saputo ubidire. imperò che prima, che egli pigliasse la signoria, in ogni impresa doue egli era mandato, con somma diligenza il tutto regeua, &amp; al desiderato fine mirabilmente conduceua. &amp; però sendo gouernatore in <SWD num="4104343-1">Germania</SWD>, &amp; in <SWD num="PJTN004-3">Anglia</SWD> trenta uolte gloriosamente con gli inimici fece giornata, &amp; sottopose allo imperio due ferocissime nationi, &amp; piu di uinti città, &amp; l'<SWD num="PJTN007-8">isola di Vette</SWD>: hebbe il gouerno in <SWD num="4084774-3">Africa</SWD>, fu capitano dello esercito in <SWD num="4028805-5">Giudea</SWD>, ridusse in forma di prouincia la <SWD num="4079611-5">Achaia</SWD>, la <SWD num="4036748-4">Licia</SWD>, <SWD num="4049859-1">Rhodi</SWD>, <SWD num="4073697-0">Constantinopoli</SWD>, &amp; quanto di buono faceua di fuori, tanto di dentro miglioraua; fabricando palagi, tempi, &amp; strade publiche, &amp; tenendo ragione con ordini merauigliosi: era nel maneggio piaceuole, &amp; accarezzaua ogni letterato, &amp; ingenioso, che à suoi tempi si ritrouaua, benignamente sententiaua, &amp; confermaua con benificij gli animi de cittadini;&amp; in uero como saputo, &amp; prestante medico le passate piaghe della afflitta republica risanaua: scordandosi di tutte le ingiurie, &amp; motteggiando cõ quelli, che lo mordeuano; trionfò di Giudei insieme con
+<f>10</f>
+<br pphys="pphys84" p=""/> <PND num="118622951">Tito</PND> suo figliuolo, &amp; quasi disprezzaua ogni honore, doue che à pena nel fine del suo imperio acconsenti di essere chiamato padre della patria: uolle in piedi morire, benche debole, &amp; sostenuto da suoi; dicendo questo conuenirsi ad imperatore, &amp; quasi indouino, predisse la successione de suoi figliuoli nello imperio. Lodisi Iddio giusto riconoscitore de i meriti humani.</p>
+<br pphys="pphys85" p="39"/>
+<img num="img39-1"/>
+<br pphys="pphys86" p=""/>
+<img num="imgg27-1"/>
+<br pphys="pphys87" p="40"/>
+<img num="img40-1"/>
+<br pphys="pphys88" p=""/>
+<img num="imgg28-1"/>
+<br pphys="pphys89" p="41"/>
+<img num="img41-1"/>
+<br pphys="pphys90" p=""/>
+<img num="imgg29-1"/>
+<br pphys="pphys91" p="42"/>
+<img num="img42-1"/>
+<br pphys="pphys92" p=""/>
+<img num="imgg30-1"/>
+<br pphys="pphys93" p="43"/>
+<br pphys="pphys94" p=""/>
+<img num="imgg31-1"><sp>BENCHE FVSSE <PND num="118622951">TITO</PND> DI PERSONA MENO CHE LA COMMVNE, ET AL QVANTO CORPVLENTO PVRE ERA BELLO, GRATIOSO, ET GAGLIARDO. ATTO ALLE FATICHE, VALSE IN MEMORIA, ET IN MOLTE ARTI DEGNE DE LIBERI ET NOBILI HVOMINI, ET NELLE LINGVE PERITO VISSE ANNI XLII. REGNO ANNI II MESI II GIORNI XX</sp></img>
+<br pphys="pphys95" p="44"/>
+<sec/>
+<p>P<sp>ARVE</sp> da lungi una certa nuuoletta di uitij di <PND num="118622951">Tito</PND>, prima, che egli pigliasse lo imperio, la quale fece paura, che le antiche miserie, e tempestati non ritornassero in <SWD num="4050471-2">Roma</SWD>, doue ogn'uno n'era quasi sbigottito, ma questa sospettione si riuolse in gratia, &amp; letitia d'ogniuno, imperò che il uero essempio di humanitate, &amp; mansuetudine era stimato essere nel nouello imperatore, doue che da ogn'uno era stimato, &amp; chiamato delitie della humana generatione. per essere in ogni tempo, &amp; in ogni luogo, &amp; in ogni maneggio temperato, giusto, forte, &amp; saputo, &amp; in uero si puo giudicare che <PND num="118622951">Tito</PND> da Iddio stato fusse al mondo concesso, come il braccio della sua giustitia, imperò che si stranamente il secondo anno dello imperio di suo padre afflisse la perfida, &amp; iniqua città di <SWD num="4028586-8">Hierosolima</SWD>, che non si troua essempio di diuina uendetta piu horribile, &amp; spauenteuole di quella, come chiaramente si uede nelle antiche memorie de passati. egli stesso conobbe questo essere uolere di Dio, &amp; esser stato da diuina potenza fauorito, per ilche ne riportò glorioso &amp; memorabile trionfo. Morì di sua morte nello istesso luogo doue era morto il suo uirtuosissimo padre accompagnando le uirtu sue con le uirtu di quello.</p>
+<f>11</f>
+<br pphys="pphys96" p=""/>
+<br pphys="pphys97" p="45"/>
+<img num="img45-1"/>
+<br pphys="pphys98" p=""/>
+<img num="imgg32-1"/>
+<br pphys="pphys99" p="46"/>
+<img num="img46-1"/>
+<br pphys="pphys100" p=""/>
+<img num="imgg33-1"/>
+<br pphys="pphys101" p="47"/>
+<img num="img47-1"/>
+<br pphys="pphys102" p=""/>
+<img num="imgg34-1"/>
+<br pphys="pphys103" p="48"/>
+<br pphys="pphys104" p=""/>
+<img num="imgg35-1"><sp>FV <PND num="118672231">DOMITIANO</PND> DI GRAN DE STATVRA, MODERATO NEL VOLTO, ET DI ROSSORE PIENO. HAVEA LA VISTA CVRTA, ET GLI OCCHI GRANDI, CALVO ERA, ET CORPVLENTO, MA LE GAMBE SOTTILI HAVEA, ET DIFFICILMENTE NELLA FATICA SI REGGEA VISSE ANNI XL V. REGNO ANNI XV.</sp></img>
+<br pphys="pphys105" p="49"/>
+<sec/>
+<p>C<sp>OME</sp> che la natura de gli huomini difficilmente si cuopra, però impossibile è certamente coprirla quando si ha il potere, &amp; il maneggio de le cose, &amp; però sta bene, che nei principi del suo imperio ò poco prima potesse <PND num="118672231">Domitiano</PND> di <PND num="11862671X">Vespasiano</PND> figliuolo parere &amp; modesto, &amp; liberale, ma poi conoscendo hauere il freno del gouerno nelle mani, mescolasse prima le uirtuti coniuitij, &amp; poi lasciato il bene al male in tutto si riuolgesse, come quello, che dalla prima sua giouanezza, nel qual tempo difficilmente si puo celare la naturale inclinatione, &amp; dishonesto, &amp; crudele fusse giudicato. uccise del senato trentasette e piu nobili, &amp; i cugini, &amp; uolle per Dio esse readorato, fu de intolerabile arroganza: quattro fiate cõbattè contra <SWD num="4105355-2">Sarmati</SWD>, l'una, l'altra contra à <SWD num="4229460-5">Cati</SWD>, &amp; due contra <SWD num="4070197-9">Daci</SWD>. di <SWD num="4105355-2">Sarmati</SWD>, hebbe solamente la corona dello alloro, de <SWD num="4070197-9">Daci</SWD>, &amp; <SWD num="4229460-5">Cati</SWD> due trionfi riportando. sostenne in quelle guerre molte aduersitade: diedesi in <SWD num="4050471-2">Roma</SWD> alle fabriche, &amp; però fece il <SWD num="4027833-5">Campidoglio</SWD>, il foro Odeo, il portico Isio, &amp; il Serapio, &amp; lo Stadio, &amp; quanto piu fabricaua di edificij, tanto piu rouinaua di huomini. per ilche fece scordarei meriti del padre con le sue sceleragini, contra le quali congiurorno molti, &amp; la congiura al desiderato fine condussero con grande allegrezza del senato, ilquale con nomi de infamia lo chiamaua, facendo gettare à terra gli scudi, &amp; le imagine, &amp; leuando i decreti, &amp; i titoli, &amp; le memorie di esso; che gia uilmente da beccamorti era stato sepolto.</p>
+<f>12</f>
+<br pphys="pphys106" p=""/>
+<br pphys="pphys107" p="50"/>
+<img num="img50-1"/>
+<br pphys="pphys108" p=""/>
+<img num="imgg36-1"/>
+<br pphys="pphys109" p="51"/>
+<img num="img51-1"/>
+<br pphys="pphys110" p=""/>
+<img num="imgg37-1"/>
+<br pphys="pphys111" p="52"/>
+<img num="img52-1"/>
+<br pphys="pphys112" p=""/>
+<img num="imgg38-1"/>
+<br pphys="pphys113" p="53"/>
+<img num="img53-1"/>
+<br pphys="pphys114" p=""/>
+<img num="imgg39-1"/>
+<br pphys="pphys115" p="54"/>
+<br pphys="pphys116" p=""/>
+<br pphys="pphys117" p=""/>
+<br pphys="pphys118" p=""/>
+<br pphys="pphys119" p=""/>
+<br pphys="pphys120" p=""/>
+</content>

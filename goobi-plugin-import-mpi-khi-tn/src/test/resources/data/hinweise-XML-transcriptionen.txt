@@ -1,0 +1,38 @@
+﻿Hinweise fuer die Dateneingabe im Translatio Nummorum Projekt
+=============================================================
+
+
+Seitenumbrueche in Tabellen
+---------------------------
+
+Diese sind offenbar bislang wie folgt angelegt worden:
+
+...
+<tr>
+<td><br/><PND Num="119403706">A<i>ugusta</i> P<i>oppea</i></PND></td>
+...
+
+Dann ist der Seitenumbruch Teil der Zeile, in welcher "Augusta Poppea" steht - was die Zeile 
+nach der Transformation recht unleserlich macht.
+
+Besser sieht es aus, wenn man es in eine eigene TR (Zeile)  mit nur einer TD (Zelle) schreibt.
+
+Also so
+
+<tr>
+	<td>
+		<br/>
+	</td>
+</tr>
+
+<tr>
+<td><PND Num="119403706">A<i>ugusta</i> P<i>oppea</i></PND></td>
+<td>164.167</td>
+</tr>
+
+Selbiges gilt für Fußnoten.
+
+		
+
+.. This Documentation was done in reStructuredText Format 
+.. (http://docutils.sourceforge.net/rst.html)

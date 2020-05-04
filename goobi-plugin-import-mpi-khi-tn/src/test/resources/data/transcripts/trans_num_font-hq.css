@@ -1,0 +1,45 @@
+/* VOM KHI mitbeinflussten freien Font DejaVuSans einbinden */
+
+/* IE6/7/8 */
+
+@font-face {
+  font-family:DejaVuSans;
+  src: url(DejaVuSans.eot);
+}
+
+/* FF3.5+/Safari/Opera10 */
+/*  
+
+Because Safari 5 under Windows looks horrible with only the standard DejaVu Font when rendering 
+bold, italic or bold/italic chars, we include the specific bold, italic and bold/italic fonts here, naming
+it "high quality font" (so Safari 5 doesn't have to "fake" those specifica which it does in a very bad way).
+
+*/
+
+@font-face {
+  font-family:DejaVuSans;
+  src: url(DejaVuSans-KHI.ttf);
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:DejaVuSans;
+  src: url(DejaVuSans-Bold.ttf);
+  font-weight:bold;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:DejaVuSans;
+  src: url(DejaVuSans-Oblique.ttf);
+  font-weight:normal;
+  font-style:italic;
+}
+
+@font-face {
+  font-family:DejaVuSans;
+  src: url(DejaVuSans-BoldOblique.ttf);
+  font-weight:bold;
+  font-style:italic;
+}

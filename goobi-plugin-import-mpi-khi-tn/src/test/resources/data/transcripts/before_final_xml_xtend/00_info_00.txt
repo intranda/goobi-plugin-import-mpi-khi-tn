@@ -1,0 +1,11 @@
+Hier (im Ordner "before_final_xml_xtend")
+
+sollten all die XML Files liegen, die praktisch fertig sind, aber noch nicht durch die
+*finale* XML Transformation gelaufen sind, wie sie zu finden ist unter
+
+http://webapp/translatio/xml-xtend/
+
+oder per Hand mittels "trans_num_physpages.xslt" erledigt werden kann.
+
+Dieses Verzeichnis ist insofern wichtig, als dass hier zum Beispiel die Files hinein sollten, 
+fuer die der Census Muenzen auszuzeichnen gedenkt.

@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8'?>
+ 
+ <data>
+  <keyword value="Antiquarische Literatur zu antiken Muenzen in der fruehen Neuzeit">
+   <l10n value="de">Antiquarische Literatur zu antiken Münzen in der frühen Neuzeit</l10n>
+   <l10n value="en">Antiquarian Books on Ancient Coins in Early Modern Times</l10n>
+   <l10n value="it">Letteratura Antiquaria di Monete Antiche nel Rinascimento</l10n>
+  </keyword>
+  <keyword value="suchen">
+   <l10n value="de">Suchen</l10n>
+   <l10n value="en">Search</l10n>
+   <l10n value="it">Cerca</l10n>
+  </keyword>
+  <keyword value="Bitte geben Sie ein Wort ein">
+   <l10n value="de">Bitte geben Sie ein Wort ein</l10n>
+   <l10n value="en">Please enter a word</l10n>
+   <l10n value="it">Per favore inserire una parola</l10n>
+  </keyword>
+  <keyword value="Volltextsuche">
+   <l10n value="de">Volltextsuche</l10n>
+   <l10n value="en">Full text search</l10n>
+   <l10n value="it">Ricerca full text</l10n>
+  </keyword>
+  <keyword value="Loeschen">
+   <l10n value="de">Löschen</l10n>
+   <l10n value="en">Cancel</l10n>
+   <l10n value="it">Annulla</l10n>
+  </keyword>
+  <keyword value="Nr.">
+   <l10n value="de">Nr.</l10n>
+   <l10n value="en">No.</l10n>
+   <l10n value="it">N°</l10n>
+  </keyword>
+  <keyword value="Autor">
+   <l10n value="de">Autor</l10n>
+   <l10n value="en">Author</l10n>
+   <l10n value="it">Autore</l10n>
+  </keyword>
+  <keyword value="Titel">
+   <l10n value="de">Titel</l10n>
+   <l10n value="en">Title</l10n>
+   <l10n value="it">Titolo</l10n>
+  </keyword>
+  <keyword value="Verleger">
+   <l10n value="de">Verleger</l10n>
+   <l10n value="en">Publisher</l10n>
+   <l10n value="it">Editore</l10n>
+  </keyword>
+  <keyword value="Ort">
+   <l10n value="de">Ort</l10n>
+   <l10n value="en">Place</l10n>
+   <l10n value="it">Luogo</l10n>
+  </keyword>
+  <keyword value="Jahr">
+   <l10n value="de">Jahr</l10n>
+   <l10n value="en">Date</l10n>
+   <l10n value="it">Anno</l10n>
+  </keyword>
+  <keyword value="Seite drucken">
+   <l10n value="de">Seite drucken</l10n>
+   <l10n value="en">Print page</l10n>
+   <l10n value="it">Stampa pagina</l10n>
+  </keyword>
+  <keyword value="Treffer im Volltext">
+   <l10n value="de">Treffer im Volltext</l10n>
+   <l10n value="en">Hits in full text</l10n>
+   <l10n value="it">Risultati in full text</l10n>
+  </keyword>
+  <keyword value="seite">
+   <l10n value="de">Seite</l10n>
+   <l10n value="en">page</l10n>
+   <l10n value="it">pagina</l10n>
+  </keyword>
+  <keyword value="Titelzusatz">
+   <l10n value="de">Titelzusatz</l10n>
+   <l10n value="en">Supplement</l10n>
+   <l10n value="it">Supplemento</l10n>
+  </keyword>
+  <keyword value="inhaltsuebersicht">
+   <l10n value="de">Inhaltsübersicht</l10n>
+   <l10n value="en">Overview of content</l10n>
+   <l10n value="it">Sommario del contenuto</l10n>
+  </keyword>
+  <keyword value="Digitalisat">
+   <l10n value="de">Digitalisat</l10n>
+   <l10n value="en">Digitised book</l10n>
+   <l10n value="it">Libro digitalizzato</l10n>
+  </keyword>
+  <keyword value="Transkript">
+   <l10n value="de">Transkript</l10n>
+   <l10n value="en">Transcript</l10n>
+   <l10n value="it">Trascrizione</l10n>
+  </keyword>
+  <keyword value="Miniaturansicht">
+   <l10n value="de">Miniaturansicht</l10n>
+   <l10n value="en">Thumbnails</l10n>
+   <l10n value="it">Visualizza miniatura</l10n>
+  </keyword>
+  <keyword value="Zurueck zur Uebersicht">
+   <l10n value="de">Zurück zur Übersicht</l10n>
+   <l10n value="en">Back to overview</l10n>
+   <l10n value="it">Torna al sommario</l10n>
+  </keyword>
+  <keyword value="Gehe zu seite">
+   <l10n value="de">Gehe zu Seite</l10n>
+   <l10n value="en">Go to page</l10n>
+   <l10n value="it">Vai a pagina</l10n>
+  </keyword>
+  <keyword value="Hoehere Qualitaet">
+   <l10n value="de">Höhere Qualität</l10n>
+   <l10n value="en">High quality</l10n>
+   <l10n value="it">Alta qualità</l10n>
+  </keyword>
+  <keyword value="Niedrige Qualitaet">
+   <l10n value="de">Niedrige Qualität</l10n>
+   <l10n value="en">Low quality</l10n>
+   <l10n value="it">Bassa qualità</l10n>
+  </keyword> 
+  <keyword value="naechste seite">
+   <l10n value="de">nächste Seite</l10n>
+   <l10n value="en">next page</l10n>
+   <l10n value="it">pagina successiva</l10n>
+  </keyword>
+  <keyword value="vorherige seite">
+   <l10n value="de">vorherige Seite</l10n>
+   <l10n value="en">previous page</l10n>
+  <l10n value="it">pagina precedente</l10n>
+  </keyword>
+  <keyword value="erste seite">
+   <l10n value="de">erste Seite</l10n>
+   <l10n value="en">first page</l10n>
+   <l10n value="it">prima pagina</l10n>
+  </keyword>
+  <keyword value="letzte seite">
+   <l10n value="de">letzte Seite</l10n>
+   <l10n value="en">last page</l10n>
+   <l10n value="it">ultima pagina</l10n>
+  </keyword>
+  <keyword value="gedruckte seitenzahl">
+   <l10n value="de">gedruckte Seitenzahl</l10n>
+   <l10n value="en">printed page number</l10n>
+   <l10n value="it">pagina stampata</l10n>
+  </keyword>
+  <keyword value="Kapitel">
+   <l10n value="de">Kapitel</l10n>
+   <l10n value="en">Chapter</l10n>
+   <l10n value="it">Capitolo</l10n>
+  </keyword>
+  <keyword value="Darstellungsoptionen">
+   <l10n value="de">Darstellungsoptionen</l10n>
+   <l10n value="en">Toolbox</l10n>
+   <l10n value="it">Strumenti</l10n>
+  </keyword>
+  <keyword value="Zeige Links zu Personen">
+   <l10n value="de">Zeige Links zu Personen</l10n>
+   <l10n value="en">Show links of people</l10n>
+   <l10n value="it">Visualizza link delle persone</l10n>
+  </keyword>
+  <keyword value="Zeige Links zu Orten">
+   <l10n value="de">Zeige Links zu Orten</l10n>
+   <l10n value="en">Show links of places</l10n>
+   <l10n value="it">Visualizza link dei luoghi</l10n>
+  </keyword>
+  <keyword value="Zeige Links zu Muenzen">
+   <l10n value="de">Zeige Links zu Münzen</l10n>
+   <l10n value="en">Show links of coins</l10n>
+   <l10n value="it">Visualizza link delle monete</l10n>
+  </keyword>
+  <keyword value="Links zu Personen ausblenden">
+   <l10n value="de">Links zu Personen ausblenden</l10n>
+   <l10n value="en">Hide links of people</l10n>
+   <l10n value="it">Nascondi link delle persone</l10n>
+  </keyword>
+  <keyword value="Links zu Orten ausblenden">
+   <l10n value="de">Links zu Orten ausblenden</l10n>
+   <l10n value="en">Hide links of places</l10n>
+   <l10n value="it">Nascondi link dei luoghi</l10n>
+  </keyword>
+  <keyword value="Links zu Muenzen ausblenden">
+   <l10n value="de">Links zu Münzen ausblenden</l10n>
+   <l10n value="en">Hide links of coins</l10n>
+   <l10n value="it">Nascondi link delle monete</l10n>
+  </keyword>
+  <keyword value="weiter">
+   <l10n value="de">weiter</l10n>
+   <l10n value="en">next</l10n>
+   <l10n value="it">avanti</l10n>
+  </keyword>
+  <keyword value="zurück">
+   <l10n value="de">zurück</l10n>
+   <l10n value="en">back</l10n>
+   <l10n value="it">indietro</l10n>
+  </keyword> 
+  <keyword value="Datenbank">
+   <l10n value="de">Datenbank</l10n>
+   <l10n value="en">Database</l10n>
+   <l10n value="it">Banca dati</l10n>
+  </keyword>
+  <keyword value="Home">
+   <l10n value="de">Home</l10n>
+   <l10n value="en">Home</l10n>
+   <l10n value="it">Home</l10n>
+  </keyword>
+  <keyword value="Sitemap">
+   <l10n value="de">Sitemap</l10n>
+   <l10n value="en">Sitemap</l10n>
+   <l10n value="it">Sitemap</l10n>
+  </keyword>
+  <keyword value="Impressum">
+   <l10n value="de">Impressum</l10n>
+   <l10n value="en">Imprint</l10n>
+   <l10n value="it">Informazione legale</l10n>
+  </keyword>
+  <keyword value="keine Treffer">
+   <l10n value="de">keine Treffer</l10n>
+   <l10n value="en">no results</l10n>
+   <l10n value="it">nessun risultato</l10n>
+  </keyword>
+  <keyword value="zum digitalisierten Buch">
+   <l10n value="de">zum digitalisierten Buch</l10n>
+   <l10n value="en">go to digitised book</l10n>
+   <l10n value="it">vai al libro digitalizzato</l10n>
+  </keyword>
+  <keyword value="zum transkribierten Buch">
+   <l10n value="de">zum transkribierten Buch</l10n>
+   <l10n value="en">go to book transcription</l10n>
+   <l10n value="it">vai alla trascrizione del libro</l10n>
+  </keyword>
+  <keyword value="zur Miniaturansicht">
+   <l10n value="de">zur Miniaturansicht</l10n>
+   <l10n value="en">go to thumbnail view</l10n>
+   <l10n value="it">vai alla miniatura</l10n>
+  </keyword>
+  <keyword value="Standort">
+   <l10n value="de">Standort</l10n>
+   <l10n value="en">Location</l10n>
+   <l10n value="it">Provenienza</l10n>
+  </keyword>
+  <keyword value="Copyright">
+   <l10n value="de">Copyright</l10n>
+   <l10n value="en">Copyright</l10n>
+   <l10n value="it">Copyright</l10n>
+  </keyword>
+  <keyword value="Bearbeitungsstand">
+   <l10n value="de">Bearbeitungsstand</l10n>
+   <l10n value="en">Status</l10n>
+   <l10n value="it">Fase di lavorazione</l10n>
+  </keyword>
+    <keyword value="Muenze bislang nicht klassifiziert">
+   <l10n value="de">Münze nicht klassifiziert </l10n>
+   <l10n value="en">Coin not classified up to now</l10n>
+   <l10n value="it">Münze bislang nicht klassifiziert </l10n>
+  </keyword>
+ </data>

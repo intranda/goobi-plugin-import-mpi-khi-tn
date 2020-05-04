@@ -1,0 +1,270 @@
+body {  
+	position:absolute;
+	height: 100%;
+	left:50%;
+	font-family: DejaVuSans,arial,helvetica;
+	font-size:12px;
+	color:#134;
+	background-color:#f0f0f0;
+	background-image:url(settingsback.png);
+	background-repeat: no-repeat;
+	}
+
+h4 {
+}
+	
+#superbreit{
+	position:fixed;
+	top: 30px;
+	left:0px;
+	width:100%;
+	height: 94%;
+	overflow:auto; 	
+	
+	}
+	
+#buch {
+	position:absolute;
+	left:50%; 
+	width:600px;
+	/* height: 96%; */
+	margin-left:-300px;
+	font-family: DejaVuSans,arial,helvetica;
+	font-size:12px;
+	line-height: 20px;
+	color:#134;
+	background-color:#fff7e0;
+	/* border:0px solid;	*/
+	padding: 10px;
+	overflow:visible; 
+	z-index: 1;
+
+}	
+	
+
+	
+td 	{
+	background-color:#fdfdfd;
+	padding: 2px;
+	margin: 2px;
+	vertical-align:bottom;
+	font-size:10pt;
+	}	
+
+a:link, a:visited {
+	font-weight:bold;
+	color: #334;
+	text-decoration:none; 
+	background-color:#eee;
+}
+
+
+
+a:hover   {
+	font-weight:bold !important;
+	color: #fff !important;
+	text-decoration:none !important;
+	background-color:#39a !important;
+}
+
+a:active  {
+	font-weight:bold;
+	color: #113;
+	text-decoration:none; 
+	background-color:#eee;
+}
+
+#Bildinschrift {
+	background-color:#fff;
+	text-align:center;
+	border:1px dotted;
+	padding: 10px;
+}
+
+#Bildunterschrift {
+	text-align:right;
+	margin:0px;
+	font-size:13px;
+	color:#666;
+	letter-spacing: 2px;
+
+}
+
+#sp {
+	letter-spacing: 4px;
+}
+
+#kursiv {
+	font-style:italic;
+}
+
+#b {
+	font-weight:bold;
+}
+
+
+#Fussnote {
+	font-family:DejaVuSans,arial,helvetica;
+	font-size:9px;
+	color:black;
+	text-align:right; 
+	/* klappt nicht */
+	}
+
+#PND_Link {
+	font-weight:bold;
+	color: #334;
+	text-decoration:none;
+	background-color:#ddf;
+}
+
+#SWD_Link {
+	font-weight:bold;
+	color: #334;
+	text-decoration:none;
+	background-color:#cec;
+}
+
+#Census_Link {
+	font-weight:bold;
+	color: #334;
+	text-decoration:none;
+	background-color:#edb;
+}
+
+
+#settings{
+	position:fixed;
+	top: 0px;
+	left:0px;
+	width:100%;
+	height: 30px;
+	text-align:center;
+	overflow:auto;	
+	font-size:11px;
+	color: #888;
+
+	}
+
+
+#pages {
+	position:fixed;
+	top:50px; 
+	left: 10px;
+	width:130px;
+	height: 88%;
+	font-family: DejaVuSans,arial,helvetica;
+	font-size:12px;
+	color:#134;
+	background-color:#f7f7f7;
+	border:1px solid;	
+	padding: 10px;
+	overflow:auto; 
+	z-index: 10;
+
+}	
+
+#pagesheader {
+	position:fixed;
+	top:30px; 
+	left: 10px;
+	width:130px;
+	height: 28px;
+	font-family: DejaVuSans,arial,helvetica;
+	font-size:12px;
+	color:#134;
+	background-color:#f7f7f7;
+	border:1px solid;	
+	padding: 3px 10px 0px 10px;
+}	
+
+
+
+#titles {
+
+	position:fixed;
+	top:50px; 
+	right: 20px;
+	width:130px;
+	height: 88%;
+	font-family: DejaVuSans,arial,helvetica;
+	font-size:10px;
+	color:#134;
+	background-color:#f7f7f7;
+	border:1px solid;	
+	padding: 10px;
+	overflow:auto;
+	z-index: 10;
+}	
+
+#titleheader {
+
+	position:fixed;
+	top:30px; 
+	right: 20px;
+	width:130px;
+	height: 28px;
+	font-family: DejaVuSans,arial,helvetica;
+	font-size:12px;
+	color:#134;
+	background-color:#f7f7f7;
+	border:1px solid;	
+	padding: 3px 10px 0px 10px;
+}	
+
+#linkcontainer {
+
+	position:absolute;
+	overflow: visible;
+	/* clip: rect(0px, 100px, 200px, 0px); */
+	left:0%;
+	width:100px;
+	float: left;
+	text-align:left;
+	margin-left:0px;
+	padding: 1px 0px 1px 630px; /* Damit steht es rechts vom Text */
+	font-family: DejaVuSans,arial,helvetica;
+	font-size:8px;
+	color:#134;
+	border:0px solid;	
+	z-index: 100;
+}	
+
+
+
+
+#SeitenPreview {
+	position:absolute;
+	overflow: visible;
+	/* clip: rect(0px, 100px, 200px, 0px); */
+	left:0%;
+	width:75px;
+	float: left;
+	margin-left:-90px;
+	padding: 1px;
+	font-family: DejaVuSans,arial,helvetica;
+	font-size:12px;
+	color:#134;
+	border:0px solid;	
+	z-index: 100;
+}	
+
+#SysUeberschrift {
+	font-weight:bold;
+	font-style:normal;
+	font-size:12px;
+	color: #334;
+	letter-spacing: 2px;
+	text-decoration:none;
+}
+
+#KeinStyle {
+	text-decoration:none;
+	background-color:transparent;
+}
+
+#ThinFrame {
+	/* Dünner Rahmen, gedacht für Spans */
+	border:1px solid #CCC;
+	padding:2px;
+}
