@@ -30,6 +30,21 @@ public class TnImportPluginTest {
         plugin = new TNImportPlugin();
         plugin.setPrefs(prefs);
 
+        plugin.setDataFolder("src/test/resources/data/xml/");
+
+    }
+
+    @Test
+    public void testGenerateRecordsFromFilenames() {
+        List<String> selectedFileNames = new ArrayList<>();
+        selectedFileNames.add("b181034r.xml");
+        List<Record> fixture = plugin.generateRecordsFromFilenames(selectedFileNames);
+
+        assertEquals(1, fixture.size());
+        Record record = fixture.get(0);
+        assertEquals("b181034r", record.getId());
+        assertEquals("src/test/resources/data/xml/b181034r.xml", record.getData());
+
     }
 
     @Test

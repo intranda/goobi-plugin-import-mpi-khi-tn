@@ -62,8 +62,6 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     @Getter
     private PluginType type = PluginType.Import;
 
-
-
     private Prefs prefs;
 
     @Getter
@@ -75,6 +73,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
     private List<ImportType> importTypes = null;
 
+    @Setter
     private String dataFolder = "/home/robert/Downloads/xmldaten_khi_tn_projekt/xml";
 
     private String currentIdentifier;
@@ -113,7 +112,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                         logicalStructMap = structMap;
                     }
                 }
-                List<ImportedDocStruct> physicalElements =   parsePhysicalMap(physical, physicalStructMap, digDoc);
+                List<ImportedDocStruct> physicalElements = parsePhysicalMap(physical, physicalStructMap, digDoc);
 
                 List<ImportedDocStruct> logicalElements = parseLogicalMap(logical, logicalStructMap, digDoc, physicalElements);
 
@@ -126,10 +125,6 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
         return importList;
     }
-
-
-
-
 
     public List<ImportedDocStruct> parsePhysicalMap(DocStruct physical, Element physicalStructMap, DigitalDocument digDoc) {
         List<ImportedDocStruct> physicalList = new ArrayList<>();
@@ -180,7 +175,6 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         return null;
     }
 
-
     private void initializeTypes() {
         if (boundBookType == null) {
             boundBookType = prefs.getDocStrctTypeByName("BoundBook");
@@ -190,7 +184,6 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         }
 
     }
-
 
     public Element readXmlDocument(String data) {
         SAXBuilder builder = new SAXBuilder(XMLReaders.NONVALIDATING);
@@ -311,10 +304,6 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     @Override
     public void deleteFiles(List<String> arg0) {
     }
-
-
-
-
 
     @Override
     public void setPrefs(Prefs prefs) {
