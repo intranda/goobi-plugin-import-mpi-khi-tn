@@ -102,7 +102,6 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                 fileformat.setDigitalDocument(digDoc);
                 List<Element> structMaps = metsElement.getChildren("structMap", METS_NS);
                 DocStruct logical = null;
-                DocStruct physical = null;
                 Element physicalStructMap = null;
                 Element logicalStructMap = null;
                 for (Element structMap : structMaps) {
@@ -112,7 +111,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                         logicalStructMap = structMap;
                     }
                 }
-                List<ImportedDocStruct> physicalElements = parsePhysicalMap(physical, physicalStructMap, digDoc);
+                List<ImportedDocStruct> physicalElements = parsePhysicalMap( physicalStructMap, digDoc);
 
                 List<ImportedDocStruct> logicalElements = parseLogicalMap(logical, logicalStructMap, digDoc, physicalElements);
 
@@ -126,14 +125,14 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         return importList;
     }
 
-    public List<ImportedDocStruct> parsePhysicalMap(DocStruct physical, Element physicalStructMap, DigitalDocument digDoc) {
+    public List<ImportedDocStruct> parsePhysicalMap(Element physicalStructMap, DigitalDocument digDoc) {
         List<ImportedDocStruct> physicalList = new ArrayList<>();
         Element div = physicalStructMap.getChild("div", METS_NS);
-
+        DocStruct physical =null;
         //        <METS:fptr FILEID='b181034r_-_0000-transcript'/>
         try {
             physical = digDoc.createDocStruct(boundBookType);
-
+            digDoc.setPhysicalDocStruct(physical);
             ImportedDocStruct boundBook = new ImportedDocStruct(div, physical);
 
             physicalList.add(boundBook);

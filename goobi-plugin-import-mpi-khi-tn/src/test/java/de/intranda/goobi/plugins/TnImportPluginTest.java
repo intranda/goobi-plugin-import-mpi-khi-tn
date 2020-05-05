@@ -1,6 +1,7 @@
 package de.intranda.goobi.plugins;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,6 +16,7 @@ import org.junit.Test;
 
 import ugh.dl.DigitalDocument;
 import ugh.dl.DocStruct;
+import ugh.dl.Metadata;
 import ugh.dl.Prefs;
 
 public class TnImportPluginTest {
@@ -65,7 +67,6 @@ public class TnImportPluginTest {
 
     @Test
     public void testParsePhysicalMap() {
-        DocStruct physical = null;
 
         Element mets = plugin.readXmlDocument("src/test/resources/data/xml/b181034r.xml");
         Element physicalStructMap = null;
@@ -78,7 +79,7 @@ public class TnImportPluginTest {
 
         DigitalDocument digDoc = new DigitalDocument();
 
-        List<ImportedDocStruct> fixture = plugin.parsePhysicalMap(physical, physicalStructMap, digDoc);
+        List<ImportedDocStruct> fixture = plugin.parsePhysicalMap(physicalStructMap, digDoc);
 
         assertEquals(427, fixture.size());
 
@@ -93,6 +94,25 @@ public class TnImportPluginTest {
         assertEquals("1", firstPage.getOrder());
         assertEquals("Physical Page Number: 1", firstPage.getOrderLabel());
         assertEquals(5, firstPage.getRelatedPages().size());
+
+
+        assertEquals(426, boundBook.getDocstruct().getAllChildren().size());
+
+        DocStruct lastPage =  boundBook.getDocstruct().getAllChildren().get(425);
+        Metadata log=null;
+        Metadata phys=null;
+        for (Metadata md :lastPage.getAllMetadata()) {
+            if (md.getType().getName().equals("logicalPageNumber")) {
+                log=md;
+            } else if (md.getType().getName().equals("physPageNumber")) {
+                phys=md;
+            }
+        }
+        assertNotNull(log);
+        assertNotNull(phys);
+
+        assertEquals("426", phys.getValue());
+        assertEquals("Physical Page Number: 426", log.getValue());
 
     }
 
