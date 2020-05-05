@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.collections4.map.HashedMap;
 import org.apache.commons.lang.StringUtils;
 import org.goobi.production.enums.ImportType;
 import org.goobi.production.enums.PluginType;
@@ -39,6 +41,7 @@ import ugh.exceptions.MetadataTypeNotAllowedException;
 import ugh.exceptions.PreferencesException;
 import ugh.exceptions.TypeNotAllowedAsChildException;
 import ugh.exceptions.TypeNotAllowedForParentException;
+import ugh.exceptions.UGHException;
 import ugh.fileformats.mets.MetsMods;
 
 @PluginImplementation
@@ -82,11 +85,21 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
     private DocStructType boundBookType;
     private DocStructType pageType;
-    private MetadataType logicalPageNumberType;
-    private MetadataType physPageNumberType;
+    private DocStructType monographType;
+    private DocStructType otherType;
+
+    private Map<String, MetadataType> metadataTypeMap = new HashedMap<>();
+    //    private MetadataType logicalPageNumberType;
+    //    private MetadataType physPageNumberType;
+    //
+    //    private MetadataType subTitleType;
+    //    private MetadataType titleType;
+    //    private MetadataType sortTitleType;
 
     @Override
     public List<ImportObject> generateFiles(List<Record> recordList) {
+        List<String> elementNames = new ArrayList<>();
+
         initializeTypes();
         List<ImportObject> importList = new ArrayList<>(recordList.size());
         for (Record record : recordList) {
@@ -95,13 +108,14 @@ public class TNImportPlugin implements IImportPluginVersion2 {
             io.setProcessTitle(getProcessTitle());
 
             Element metsElement = readXmlDocument(record.getData());
-
+            if (!metsElement.getName().equals("mets")) {
+                continue;
+            }
             try {
                 Fileformat fileformat = new MetsMods(prefs);
                 DigitalDocument digDoc = new DigitalDocument();
                 fileformat.setDigitalDocument(digDoc);
                 List<Element> structMaps = metsElement.getChildren("structMap", METS_NS);
-                DocStruct logical = null;
                 Element physicalStructMap = null;
                 Element logicalStructMap = null;
                 for (Element structMap : structMaps) {
@@ -111,9 +125,21 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                         logicalStructMap = structMap;
                     }
                 }
-                List<ImportedDocStruct> physicalElements = parsePhysicalMap( physicalStructMap, digDoc);
+                List<ImportedDocStruct> physicalElements = parsePhysicalMap(physicalStructMap, digDoc);
 
-                List<ImportedDocStruct> logicalElements = parseLogicalMap(logical, logicalStructMap, digDoc, physicalElements);
+                List<ImportedDocStruct> logicalElements = parseLogicalMap(logicalStructMap, digDoc, physicalElements);
+
+                List<Element> dmdSecList = metsElement.getChildren("dmdSec", METS_NS);
+
+                for (Element dmdSec : dmdSecList) {
+                    Element mods = dmdSec.getChild("mdWrap", METS_NS).getChild("xmlData", METS_NS).getChild("mods", MODS_NS);
+                    try {
+                        ImportedMetadata im = new ImportedMetadata(mods, metadataTypeMap);
+                    } catch (UGHException e) {
+                        log.error(e);
+                    }
+
+                }
 
             } catch (PreferencesException e) {
                 log.error(e);
@@ -122,14 +148,18 @@ public class TNImportPlugin implements IImportPluginVersion2 {
             importList.add(io);
         }
 
+        for (String value : elementNames) {
+            System.out.println(value);
+        }
+
         return importList;
     }
 
     public List<ImportedDocStruct> parsePhysicalMap(Element physicalStructMap, DigitalDocument digDoc) {
         List<ImportedDocStruct> physicalList = new ArrayList<>();
         Element div = physicalStructMap.getChild("div", METS_NS);
-        DocStruct physical =null;
-        //        <METS:fptr FILEID='b181034r_-_0000-transcript'/>
+        DocStruct physical = null;
+
         try {
             physical = digDoc.createDocStruct(boundBookType);
             digDoc.setPhysicalDocStruct(physical);
@@ -148,11 +178,11 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                 ImportedDocStruct page = new ImportedDocStruct(pageDiv, pageStruct);
                 physicalList.add(page);
 
-                Metadata physPageNumber = new Metadata(physPageNumberType);
+                Metadata physPageNumber = new Metadata(metadataTypeMap.get("physPageNumber"));
                 physPageNumber.setValue(page.getOrder());
                 pageStruct.addMetadata(physPageNumber);
                 if (StringUtils.isNotBlank(page.getOrderLabel())) {
-                    Metadata logicalPageNumber = new Metadata(logicalPageNumberType);
+                    Metadata logicalPageNumber = new Metadata(metadataTypeMap.get("logicalPageNumber"));
                     logicalPageNumber.setValue(page.getOrderLabel());
                     pageStruct.addMetadata(logicalPageNumber);
                 }
@@ -165,21 +195,88 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         return physicalList;
     }
 
-    private List<ImportedDocStruct> parseLogicalMap(DocStruct logical, Element logicalStructMap, DigitalDocument digDoc,
-            List<ImportedDocStruct> physicalElements) {
+    public List<ImportedDocStruct> parseLogicalMap(Element logicalStructMap, DigitalDocument digDoc, List<ImportedDocStruct> physicalElements) {
+        List<ImportedDocStruct> logicalList = new ArrayList<>();
+        Element mainDiv = logicalStructMap.getChild("div", METS_NS);
+        DocStruct logical = null;
 
-        // Collection -> Translatio nummorum
+        try {
+            switch (mainDiv.getAttributeValue("TYPE")) {
+                case "book":
+                    logical = digDoc.createDocStruct(monographType);
+                    break;
 
-        // TODO Auto-generated method stub
-        return null;
+                default:
+                    log.error("type " + mainDiv.getAttributeValue("TYPE") + " not mapped, use monograph");
+                    logical = digDoc.createDocStruct(monographType);
+            }
+
+            digDoc.setLogicalDocStruct(logical);
+        } catch (TypeNotAllowedForParentException e) {
+            log.error(e);
+        }
+
+        ImportedDocStruct logicalElement = new ImportedDocStruct(mainDiv, logical);
+        logicalList.add(logicalElement);
+
+        // add all pages to logical
+        for (ImportedDocStruct ids : physicalElements) {
+            logical.addReferenceTo(ids.getDocstruct(), "logical_physical");
+        }
+
+        // TODO read metadata block for logical
+        // TODO add Collection -> Translatio nummorum
+
+        for (Element div : mainDiv.getChildren("div", METS_NS)) {
+            try {
+                DocStruct other = digDoc.createDocStruct(otherType);
+                logical.addChild(other);
+                ImportedDocStruct otherElement = new ImportedDocStruct(div, other);
+                logicalList.add(otherElement);
+
+                // TODO read metadata block for element, if dmdid exists
+
+                // read pagecontainer
+                Element pagecontainer = div.getChild("div", METS_NS);
+                for (Element pageDiv : pagecontainer.getChildren("div", METS_NS)) {
+                    String pageName = pageDiv.getAttributeValue("ORDERLABEL");
+                    // if not unique, get first fptr FILEID?
+                    for (ImportedDocStruct ids : physicalElements) {
+                        if (ids.getType().equals("page") && ids.getOrderLabel().equals(pageName)) {
+                            other.addReferenceTo(ids.getDocstruct(), "logical_physical");
+                        }
+                    }
+                }
+
+            } catch (TypeNotAllowedForParentException | TypeNotAllowedAsChildException e) {
+                log.error(e);
+            }
+
+        }
+
+        return logicalList;
     }
 
     private void initializeTypes() {
         if (boundBookType == null) {
             boundBookType = prefs.getDocStrctTypeByName("BoundBook");
             pageType = prefs.getDocStrctTypeByName("page");
-            logicalPageNumberType = prefs.getMetadataTypeByName("logicalPageNumber");
-            physPageNumberType = prefs.getMetadataTypeByName("physPageNumber");
+            monographType = prefs.getDocStrctTypeByName("Monograph");
+            otherType = prefs.getDocStrctTypeByName("OtherDocStrct");
+            metadataTypeMap.put("logicalPageNumber", prefs.getMetadataTypeByName("logicalPageNumber"));
+            metadataTypeMap.put("physPageNumber", prefs.getMetadataTypeByName("physPageNumber"));
+
+            metadataTypeMap.put("TitleDocSub1", prefs.getMetadataTypeByName("TitleDocSub1"));
+            metadataTypeMap.put("TitleDocMain", prefs.getMetadataTypeByName("TitleDocMain"));
+            metadataTypeMap.put("TitleDocMainShort", prefs.getMetadataTypeByName("TitleDocMainShort"));
+
+            metadataTypeMap.put("Information", prefs.getMetadataTypeByName("Information"));
+            metadataTypeMap.put("Author", prefs.getMetadataTypeByName("Author"));
+            metadataTypeMap.put("Publisher", prefs.getMetadataTypeByName("PublisherPerson"));
+            metadataTypeMap.put("PlaceOfPublication", prefs.getMetadataTypeByName("PlaceOfPublication"));
+            metadataTypeMap.put("PublisherName", prefs.getMetadataTypeByName("PublisherName"));
+            metadataTypeMap.put("PublicationYear", prefs.getMetadataTypeByName("PublicationYear"));
+            //            metadataTypeMap.put("", prefs.getMetadataTypeByName(""));
         }
 
     }
