@@ -38,6 +38,7 @@ public class TnImportPluginTest {
 
         plugin.setDataFolder("src/test/resources/data/xml/");
 
+        plugin.setImportFolder("/tmp");
     }
 
     @Test
@@ -76,14 +77,13 @@ public class TnImportPluginTest {
         List<Record> records = new ArrayList<>();
         for (String xmlName : xmlFiles) {
             Record fixture = new Record();
-            fixture.setData("src/test/resources/data/xml/"+xmlName);
+            fixture.setData("src/test/resources/data/xml/" + xmlName);
             fixture.setId(xmlName.replace(".xml", ""));
             records.add(fixture);
         }
         List<ImportObject> returnlist = plugin.generateFiles(records);
 
     }
-
 
     @Test
     public void testParsePhysicalMap() {
@@ -115,17 +115,16 @@ public class TnImportPluginTest {
         assertEquals("Physical Page Number: 1", firstPage.getOrderLabel());
         assertEquals(5, firstPage.getRelatedPages().size());
 
-
         assertEquals(426, boundBook.getDocstruct().getAllChildren().size());
 
-        DocStruct lastPage =  boundBook.getDocstruct().getAllChildren().get(425);
-        Metadata log=null;
-        Metadata phys=null;
-        for (Metadata md :lastPage.getAllMetadata()) {
+        DocStruct lastPage = boundBook.getDocstruct().getAllChildren().get(425);
+        Metadata log = null;
+        Metadata phys = null;
+        for (Metadata md : lastPage.getAllMetadata()) {
             if (md.getType().getName().equals("logicalPageNumber")) {
-                log=md;
+                log = md;
             } else if (md.getType().getName().equals("physPageNumber")) {
-                phys=md;
+                phys = md;
             }
         }
         assertNotNull(log);
@@ -135,8 +134,6 @@ public class TnImportPluginTest {
         assertEquals("Physical Page Number: 426", log.getValue());
 
     }
-
-
 
     @Test
     public void testParsePLogicalMap() {
@@ -164,22 +161,22 @@ public class TnImportPluginTest {
         // 148 chapter + monograph
         assertEquals(149, fixture.size());
 
-        ImportedDocStruct chapter =  fixture.get(148);
+        ImportedDocStruct chapter = fixture.get(148);
         assertEquals("OtherDocStrct", chapter.getDocstruct().getType().getName());
         assertEquals("148", chapter.getOrder());
         assertEquals(" INDICE COPIOSISSIMO DELLE MATERIE CONTENVTE NELL'HISTORIA AVGVSTA", chapter.getLabel());
 
         // 18 pages assigned
-        assertEquals(18,chapter.getDocstruct().getAllToReferences().size());
+        assertEquals(18, chapter.getDocstruct().getAllToReferences().size());
         DocStruct firstPage = chapter.getDocstruct().getAllToReferences().get(0).getTarget();
         // should be page 405
-        Metadata log=null;
-        Metadata phys=null;
-        for (Metadata md :firstPage.getAllMetadata()) {
+        Metadata log = null;
+        Metadata phys = null;
+        for (Metadata md : firstPage.getAllMetadata()) {
             if (md.getType().getName().equals("logicalPageNumber")) {
-                log=md;
+                log = md;
             } else if (md.getType().getName().equals("physPageNumber")) {
-                phys=md;
+                phys = md;
             }
         }
         assertNotNull(log);
@@ -188,7 +185,6 @@ public class TnImportPluginTest {
         assertEquals("405", phys.getValue());
         assertEquals("Physical Page Number: 405 / Printed Page Number: 379", log.getValue());
     }
-
 
     private List<String> listData() {
         List<String> fileNames = new ArrayList<>();

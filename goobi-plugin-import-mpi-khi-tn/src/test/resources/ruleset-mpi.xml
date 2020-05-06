@@ -62,6 +62,13 @@
     <language name="en">Type</language>
     <language name="es">Tipo</language>
   </MetadataType>
+    <MetadataType>
+    <Name>ContentDescription</Name>
+    <language name="de">Bearbeitungsstand</language>
+    <language name="en">content description</language>
+    <language name="es">Bearbeitungsstand zzz</language>
+  </MetadataType>
+  
   <MetadataType>
     <Name>Description</Name>
     <language name="de">Beschreibung</language>
@@ -962,6 +969,14 @@
     <language name="en">Resource</language>
     <language name="es">Resource zzz</language>
   </MetadataType>
+
+  <MetadataType>
+    <Name>HandwrittenNote</Name>
+    <language name="de">Handschriftliche Notiz</language>
+    <language name="en">Handwritten note</language>
+    <language name="es">Handwritten note zzz</language>
+  </MetadataType>
+
   <MetadataType>
     <Name>Information</Name>
     <language name="de">Informationen</language>
@@ -2618,8 +2633,9 @@
     <allowedchildtype>Advertising</allowedchildtype>  
         <allowedchildtype>PartOfWork</allowedchildtype>  
         <allowedchildtype>Imprimatur</allowedchildtype>  
-    <allowedchildtype>Letter</allowedchildtype>  
-      
+    <allowedchildtype>Letter</allowedchildtype>        
+    <metadata num="*">Information</metadata>
+    <metadata num="*">Description</metadata>
     <metadata num="*">TitleDocMainShort</metadata>
     <metadata num="*">TitleDocSub1</metadata>
     <metadata num="*">Translator</metadata>
@@ -3019,6 +3035,9 @@
     <metadata num="*">CatalogIdentifier</metadata>    
     <metadata num="1o">ViewerSubTheme</metadata>
     <metadata DefaultDisplay="true" num="1o">ImageFooter</metadata>
+    <metadata num="1o">HandwrittenNote</metadata>
+    <metadata num="1o">ContentDescription</metadata>
+
     <metadata num="*">_codicological_objectDataset_creationDate</metadata>
     <metadata num="*">_codicological_objectDataset_superIdentificationNumber</metadata>
     <metadata num="*">_codicological_objectDataset_accessIdentificationNumber</metadata>
@@ -8039,6 +8058,17 @@
         <WriteXPath>./mods:mods/#mods:note[@type='citation/reference']
         </WriteXPath>
       </Metadata>
+      <Metadata>
+        <InternalName>HandwrittenNote</InternalName>
+        <WriteXPath>./mods:mods/#mods:note[@type='handwritten']
+        </WriteXPath>
+      </Metadata>
+     <Metadata>
+        <InternalName>ContentDescription</InternalName>
+        <WriteXPath>./mods:mods/#mods:note[@type='content']
+        </WriteXPath>
+      </Metadata>
+
       <Metadata>
         <InternalName>Information</InternalName>
         <WriteXPath>./mods:mods/#mods:abstract[@type='Information']

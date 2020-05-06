@@ -36,12 +36,16 @@ import ugh.dl.DocStructType;
 import ugh.dl.Fileformat;
 import ugh.dl.Metadata;
 import ugh.dl.MetadataType;
+import ugh.dl.Person;
 import ugh.dl.Prefs;
+import ugh.exceptions.DocStructHasNoTypeException;
+import ugh.exceptions.IncompletePersonObjectException;
 import ugh.exceptions.MetadataTypeNotAllowedException;
 import ugh.exceptions.PreferencesException;
 import ugh.exceptions.TypeNotAllowedAsChildException;
 import ugh.exceptions.TypeNotAllowedForParentException;
 import ugh.exceptions.UGHException;
+import ugh.exceptions.WriteException;
 import ugh.fileformats.mets.MetsMods;
 
 @PluginImplementation
@@ -89,16 +93,9 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     private DocStructType otherType;
 
     private Map<String, MetadataType> metadataTypeMap = new HashedMap<>();
-    //    private MetadataType logicalPageNumberType;
-    //    private MetadataType physPageNumberType;
-    //
-    //    private MetadataType subTitleType;
-    //    private MetadataType titleType;
-    //    private MetadataType sortTitleType;
 
     @Override
     public List<ImportObject> generateFiles(List<Record> recordList) {
-        List<String> elementNames = new ArrayList<>();
 
         initializeTypes();
         List<ImportObject> importList = new ArrayList<>(recordList.size());
@@ -125,34 +122,107 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                         logicalStructMap = structMap;
                     }
                 }
-                List<ImportedDocStruct> physicalElements = parsePhysicalMap(physicalStructMap, digDoc);
 
+                List<ImportedDocStruct> physicalElements = parsePhysicalMap(physicalStructMap, digDoc);
                 List<ImportedDocStruct> logicalElements = parseLogicalMap(logicalStructMap, digDoc, physicalElements);
 
                 List<Element> dmdSecList = metsElement.getChildren("dmdSec", METS_NS);
+                Map<String, ImportedMetadata> dmdMap = new HashedMap<>();
 
-                for (Element dmdSec : dmdSecList) {
-                    Element mods = dmdSec.getChild("mdWrap", METS_NS).getChild("xmlData", METS_NS).getChild("mods", MODS_NS);
-                    try {
-                        ImportedMetadata im = new ImportedMetadata(mods, metadataTypeMap);
-                    } catch (UGHException e) {
-                        log.error(e);
-                    }
+                parseDmdSec(dmdSecList, dmdMap);
 
-                }
+                addMetadataToDocstruct(logicalElements, dmdMap);
 
-            } catch (PreferencesException e) {
+                addAdditionalMetadata(metsElement, digDoc);
+
+                fileformat.write(importFolder + "/" + getProcessTitle() + ".xml");
+            } catch (PreferencesException | WriteException e) {
                 log.error(e);
             }
 
             importList.add(io);
         }
 
-        for (String value : elementNames) {
-            System.out.println(value);
+        return importList;
+    }
+
+    private void parseDmdSec(List<Element> dmdSecList, Map<String, ImportedMetadata> dmdMap) {
+        for (Element dmdSec : dmdSecList) {
+            Element mods = dmdSec.getChild("mdWrap", METS_NS).getChild("xmlData", METS_NS).getChild("mods", MODS_NS);
+            try {
+                ImportedMetadata im = new ImportedMetadata(mods, metadataTypeMap);
+                String id = dmdSec.getAttributeValue("ID");
+                im.setId(id);
+                dmdMap.put(id, im);
+            } catch (UGHException e) {
+                log.info(currentIdentifier + "  " + dmdSec.getAttributeValue("ID"));
+                log.error(e);
+            }
+        }
+    }
+
+    private void addMetadataToDocstruct(List<ImportedDocStruct> logicalElements, Map<String, ImportedMetadata> dmdMap) {
+        for (ImportedDocStruct ids : logicalElements) {
+            if (StringUtils.isNotBlank(ids.getDmdId())) {
+                ImportedMetadata im = dmdMap.get(ids.getDmdId());
+                DocStruct ds = ids.getDocstruct();
+                for (Metadata md : im.getMetadataList()) {
+                    try {
+                        ds.addMetadata(md);
+                    } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e) {
+                        log.info(currentIdentifier + "  " + ids.getDmdId());
+                        log.error(e);
+                    }
+                }
+                for (Person p : im.getPersonList()) {
+                    try {
+                        ds.addPerson(p);
+                    } catch (MetadataTypeNotAllowedException | IncompletePersonObjectException e) {
+                        log.info(currentIdentifier + "  " + ids.getDmdId());
+                        log.error(e);
+                    }
+                }
+            }
+        }
+    }
+
+    private void addAdditionalMetadata(Element metsElement, DigitalDocument digDoc) {
+        try {
+            Metadata mdForPath = new Metadata(metadataTypeMap.get("pathimagefiles"));
+            mdForPath.setValue("file://" + getProcessTitle());
+            digDoc.getPhysicalDocStruct().addMetadata(mdForPath);
+        } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e1) {
+            log.error(e1);
         }
 
-        return importList;
+        DocStruct logical = digDoc.getLogicalDocStruct();
+        List<Element> identifier = metsElement.getChild("metsHdr", METS_NS).getChildren("altRecordID", METS_NS);
+        for (Element i : identifier) {
+            if (i.getAttributeValue("TYPE").equals("AlephSys")) {
+                try {
+                    Metadata md = new Metadata(metadataTypeMap.get("CatalogIDSource"));
+                    md.setValue(i.getValue());
+                    logical.addMetadata(md);
+                } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e) {
+                    log.error(e);
+                }
+            } else {
+                try {
+                    Metadata md = new Metadata(metadataTypeMap.get("CatalogIDDigital"));
+                    md.setValue(i.getValue());
+                    logical.addMetadata(md);
+                } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e) {
+                    log.error(e);
+                }
+            }
+        }
+        try {
+            Metadata md = new Metadata(metadataTypeMap.get("singleDigCollection"));
+            md.setValue("Translatio nummorum");
+            logical.addMetadata(md);
+        } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e) {
+            log.error(e);
+        }
     }
 
     public List<ImportedDocStruct> parsePhysicalMap(Element physicalStructMap, DigitalDocument digDoc) {
@@ -183,7 +253,11 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                 pageStruct.addMetadata(physPageNumber);
                 if (StringUtils.isNotBlank(page.getOrderLabel())) {
                     Metadata logicalPageNumber = new Metadata(metadataTypeMap.get("logicalPageNumber"));
-                    logicalPageNumber.setValue(page.getOrderLabel());
+                    if (page.getOrderLabel().matches("^[\\w\\s]+: \\d+$")) {
+                        logicalPageNumber.setValue("-");
+                    } else {
+                        logicalPageNumber.setValue(page.getOrderLabel().substring(page.getOrderLabel().lastIndexOf(":") + 1).trim());
+                    }
                     pageStruct.addMetadata(logicalPageNumber);
                 }
                 physical.addChild(pageStruct);
@@ -224,17 +298,12 @@ public class TNImportPlugin implements IImportPluginVersion2 {
             logical.addReferenceTo(ids.getDocstruct(), "logical_physical");
         }
 
-        // TODO read metadata block for logical
-        // TODO add Collection -> Translatio nummorum
-
         for (Element div : mainDiv.getChildren("div", METS_NS)) {
             try {
                 DocStruct other = digDoc.createDocStruct(otherType);
                 logical.addChild(other);
                 ImportedDocStruct otherElement = new ImportedDocStruct(div, other);
                 logicalList.add(otherElement);
-
-                // TODO read metadata block for element, if dmdid exists
 
                 // read pagecontainer
                 Element pagecontainer = div.getChild("div", METS_NS);
@@ -273,9 +342,20 @@ public class TNImportPlugin implements IImportPluginVersion2 {
             metadataTypeMap.put("Information", prefs.getMetadataTypeByName("Information"));
             metadataTypeMap.put("Author", prefs.getMetadataTypeByName("Author"));
             metadataTypeMap.put("Publisher", prefs.getMetadataTypeByName("PublisherPerson"));
+            metadataTypeMap.put("Artist", prefs.getMetadataTypeByName("Artist"));
             metadataTypeMap.put("PlaceOfPublication", prefs.getMetadataTypeByName("PlaceOfPublication"));
             metadataTypeMap.put("PublisherName", prefs.getMetadataTypeByName("PublisherName"));
             metadataTypeMap.put("PublicationYear", prefs.getMetadataTypeByName("PublicationYear"));
+            metadataTypeMap.put("HandwrittenNote", prefs.getMetadataTypeByName("HandwrittenNote"));
+            metadataTypeMap.put("PhysicalLocation", prefs.getMetadataTypeByName("PhysicalLocation"));
+            metadataTypeMap.put("Copyright", prefs.getMetadataTypeByName("Copyright"));
+            metadataTypeMap.put("ContentDescription", prefs.getMetadataTypeByName("ContentDescription"));
+            metadataTypeMap.put("CatalogIDSource", prefs.getMetadataTypeByName("CatalogIDSource"));
+            metadataTypeMap.put("CatalogIDDigital", prefs.getMetadataTypeByName("CatalogIDDigital"));
+            metadataTypeMap.put("singleDigCollection", prefs.getMetadataTypeByName("singleDigCollection"));
+
+            metadataTypeMap.put("pathimagefiles", prefs.getMetadataTypeByName("pathimagefiles"));
+
             //            metadataTypeMap.put("", prefs.getMetadataTypeByName(""));
         }
 

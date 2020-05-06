@@ -16,12 +16,11 @@ import ugh.exceptions.UGHException;
 @Data
 public class ImportedMetadata {
 
-    private String dmdId;
+    private String id;
     private List<Metadata> metadataList = new ArrayList<>();
     private List<Person> personList = new ArrayList<>();
 
     public ImportedMetadata(Element modsSection, Map<String, MetadataType> typeMap) throws UGHException {
-
         for (Element element : modsSection.getChildren()) {
             switch (element.getName()) {
                 case "titleInfo":
@@ -57,8 +56,6 @@ public class ImportedMetadata {
                         Metadata md = new Metadata(typeMap.get("TitleDocMain"));
                         md.setValue(title);
                         metadataList.add(md);
-
-                        // nonSort?
                     }
                     if (StringUtils.isNotBlank(partNumber)) {
                         //always <mods:partNumber>, Nr.</mods:partNumber>, ignore it
@@ -130,11 +127,11 @@ public class ImportedMetadata {
                             metadataList.add(md);
                         } else if (subfield.getName().equals("publisher")) {
                             Metadata md = new Metadata(typeMap.get("PublisherName"));
-                            md.setValue(element.getValue());
+                            md.setValue(subfield.getValue());
                             metadataList.add(md);
                         } else if (subfield.getName().equals("dateIssued")) {
                             Metadata md = new Metadata(typeMap.get("PublicationYear"));
-                            md.setValue(element.getValue());
+                            md.setValue(subfield.getValue());
                             metadataList.add(md);
                         }
                     }
@@ -150,13 +147,37 @@ public class ImportedMetadata {
                     // empty
                     break;
                 case "note":
-                    System.out.println(element.getValue().trim());
+                    String value = element.getValue().trim();
+                    if (StringUtils.isNotBlank(value)) {
+                        String type = element.getAttributeValue("type");
+                        if (type == null || type.equals("Bearbeitungsstand")) {
+                            Metadata md = new Metadata(typeMap.get("ContentDescription"));
+                            md.setValue(value);
+                            metadataList.add(md);
+                        } else if (type.equals("handwritten")) {
+                            Metadata md = new Metadata(typeMap.get("HandwrittenNote"));
+                            md.setValue(value);
+                            metadataList.add(md);
+                        } else if (type.equals("Standort")) {
+                            Metadata md = new Metadata(typeMap.get("PhysicalLocation"));
+                            md.setValue(value);
+                            metadataList.add(md);
+                        } else if (type.equals("Copyright")) {
+                            Metadata md = new Metadata(typeMap.get("Copyright"));
+                            md.setValue(value);
+                            metadataList.add(md);
+                        }
+                    }
+
                     break;
                 case "identifier":
+                    // xml filename
                     break;
                 case "physicalDescription":
+                    // <mods:digitalOrigin>reformatted digital</mods:digitalOrigin>
                     break;
                 case "relatedItem":
+                    // ignore it, contains DM0000
                     break;
 
             }
