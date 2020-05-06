@@ -131,7 +131,7 @@ public class TnImportPluginTest {
         assertNotNull(phys);
 
         assertEquals("426", phys.getValue());
-        assertEquals("Physical Page Number: 426", log.getValue());
+        assertEquals("-", log.getValue());
 
     }
 
@@ -183,7 +183,7 @@ public class TnImportPluginTest {
         assertNotNull(phys);
 
         assertEquals("405", phys.getValue());
-        assertEquals("Physical Page Number: 405 / Printed Page Number: 379", log.getValue());
+        assertEquals("379", log.getValue());
     }
 
     private List<String> listData() {
