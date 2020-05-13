@@ -2651,6 +2651,7 @@
     <metadata num="1o">_urn</metadata>
     <metadata num="*">Artist</metadata>
     <metadata num="*">IllustratorArtist</metadata>
+    <metadata num="*">ContentDescription</metadata>
   </DocStrctType>
   <DocStrctType>
     <Name>Bibliography</Name>
@@ -3036,7 +3037,7 @@
     <metadata num="1o">ViewerSubTheme</metadata>
     <metadata DefaultDisplay="true" num="1o">ImageFooter</metadata>
     <metadata num="1o">HandwrittenNote</metadata>
-    <metadata num="1o">ContentDescription</metadata>
+    <metadata num="*">ContentDescription</metadata>
 
     <metadata num="*">_codicological_objectDataset_creationDate</metadata>
     <metadata num="*">_codicological_objectDataset_superIdentificationNumber</metadata>

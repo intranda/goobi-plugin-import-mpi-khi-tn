@@ -208,7 +208,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                 }
             } else {
                 try {
-                    Metadata md = new Metadata(metadataTypeMap.get("CatalogIDDigital"));
+                    Metadata md = new Metadata(metadataTypeMap.get("CatalogIdentifier"));
                     md.setValue(i.getValue());
                     logical.addMetadata(md);
                 } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e) {
@@ -223,6 +223,14 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e) {
             log.error(e);
         }
+        try {
+            Metadata md = new Metadata(metadataTypeMap.get("CatalogIDDigital"));
+            md.setValue("khi_tn_" + currentIdentifier);
+            logical.addMetadata(md);
+        } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e) {
+            log.error(e);
+        }
+
     }
 
     public List<ImportedDocStruct> parsePhysicalMap(Element physicalStructMap, DigitalDocument digDoc) {
