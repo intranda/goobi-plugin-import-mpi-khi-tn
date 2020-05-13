@@ -7,17 +7,17 @@
 		<jar.name>plugin_intranda_import_mpi_kh_tn</jar.name>
 		<dest.folder>/opt/digiverso/goobi/plugins/import/</dest.folder>
 	</properties>
-	<distributionManagement>
-		<repository>
-			<id>intranda</id>
-			<url>http://nexus.intranda.com/repository/intranda</url>
-		</repository>
-	</distributionManagement>
-	<repositories>
-		<repository>
-			<id>intranda</id>
-			<url>https://nexus.intranda.com/repository/intranda</url>
-		</repository>
+    <distributionManagement>
+        <repository>
+            <id>intranda-releases</id>
+            <url>https://nexus.intranda.com/repository/maven-releases</url>
+        </repository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>intranda-public</id>
+            <url>https://nexus.intranda.com/repository/maven-public</url>
+        </repository>
 	</repositories>
 	
 	<build>
