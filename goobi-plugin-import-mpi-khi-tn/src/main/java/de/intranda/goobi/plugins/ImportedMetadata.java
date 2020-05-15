@@ -20,7 +20,7 @@ public class ImportedMetadata {
     private List<Metadata> metadataList = new ArrayList<>();
     private List<Person> personList = new ArrayList<>();
 
-    public ImportedMetadata(Element modsSection, Map<String, MetadataType> typeMap) throws UGHException {
+    public ImportedMetadata(Element modsSection, Map<String, MetadataType> typeMap, Map<String,String> gndMap) throws UGHException {
         for (Element element : modsSection.getChildren()) {
             switch (element.getName()) {
                 case "titleInfo":
@@ -119,8 +119,7 @@ public class ImportedMetadata {
                             Metadata md = new Metadata(typeMap.get("PlaceOfPublication"));
                             for (Element placeTerm : subfield.getChildren()) {
                                 if (placeTerm.getAttributeValue("type").equals("text")) {
-                                    md.setValue(placeTerm.getValue());
-                                } else {
+                                    md.setValue(gndMap.get(placeTerm.getValue()));
                                     md.setAutorityFile("gnd", "http://d-nb.info/gnd/", placeTerm.getValue().replace("SWD:", ""));
                                 }
                             }

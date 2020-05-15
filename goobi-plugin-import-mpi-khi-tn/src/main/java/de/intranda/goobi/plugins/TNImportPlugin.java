@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.commons.collections4.map.HashedMap;
 import org.apache.commons.lang.StringUtils;
+import org.goobi.production.enums.ImportReturnValue;
 import org.goobi.production.enums.ImportType;
 import org.goobi.production.enums.PluginType;
 import org.goobi.production.importer.DocstructElement;
@@ -94,6 +95,9 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
     private Map<String, MetadataType> metadataTypeMap = new HashedMap<>();
 
+    private Map<String, String> imageFolderMap = new HashedMap<>();
+    private Map<String, String> gndMap = new HashedMap<>();
+
     @Override
     public List<ImportObject> generateFiles(List<Record> recordList) {
 
@@ -135,9 +139,15 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
                 addAdditionalMetadata(metsElement, digDoc);
 
-                fileformat.write(importFolder + "/" + getProcessTitle() + ".xml");
+                io.setMetsFilename(importFolder + "/" + getProcessTitle() + ".xml");
+                fileformat.write(io.getMetsFilename());
+
+                // TODO copy/move images
+                // TODO copy/move tei file
+                io.setImportReturnValue(ImportReturnValue.ExportFinished);
             } catch (PreferencesException | WriteException e) {
                 log.error(e);
+                io.setImportReturnValue(ImportReturnValue.InvalidData);
             }
 
             importList.add(io);
@@ -150,7 +160,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         for (Element dmdSec : dmdSecList) {
             Element mods = dmdSec.getChild("mdWrap", METS_NS).getChild("xmlData", METS_NS).getChild("mods", MODS_NS);
             try {
-                ImportedMetadata im = new ImportedMetadata(mods, metadataTypeMap);
+                ImportedMetadata im = new ImportedMetadata(mods, metadataTypeMap, gndMap);
                 String id = dmdSec.getAttributeValue("ID");
                 im.setId(id);
                 dmdMap.put(id, im);
@@ -366,7 +376,9 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
             //            metadataTypeMap.put("", prefs.getMetadataTypeByName(""));
         }
-
+        if (gndMap.isEmpty()) {
+            fillMaps();
+        }
     }
 
     public Element readXmlDocument(String data) {
@@ -495,4 +507,73 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         initializeTypes();
 
     }
+
+
+
+    private void fillMaps() {
+        imageFolderMap.clear();
+        gndMap.clear();
+        imageFolderMap.put("b181034r", "E_6119");
+        imageFolderMap.put("b229517f", "E_6103");
+        imageFolderMap.put("b230031f", "X_6920");
+        imageFolderMap.put("b258350f", "E_6118");
+        imageFolderMap.put("b304253f", "E_6112");
+        imageFolderMap.put("b304254f", "E_6110");
+        imageFolderMap.put("b304255f", "E_6109");
+        //        bd1060570cr     - was E_5015_x  --> Buch in entsprechende B<E4>nde geteilt, also Ordner existiert so nicht mehr, sondern so:
+        //bd1060570br             - was E_5015_x_Band_1
+        //bd1060570cr             - was E_5015_x_Band_2
+        imageFolderMap.put("bd1060570cr", "E_5015_x_Band_1"); // 1-186
+        imageFolderMap.put("bd1060570br", "E_5015_x_Band_2"); // 187 - 446
+        imageFolderMap.put("bd1080404r", "E_5015_r");
+        imageFolderMap.put("bd1260181r", "E_5015");
+        imageFolderMap.put("bd3590238r", "E_5015_t");
+        //        bd3610344am     - was E_5016    --> Buch in entsprechende B<E4>nde geteilt, also Ordner existiert so nicht mehr, sondern so:
+        //bd3610344am             - was E_5016_Band_1
+        //bd3610344bm             - was E_5016_Band_2
+        imageFolderMap.put("bd3610344am", "E_5016_Band_1"); // 1-188
+        imageFolderMap.put("bd3610344bm", "E_5016_Band_2"); // 189-450
+        //        bd3610345bm     - was E_5016_a  --> Buch in entsprechende B<E4>nde geteilt, also Ordner existiert so nicht mehr, sondern so:
+        //bd3610345am             - was E_5016_a_Band_1
+        //bd3610345bm             - was E_5016_a_Band_2
+        imageFolderMap.put("bd3610345am", "E_5016_a_Band_1"); // 1-188
+        imageFolderMap.put("bd3610345bm", "E_5016_a_Band_2"); // 327 -516 TODO 1 Bild zu viel
+
+        imageFolderMap.put("foreign_bsb_2_h_ant_34_t", "BSB_2_H_ant_34_t");
+        imageFolderMap.put("foreign_sub_2_num_3682", "SUB-2-NUM-3682");
+        imageFolderMap.put("foreign_bsb_2_h_ant_34_t_beibd_1", "BSB_2_H_ant_34_t_Beibd_1");
+        imageFolderMap.put("foreign_sub_4_h_rom_2621", "SUB-4-H-ROM-2621");
+        imageFolderMap.put("foreign_bsb_rar_23", "BSB_Rar_23");
+        imageFolderMap.put("foreign_sub_4_num_3983_1", "SUB-4-NUM-3983_1");
+        imageFolderMap.put("foreign_bsb_res_2_h_ant_34_r", "BSB_Res_2_H_ant_34_r");
+        imageFolderMap.put("foreign_sub_8_num_3370", "SUB-8-NUM-3370");
+        imageFolderMap.put("foreign_bsb_res_4_l_eleg_m_205", "BSB_Res_4_L_eleg_m_205");
+        imageFolderMap.put("foreign_sub_8_num_3575", "SUB-8-NUM-3575");
+        imageFolderMap.put("foreign_bsb_res_biogr_227_beibd_5", "BSB_Res_Biogr_227_Beibd_5");
+        imageFolderMap.put("foreign_sub_8_num_3932", "SUB-8-NUM-3932");
+        imageFolderMap.put("foreign_bsu_a_7_inv_26", "Uffizien1Augustin");
+        imageFolderMap.put("foreign_bsu_h_1_inv_1215", "Uffizien2Commentariorum");
+
+        // unklar:
+        imageFolderMap.put("foreign_bbaw_va_7005", "");
+        imageFolderMap.put("foreign_smb_gris_1598_1_mtl", "");
+        imageFolderMap.put("bd2830393r", "");
+        imageFolderMap.put("b277436f", "");
+        imageFolderMap.put("b309785f", "");
+        imageFolderMap.put("e6110-nachbe", "");
+        imageFolderMap.put("foreign_flb_ubw_15a_015370", "");
+
+        gndMap.put("SWD:4062501-1", "Venedig");
+        gndMap.put("SWD:4050471-2", "Rom");
+        gndMap.put("SWD:4036770-8", "Lyon");
+        gndMap.put("SWD:4002364-3", "Antwerpen");
+        gndMap.put("SWD:4057878-1", "Straßburg");
+        gndMap.put("SWD:4001783-7", "Amsterdam");
+        gndMap.put("SWD:4044660-8", "Paris");
+        gndMap.put("SWD:4069688-1", "Brügge");
+        gndMap.put("SWD:4004617-5", "Basel");
+        gndMap.put("SWD:4059081-1", "Tarragona");
+        gndMap.put("SWD:9999999-9", "s.l.");
+    }
+
 }
