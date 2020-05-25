@@ -1,0 +1,2237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="DLC-TEI.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/xsl" href="teibp.xsl"?><TEI xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns="http://www.tei-c.org/ns/1.0" xml:lang="de-DE">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">HIER DEN TITEL EINGEBEN!</title>
+        <title type="sub">Elektronischer Volltext</title>
+        <respStmt>
+          <resp>Projektträger:</resp>
+          <orgName xml:id="MPIB">Projekt Digitization Lifecycle am Max-Planck-Institut für Bildungsforschung</orgName>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>
+          <orgName xml:id="DLC">Projekt Digitization Lifecycle am Max-Planck-Institut für Bildungsforschung</orgName>
+        </publisher>
+        <date when="2018"/>
+      </publicationStmt>
+      <sourceDesc>
+        <p/>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p/>
+      </projectDesc>
+      <editorialDecl>
+        <correction method="markup">
+          <p>Im Allgemeinen werden Druckfehler der Vorlage identisch übernommen. Sehr offensichtliche Druckfehler wurden aber, soweit erkannt, über <gi>choice</gi> in den Texte gekennzeichnet. Innerhalb von <gi>choice</gi> steht der korrigierte Wert in <tag>corr type="misprint"</tag> und der originale Wert der Vorlage in <gi>sic</gi>. In der Editura-Basis HTML-Transformation wird zurzeit der Wert in <gi>corr</gi> realisiert.</p>
+          <p>Corrigendaverzeichnisse und Druckfehlerverzeichnisse fanden sich in den Vorlagen nicht.</p>
+        </correction>
+        <correction method="markup">
+          <p>Ggf. vorhandene unleserliche Stellen der Vorlage werden über <tag>unclear type="illegible"</tag> gekennzeichnet, durch Druckfehler entstehende Lücken im Text werden als <gi>gap</gi> ausgewiesen.</p>
+        </correction>
+        <normalization source="#DLC" method="silent">
+          <p>Bei der Zeichenerkennung wurde nach Vorgabe des DLC modernisiert.</p>
+        </normalization>
+        <normalization source="#DLC" method="silent">
+          <p>In Absprache mit dem MPI wurden die folgenden Aspekte der Vorlage nicht erfasst:</p>
+          <p>Bogensignaturen und Kustoden</p>
+          <p>Kolumnentitel</p>
+          <p>Auf Titelblättern wurde auf die Auszeichnung der Schriftgrößenunterscheide zugunsten der Identifizierung von <gi>titlePart</gi>s verzichtet.</p>
+          <p>Bei Textpassagen, die als Abschnittsüberschrift ausgeweisen werden können, wird auf die zusätzliche Auszeichnung des Layouts verzichtet.</p>
+          <p>Keine Auszeichnung der Initialbuchstaben am Kapitelanfang.</p>
+        </normalization>
+        <normalization method="markup">
+          <p>In Frakturvorlagen in Antiqua gesetzte Textpassagen wurden als <tag>hi rendition="#rom"</tag> ("roman") ausgezeichnet.</p>
+          <p>In Antiquavorlagen in Fraktur gesetzte Textpassagen wurden als <tag>hi rendition="#goth"</tag> ausgezeichnet.</p>
+        </normalization>
+        <quotation marks="some">
+          <p>Es wurden alle Anführungszeichen übernommen und die Zitate zusätzlich mit <tag>q</tag> ausgezeichnet.</p>
+        </quotation>
+        <hyphenation eol="all">
+          <p>Weiche und harte Zeilentrennungen werden identisch als 002D übernommen. Der Zeilenumbruch selbst über <gi>lb</gi> ausgezeichnet.</p>
+        </hyphenation>
+      </editorialDecl>
+      <tagsDecl>
+        <rendition xml:id="w" scheme="css">letter-spacing: 2pt;</rendition>
+        <rendition xml:id="c" scheme="css">text-align: center;</rendition>
+        <rendition xml:id="no_ind" scheme="css">text-indent: none;</rendition>
+        <rendition xml:id="ind-1" scheme="css">text-indent: -1em;</rendition>
+        <rendition xml:id="ind-2" scheme="css">text-indent: -2em;</rendition>
+        <rendition xml:id="ind-3" scheme="css">text-indent: -3em;</rendition>
+        <rendition xml:id="ind" scheme="css">text-indent: 1em;</rendition>
+        <rendition xml:id="r" scheme="css">text-align: right;</rendition>
+        <rendition xml:id="l" scheme="css">text-align: left;</rendition>
+        <rendition xml:id="l1em" scheme="css">margin-left: 1em;</rendition>
+        <rendition xml:id="l2em" scheme="css">margin-left: 2em;</rendition>
+        <rendition xml:id="l3em" scheme="css">margin-left: 3em;</rendition>
+        <rendition xml:id="r1em" scheme="css">margin-right: 1em;</rendition>
+        <rendition xml:id="hidden" scheme="css">display: none;</rendition>
+        <rendition xml:id="s" scheme="css">font-size: .8em;</rendition>
+        <rendition xml:id="x-s" scheme="css">font-size: x-small;</rendition>
+        <rendition xml:id="xx-s" scheme="css">font-size: xx-small;</rendition>
+        <rendition xml:id="lar" scheme="css">font-size: large;</rendition>
+        <rendition xml:id="x-lar" scheme="css">font-size: x-large;</rendition>
+        <rendition xml:id="xx-lar" scheme="css">font-size: xx-large</rendition>
+        <rendition xml:id="smcap" scheme="css">font-variant: small-caps</rendition>
+        <rendition xml:id="i" scheme="css">font-style: italic</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold</rendition>
+        <rendition xml:id="rom" scheme="css">font-family: "times new roman", times, serif;</rendition>
+        <rendition xml:id="goth" scheme="css">font-family: "times new roman", times, serif;</rendition>
+        <rendition xml:id="sup" scheme="css">font-size: .7em; vertical-align: super;</rendition>
+        <rendition xml:id="sub" scheme="css">font-size: .7em; vertical-align: sub;</rendition>
+        <rendition xml:id="ul" scheme="css">text-decoration: underline</rendition>
+        <rendition xml:id="khiFootnote" scheme="css">width: 100%; font-size:10pt; text-align:right; border-top-width:thin; border-top-color:#AAA; border-top-style:dotted;</rendition>
+        <rendition xml:id="khiBox" scheme="css">width: 90%; text-align:left; border-width:thin; border-color:#AAA; border-style:solid;</rendition>
+        <rendition xml:id="khiVtop" scheme="css">vertical-align: top;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <tagUsage gi="div">Es wurden nur unnummerierte <gi>div</gi>s genutzt.</tagUsage>
+          <tagUsage gi="pb">Trägt obligatorisch die folgenden Attribute: <att>n</att> gibt die Originalseite der Vorlage wieder, <att>facs</att> ruft die Faksimiledatei auf, <att>xml:id</att> bildet für Seitenverweise eine ID aus dem Wert von <att>n</att> und einer laufenden Nummer. Wird <gi>pb</gi> in Fußnotentexten ein zweites Mal gesetzt, zählt die genannte ID eine Stelle hoch.</tagUsage>
+        </namespace>
+      </tagsDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change who="#Editura">Initiation <ident>$Revision: 1 $</ident>, <date>$Date: 2011-05-02 18:32:27 +0100 (Mo, 2. Mai 2011) $</date></change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body><div><p>
+E 6109
+b304255f
+000081246
+BV037650274
+
+</p></div><pb n="Physical page number: 1 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 2 | Printed page number: "/><div><p>
+
+
+
+</p></div><pb n="Physical page number: 3 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 4 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 5 | Printed page number: 1"/><div><p>
+
+<figure rendition="#khiBox" n="img1-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img1-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure><hi rendition="#w">LE IMAGINI CON TVTTI I RIVERSI TROVATI ET LE VITE DE GLI IMPERATORI TRATTE DALLE MEDAGLIE ET DALLE HISTORIE DE GLI ANTICHI. LIBRO PRIMO
+<ref target="http://d-nb.info/gnd/119099950">ENEA VICO</ref> PARM. F. L' ANNO. M DXLVIII.</hi>
+
+</p></div><pb n="Physical page number: 6 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 7 | Printed page number: 2"/><div><p>
+
+<lb/>
+</p></div><div>
+        <head><label rendition="#x-lar"><lb/><!-- Doppel lb nur für das unsaegliche MPDL DLC --><hi rendition="#w">CON PRIVILEGIO.</hi></label></head>
+<p>
+<lb/>
+<lb/>   Del sommo Pontefice <ref target="http://d-nb.info/gnd/118592068">Papa Paulo III</ref> per anni X.
+<lb/>   Della Cesarea Maesta per anni X.
+<lb/>   Del Christianissimo Re per anni X.
+<lb/>   Et dell'inclito Senato Veneto per anni XX.
+
+</p></div><pb n="Physical page number: 8 | Printed page number: "/><div><p>
+
+<lb/>
+</p></div><div>
+        <head><label rendition="#x-lar"><lb/><!-- Doppel lb nur für das unsaegliche MPDL DLC --><ref target="http://d-nb.info/gnd/133724603">ANTONIO ZANTANI</ref> A' LETTORI.</label></head>
+<p>
+<lb/>
+<lb/>   L<hi rendition="#w">O ARDENTE</hi> studio, che io conosco in molti di cercare, &amp; d'hauere grande, &amp; bella copia di medaglie, &amp; la somma dilettatione, che si prende dal leggere le antiche memorie; mi ha messo nello animo uno honesto piacere di satisfare in quello, che io potrò, con una sola fatica, à molti delle predette cose desiderosi. là onde io intendo di dare in luce le imagini de gli imperatori tratte dalle antiche medaglie con tutte quelle maniere di riuersi che alle mani peruenute mi sono, come che non picciol fatica in ciò habbi hauuta, &amp; aggiugnerui la somma delle uite, &amp; operationi fatte da quegli. Et hauendo hormai dato fine al primo uolume, che contiene i dodeci primi imperatori, non ho potuto cõtenermi di nõ porgerlo à i bramosi spiriti di tale professione, à guisa, che molti maestri satisfanno à quelli, che i loro lauori desiderano col farne loro parte promettendogli il restante. Prendete adunque ò lettori questa dimostratione di buona uolontate uerso uoi, &amp; quanto con l'occhio del corpo riguarderete le effigie de gli antichi, tanto con il lume dello intelletto considerate le loro attioni, prendendo que'begli essempi del uiuere, che si conuengono. Poca è la fatica di guardare, &amp; di leggere, ma la utilitate, &amp; il frutto è copioso, &amp; grande, perche si uede, &amp; istima quanto può la uirtute, à che infelicitade si uolga l'errore, di quale giouamento sia l'honesta cõuersatione, come ageuolmente si mutano i pensieri de gli
+
+</p></div><pb n="Physical page number: 9 | Printed page number: 3"/><div><p>
+ huomini, come uno uirtuoso è ueramente libero, &amp; uno scelerato seruo. &amp; finalmente come niuno fugge la prouidentia di Dio nel riceuere le pene, ò i premi, ch'egli s'habbia meritato. Vedete adunque, &amp; leggete, &amp; le cose uedute, &amp; lette bene spesso nell'animo riuolgete, &amp; con le honeste opere seguitate.
+
+</p></div><pb n="Physical page number: 10 | Printed page number: "/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>
+</p></div><div>
+        <head><label rendition="#x-lar"><lb/><!-- Doppel lb nur für das unsaegliche MPDL DLC --><ref target="http://d-nb.info/gnd/133724603">ANTONIO ZANTANI</ref> A' LETTORI.</label></head>
+<p>
+<lb/>
+<lb/>   I<hi rendition="#w">O POTEVA</hi> (come alcuni altri costumano di fare) forzarmi nella presente opera de interpretare, &amp; dichiarire i riuersci delle medaglie, ma riputando io tale fatica in molte parti essere &amp; difficile, &amp; uana, ho uoluto lasciare al giudicio di ciescaduno questa cura, &amp; pensiero. come che molto bene possa auuenire, che la continoua diligenza d'alcuni studiosi, accompagnata dal giudicio, &amp; bello intendimento di uarie cose, possa ritrouare accõcie, &amp; uere interpretationi, &amp; molti altri essere atti piu presto ad indouinare, che giudicare la uerità. oltra che il rischio di errare è grandissimo, il frutto dubbio, &amp; poco, &amp; molto habbia dello impossibile per la oscurità delle cose auolte nella longhezza, &amp; nella ingiuria del tempo: percioche le cose dalla memoria nostra lontane sogliono seco recare ignoranza, &amp; l'antichita guasta, &amp; corrompe i segni di quelle, come si uede in molte lettere, che sicure non hanno potuto restare nella finezza &amp; durezza dei marmi, ò dei metalli. per questa cagione ho giudicato essere à bastanza trauagliarmi nella inuentione, &amp; uarietà di molte Medaglie, &amp; porgere quelle à giudiciosi huomini, lasciando loro il campo aperto, &amp; libero di ritrouare le intelligenze belle, &amp; secrete delle cose per uia delle historie. Emmi piacciuto anche separare le medaglie, che sono in rame, da quelle che sono in oro, &amp; in argento per fare piu certa la uoglia di molti che si dilettano delle antiche memorie, &amp; non
+
+</p></div><pb n="Physical page number: 11 | Printed page number: 4"/><div><p>
+ hanno le facultati di poterle comperare, &amp; possedere. per questo adunque io uorrei, che ogniuno da me pregato fusse à prendere in buona parte questa mia piu presto diletteuole, che curiosa fatica, la quale satisfacendo in parte al disiderio naturale, che di sapere in ciascuno si troua, fugge le quistioni, &amp; le contentioni fieuoli, &amp; curiose di molti, che, per darne uno essempio, contrastano la stella, che è nella medaglia di. C. essere la stella di Venere dalla quale egli discese, ouero il fatto di lui, ò pure una cometa, come per certissime auttoritate si pruoua. Lasciero adũque l'arca di questo pretioso tesoro aperta, in quella ogn'uno potra riporui (dirò cosi) leuere &amp; certe ricchezze delle sue inuentioni, acquistate con il sudore, &amp; con le fatiche honeste delli studi suoi.
+
+</p></div><pb n="Physical page number: 12 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 13 | Printed page number: 5"/><div><p>
+
+
+</p></div><pb n="Physical page number: 14 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg2-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg2-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+		<anchor xml:id="TN003_00013"/>
+		
+<lb/><note type="editorial" rendition="#khiBox"><label rendition="#b">Further links to external Census database:</label><lb/><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10056230">  · Census ID10056230: »Denarius of M. Mettius (Caesar / Venus, RRC 480.3)«</ref><lb/>
+</note><lb/>
+<hi rendition="#w">ERA <ref target="http://d-nb.info/gnd/118518275">CESARE</ref> DI STATVRA GRANDE, DI CORPO MACILENTE, DI COLOR BIANCO. NERI HAVEA GLI OCCHI, MOBILI, ET VIVACI. CALVO ERA, ET DA DOGLIA DI TESTA SPESSO MOLESTATO. GIVOCAVA BENE D'OGNI SORTE DI ARME, NEI VIAGGI, ET NELLE SPEDITIONI PRESTISSIMO, NELLA CVRA DEL CORPO ESQVISITO. REGNO ANNI III. VISSE ANNI LVI. L'ANNO DEL MONDO, V M. C. LIX. ET DI <ref target="http://d-nb.info/gnd/4050471-2">ROMA</ref>, DCCVI.</hi>
+
+</p></div><pb n="Physical page number: 15 | Printed page number: 6"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   LA innata uirtù di <ref target="http://d-nb.info/gnd/118518275">Giulio Cesare</ref> da gli studi delle buone arti, &amp; da gli essempi della patria eccitata fu prima per necessitate ai nemici di lui manifestata, poi da se stessa con piu illustre significatione al mõdo si fece conoscere, &amp; finalmẽte da sdegno cõmossa contra à suoi medesimi si riuolse: imperò che alla prontezza mirabile dello ingegno suo cosi uolentieri ubidiua quella del corpo, che spesso si haueano prima gli auisi delle imprese da lui spedite,che i consigli delle deliberationi, fu anchor giouinetto da <ref target="http://d-nb.info/gnd/11864260X">Lucio Silla</ref> per seguitato per la rifutata da lui parentella. fuggi la sorte nascondendosi in luoghi secreti, &amp; riscuotendosi con pretio da quelli, che per nome di <ref target="http://d-nb.info/gnd/11864260X">Silla</ref> rittenuto lhaueano, diede nei corsali fuggendo, &amp; poi con dinari liberato, con i medesimi cõflisse, superogli, &amp; presi tutti gli pose in croce, hauendogli di cio poco inanzi sendo prigione giocosamente minacciati: &amp; in questo fu il ualor suo dalla necessità discoperto. Gli amici mancato <ref target="http://d-nb.info/gnd/11864260X">Silla</ref> nella patria lo riuocorno, doue fu illustre per molti gradi d'honori, &amp; dentro, &amp; di fuori di molte dignitati ornato: imperoche in <ref target="http://d-nb.info/gnd/4055964-6">Hispagna</ref> in questore, &amp; edile, &amp; põtifice, &amp; pretore, &amp; in consule eletto, &amp; creato diede molti chiari segni di eloquenza, di humanitade, di magnificenza, &amp; di fortezza: cinquantadue fiate combatte; &amp; uinsei uincitori, nõ da altro, che dalla propia uirtu gli augurii della battaglia prendendo: donaua, &amp; perdonaua, sappea dire, &amp; fare: sottomise al Romano imperio tutta la <ref target="http://d-nb.info/gnd/4155151-5">Francia</ref>, ottocento castella, &amp; trecento popoli superando: scrisse egli stesso, i fatti suoi non meno con uerità,
+<seg rendition="#khiFootnote"><lb/>1<lb/></seg>
+
+</p></div><pb n="Physical page number: 16 | Printed page number: "/><div><p>
+ che con somma scieltezza, &amp; puritade: In fine la sua uirtute nelle spesse uittorie essercitata, &amp; impatiente delle ripulse à sdegno grandissimo lo cõmosse contra <ref target="http://d-nb.info/gnd/118595636">Gn.Pomp.</ref> che d'impedimento gli era nella dimanda del consolato: fu per questo istimato non hauere troppo buona mente uerso la patria: perseguendo adunque le inimicitie cominciate, in <ref target="http://d-nb.info/gnd/4115953-6">Pharsaglia</ref> uinse <ref target="http://d-nb.info/gnd/118595636">Pompeo</ref>, &amp; piu fiero diuenuto seguendo il corso delle uittorie, ruppe il perfido Re di <ref target="http://d-nb.info/gnd/4068430-1">Egitto</ref> fratello di <ref target="http://d-nb.info/gnd/11856322X">Cleopatra</ref>, &amp; quella fauorita fece sola regina, &amp; con prestezza mirabile disfece Farnace figliuolo di <ref target="http://d-nb.info/gnd/118734210">Mithridate</ref> con tre sole parole auisandone gli amici, scriuẽdo. VENNI, VIDDI VINSI. Ecco la materia di tre honoratissimi triõfi à i quali un'altra presto s'aggiunse, impero che in un giorno tre uittorie nobilissime riportando, sconfise in <ref target="http://d-nb.info/gnd/4035589-5">Libia</ref> Scipione, Afranio, &amp; il re Iuba eccellentissimi capitani: doue in un mese quattro fiate uittorioso, &amp; trionfante riuide la patria, &amp; finalmente alla quinta, &amp; ultima pompa con dispiacere de i liberi huomini si conduse. imperò che fu fatta per la uittoria, che egli hebbe in <ref target="http://d-nb.info/gnd/4055964-6">Hispagna</ref> cõtra i figliuoli di <ref target="http://d-nb.info/gnd/118595636">Pompeo</ref>, &amp; molta nobiltà Romana, &amp; ueramente queste cose da lui fatte posero ne gli huomini una certa credenza della sua deitade, la quale del tutto ferma restata sarebbe se tra le molte uirtuti, alcuni uitii, tra le uittorie alcuna perdita, &amp; tra la felicitate finalmente la morte sua non si fusse trapposta. ecco quello, che il nome di Cesare diede à gli Imperatori, quello, che gli anni distinse, quello, che per molti segni del cielo fu dimostrato esser uno singularissimo huomo, da i piu diletti, &amp; istimati
+
+</p></div><pb n="Physical page number: 17 | Printed page number: 7"/><div><p>
+ da lui con perfida congiura di <ref target="http://d-nb.info/gnd/118516361">Brutto</ref>, &amp; <ref target="http://d-nb.info/gnd/118746200">Cassio</ref> nel senato aspramente ferito, &amp; morto dorme con gli altri principi della terra, appari della ignota plebe
+
+</p></div><pb n="Physical page number: 18 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 19 | Printed page number: 8"/><div><p>
+
+<figure rendition="#khiBox" n="img8-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img8-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00014"/>
+		
+1. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00015"/>
+		
+2. Coin not classified yet.<lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 20 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg3-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg3-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+1. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00017"/>
+		
+2. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00018"/>
+		
+3. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00019"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10018587">Census ID 10018587: »Denarius of Q. Voconius Vitulus (Caesar / Calf, RRC 526.2)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00020"/>
+		
+5. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00021"/>
+		
+6. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00022"/>
+		
+7. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00023"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10059058">Census ID 10059058: »Denarius of L. Livineius (Head of Caesar / Bull, RRC 494.24)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00024"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10056363">Census ID 10056363: »Denarius of L. Aemilius Buca (Head of Caesar / Venus, RRC 480.8)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00025"/>
+		
+10. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00026"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10057260">Census ID 10057260: »Denarius of M. Antonius / Caesar (RRC 488.1)«</ref><lb/>
+
+12. Coin not classified yet.<lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 21 | Printed page number: 9"/><div><p>
+
+<figure rendition="#khiBox" n="img9-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img9-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00028"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10056230">Census ID 10056230: »Denarius of M. Mettius (Caesar / Venus, RRC 480.3)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00029"/>
+		
+2. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00030"/>
+		
+3. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00031"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10025405">Census ID 10025405: »Denarius of L. Aemilius Buca (Head of Caesar / Globe, Fasces, Caduceus, Clasped Hands and Axe, RRC 480.6)«</ref><lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 22 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg4-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg4-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_05000"/>
+		
+1. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_05001"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10025405">Census ID 10025405: »Denarius of L. Aemilius Buca (Head of Caesar / Globe, Fasces, Caduceus, Clasped Hands and Axe, RRC 480.6)«</ref><lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 23 | Printed page number: 10"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   SI come <ref target="http://d-nb.info/gnd/118518275">Giulio Cesare</ref> non hebbe chi piede inanzi gli mettesse nel fare le belle, &amp; uirtuose opere, cosi delle uirtuti altrui nõ anchora manifeste, fu rarissimo conoscitore, &amp; quasi indouino. come chiaramẽte apparue nel giudicare <ref target="http://d-nb.info/gnd/118505122">Ottauio</ref> di Accia figliuolo allui nipote, ma per adottione, &amp; della facultà, &amp; del nome herede, al giuditio so presagio di <ref target="http://d-nb.info/gnd/118518275">Cesare</ref> successe, che <ref target="http://d-nb.info/gnd/118505122">Ottauio</ref> nello imperio, &amp; nella gloria per propia uirtute allui simigliante si fece. raro fu che crescendo egli in ricchezze, &amp; felicitate, ogn'hora facesse delle uirtuti acquisto maggiore. fusse piu amato da i popoli, meno desiderasse la signoria, &amp; piu sicuro, &amp; tranquillo regesse l'imperio, che bene si diede al Ihora ad intẽdere al mondo, (benche i successi de grãdi huomini habbiano le cause occulte) che il donatore della pace, il Re legitimo del mõdo, &amp; il sole della giustitia douesse spargere i suoi chiarissimi rai per l'uniuerso mõdo, &amp; quello ritrouare pacifico, &amp; tranquillo sotto l'imperio di uno giustissimo, &amp; benignissimo capo. Direi della splendidezza del sangue suo, se quiui altro si ricercasse, che la uera nobilitade: la quale dalla uirtute nascendo poco istima il potere della fortuna, dirò adunque delle uirtuti, delle opere, &amp; delle grandezze di <ref target="http://d-nb.info/gnd/118505122">Ottauio</ref>, il quale hebbe il cognome di Augusto, &amp; lo diede à i successori dell'imperio, essendo bene conueniente, che colui il nome dia à ciascuno, che la dritta regula del uiuere &amp; lo illustre essempio ha dato del signoreggiare. fuggiua le guerre, &amp; riportaua le uittorie, fuggiua gli honori, &amp; sempre trionfaua, fuggiua le uendette, &amp; aspramente gli erro
+<seg rendition="#khiFootnote"><lb/>2<lb/></seg>
+
+</p></div><pb n="Physical page number: 24 | Printed page number: "/><div><p>
+ri della militia correggeua, queste conditioni gli piacquero nel progresso del suo imperio, perche da prima pensando allui appartenerse il uendicare la morte di <ref target="http://d-nb.info/gnd/118518275">Cesare</ref>, &amp; di stabilire le cose da lui fatte con ubidire al senato, che questo gli per suadeua, perseguito <ref target="http://d-nb.info/gnd/118503529">Marcoantonio</ref> due fiate, &amp; il fratello di <ref target="http://d-nb.info/gnd/118503529">Marcoantonio</ref>, <ref target="http://d-nb.info/gnd/118516361">Brutto</ref>, &amp; <ref target="http://d-nb.info/gnd/118746200">Cassio</ref>, &amp; finalmente il figliuolo di <ref target="http://d-nb.info/gnd/118595636">Pompeio</ref>. onde uittorioso per mare, &amp; per terra si diede al reggimento dello stato. hauendo molti capi di congiure, che come le teste dell'hidra continuamente risorgeuano, risecati, condusse in <ref target="http://d-nb.info/gnd/4027833-5">Italia</ref> uentiotto colonie, &amp; diede loro tanti priuileggi, &amp; commodi, che à cittadini Romani pari si giudica uano, ridusse lo <ref target="http://d-nb.info/gnd/4068430-1">Egitto</ref> in forma di prouincia aumentando l'imperio, dal che hebbe il nome di Augusto di molto stato, &amp; à quello sottomettendo i Cantabri, Aquitani, Rheti, Vindelici, Dalmati, &amp; tirando alla diuotione dello imperio gli ultimi habitatori della terra. hebbe da gli Indi, Scithi, Garamanti, &amp; Ethiopi legati, &amp; doni: donò anche egli, &amp; nel donare hauea piu rispetto alla uirtute, che alla nobilitate. era splendidissimo nelle fabriche, la doue non si poteua satiare d'adornare la cittate: uolẽdo che alla bellezza del corpo suo, la bellezza d'ogni altra cosa corrispondesse, &amp; però era chiamato hora per lo nome di Romulo, hora per lo nome di Augusto. &amp; hora per padre della patria, donatore della libertà, &amp; conseruatore della salute. doue che l'honore, che egli si sforzaua di far alli dei col sacrificargli &amp; drizzar gli altari, &amp; tempi, il medesimo permetteuano i dei, che egli fusse da i popoli restituito. Tre fiate hebbe il trionfo. l'una per la uittoria nel
+
+</p></div><pb n="Physical page number: 25 | Printed page number: 11"/><div><p>
+ la Dalmatia, l'altra per la uittoria della Preuesa di <ref target="http://d-nb.info/gnd/118503529">Marcoantonio</ref>, l'altra per la uittoria di <ref target="http://d-nb.info/gnd/4001138-0">Alessandria</ref>. chiuse il tempio di <ref target="http://d-nb.info/gnd/118775979">Giano</ref> tre uolte, &amp; finalmente dimostro quanto gioua essendo nati per far cose grandi l'hauere hauuto da primi anni la disciplina sotto alcuno eccellentissimo capitano, come fu <ref target="http://d-nb.info/gnd/118518275">Cesare</ref>. Visse anni <hi rendition="#w">LXXVI.</hi> Spatio ueramente quanto alla uita conueniente, ma quanto alle opere che egli fece, breue, &amp; poco, però principio di gloria sempiterna.
+
+</p></div><pb n="Physical page number: 26 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 27 | Printed page number: 12"/><div><p>
+
+<figure rendition="#khiBox" n="img12-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img12-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00001"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10042569">Census ID 10042569: »As of Augustus / SC (RIC 434)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00002"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10025889">Census ID 10025889: »Dupondius of Claudius (Augustus / Livia, RIC 101)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00003"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10040687">Census ID 10040687: »Dupondius of Augustus (Oak-wreath / SC, RIC 326)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00004"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10051684">Census ID 10051684: »Bronze Coin of Ilici (Head of Augustus / Temple, RPC I 192)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00005"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10051685">Census ID 10051685: »Dupondius of Augustus / Wreath (RIC 502)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00006"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10051688">Census ID 10051688: »Dupondius of Titus (Augustus / Victory, RIC 448)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00007"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10042552">Census ID 10042552: »Dupondius of Augustus / SC (RIC 429)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00008"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10051741">Census ID 10051741: »As of Nerva (Divus Augustus / Altar, RIC 133)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00009"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10051679">Census ID 10051679: »As of  Augustus / SC (RIC 528)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00010"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10051690">Census ID 10051690: »Sestertius of Augustus / Wreath (RIC 483)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00011"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10051696">Census ID 10051696: »As of Augustus / Eagle (RIC Titus 462)«</ref><lb/>
+
+12. Coin not classified yet.<lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 28 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg5-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg5-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00032"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10044305">Census ID 10044305: »As of Tiberius (Augustus / Altar, RIC 81)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00033"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10025088">Census ID 10025088: »Dupondius of Caligula / Augustus (RIC 56)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00034"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10051675">Census ID 10051675: »As of Titus (Divus Augustus / Altar, RIC 455)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00035"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10025414">Census ID 10025414: »Dupondius of Tiberius (Augustus / SC, RIC 79)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00036"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10040209">Census ID 10040209: »Sestertius of Augustus (Wreath / SC, RIC 323)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00037"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10051679">Census ID 10051679: »As of  Augustus / SC (RIC 528)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00038"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10044331">Census ID 10044331: »As of Tiberius (Augustus / Eagle, RIC 82)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00039"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10044338">Census ID 10044338: »As of Tiberius (Augustus / Thunderbolt, RIC 83)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00040"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10025387">Census ID 10025387: »As of Tiberius (Augustus / Female Figure Seated, RIC 72)«</ref><lb/>
+9. <ref target="http://census.bbaw.de/easydb/censusID=10045214">Census ID 10045214: »As of Tiberius (Augustus / Female Figure Seated, RIC 73)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00041"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10042575">Census ID 10042575: »As of Augustus / SC (RIC 471)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00042"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10051457">Census ID 10051457: »Sestertius of Tiberius (Shield / SC, RIC 57)«</ref><lb/>
+11. <ref target="http://census.bbaw.de/easydb/censusID=10051461">Census ID 10051461: »Sestertius of Tiberius (Shield / SC, RIC 63)«</ref><lb/>
+11. <ref target="http://census.bbaw.de/easydb/censusID=10051464">Census ID 10051464: »Sestertius of  Tiberius (Shield / SC, RIC 69)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00043"/>
+		
+
+</note>
+
+
+</p></div><pb n="Physical page number: 29 | Printed page number: 13"/><div><p>
+
+<figure rendition="#khiBox" n="img13-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img13-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00044"/>
+		
+
+
+2. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00046"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10051699">Census ID 10051699: »As of Augustus / Eagle (RIC Titus 469)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00047"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10051675">Census ID 10051675: »As of Titus (Divus Augustus / Altar, RIC 455)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00048"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10051743">Census ID 10051743: »As of Nerva (Divus Augustus / Eagle, RIC 129)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00049"/>
+		
+6. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00050"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10051746">Census ID 10051746: »As of Nerva (Divus Augustus / Thunderbolt, RIC 130)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00051"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10051749">Census ID 10051749: »Bronze Coin of Achaea (Head of Augustus / Man with two Oxen, RPC I 1253)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00052"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10042634">Census ID 10042634: »As of Augustus / Wreath (RIC 486)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00053"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10060006">Census ID 10060006: »Bronze Coin of Berytus (Head of Augustus / Dolphin and Trident, RPC I 4536)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00054"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10051751">Census ID 10051751: »As of Augustus / Eagle (RIC Titus 461)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00055"/>
+		
+12. <ref target="http://census.bbaw.de/easydb/censusID=10060008">Census ID 10060008: »Bronze Coin of Tarraco (Head of Octavian / Temple, RPC I 224)«</ref><lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 30 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg6-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg6-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00056"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10060008">Census ID 10060008: »Bronze Coin of Tarraco (Head of Octavian / Temple, RPC I 224)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00057"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10060017">Census ID 10060017: »Bronze Coin of Sidon (Head of Augustus / Founder Plowing, RPC I 4540)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00058"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10060029">Census ID 10060029: »Dupondius of Nerva (Head of Octavian / Rudder on Globus, RIC 131)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00059"/>
+		
+4. Coin not classified yet.<lb/>
+
+5. Coin not classified yet.<lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 31 | Printed page number: 14"/><div><p>
+
+<figure rendition="#khiBox" n="img14-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img14-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00061"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10025479">Census ID 10025479: »Quinarius of Augustus / Cista Mystica (RIC 276)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00062"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10024990">Census ID 10024990: »Denarius of Augustus / Citywall (RIC 9a)«</ref><lb/>
+2. <ref target="http://census.bbaw.de/easydb/censusID=10044624">Census ID 10044624: »Denarius of Augustus / Citywall (RIC 10)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00063"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10051754">Census ID 10051754: »Bronze Coin of Lugdunum (Victory or Fulvia / Lion, RPC I 513) «</ref><lb/>
+
+
+		<anchor xml:id="TN003_00064"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10040722">Census ID 10040722: »Denarius of Augustus / Cippus (RIC 358)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00065"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10043046">Census ID 10043046: »Denarius of Caligula / Augustus (RIC 2)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00066"/>
+		
+6. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00067"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10040722">Census ID 10040722: »Denarius of Augustus / Cippus (RIC 358)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00068"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10051759">Census ID 10051759: »Denarius of Lepidus / Augustus (RRC 495.2d)«</ref><lb/>
+8. <ref target="http://census.bbaw.de/easydb/censusID=10051764">Census ID 10051764: »Denarius of Lepidus / Augustus (RRC 495.2a)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00069"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10040698">Census ID 10040698: »Denarius of Augustus / Apex between Ancilia (RIC 343)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00070"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10051836">Census ID 10051836: »Denarius of Octavian / Thunderbolt (RRC 523.1a)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00071"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10051866">Census ID 10051866: »Denarius of Antonius / Caduceus (RRC 529.3)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00072"/>
+		
+12. <ref target="http://census.bbaw.de/easydb/censusID=10025737">Census ID 10025737: »Denarius of Augustus / Prows (RIC 473)«</ref><lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 32 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg7-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg7-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00073"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10050085">Census ID 10050085: »Denarius of Augustus / Shield (RIC 543a)«</ref><lb/>
+1. <ref target="http://census.bbaw.de/easydb/censusID=10050102">Census ID 10050102: »Denarius of Augustus / Shield (RIC 543b)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00074"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10040693">Census ID 10040693: »Denarius of Augustus / Head with Comet (RIC 338)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00075"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10025232">Census ID 10025232: »Denarius of Augustus / Comet (RIC 37)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00076"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10043938">Census ID 10043938: »Cistophorus of Augustus / Corn-Ears (RIC 478)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00077"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10021231">Census ID 10021231: »Denarius of Augustus / Tarpeia (RIC 299)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00078"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10040118">Census ID 10040118: »Denarius of Augustus / Rostral Column (RIC 271)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00079"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10025473">Census ID 10025473: »Denarius of Augustus / Altar (RIC 54)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00080"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10041904">Census ID 10041904: »Denarius of Augustus / Victory (RIC 254)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00081"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10052655">Census ID 10052655: »Denarius of Octavian / Temple (RRC 540.2)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00082"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10042021">Census ID 10042021: »Denarius of Augustus / Mars (RIC 82)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00083"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10052663">Census ID 10052663: »Denarius of Octavian / Religious Items (RRC 538.1)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00084"/>
+		
+12. <ref target="http://census.bbaw.de/easydb/censusID=10052666">Census ID 10052666: »Denarius of Augustus / Mars (RIC 83)«</ref><lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 33 | Printed page number: 15"/><div><p>
+
+<figure rendition="#khiBox" n="img15-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img15-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00085"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10024982">Census ID 10024982: »Denarius of Augustus / Jupiter Temple (RIC 64)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00086"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10025012">Census ID 10025012: »Denarius of Augustus / Military Signs (RIC 86)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00087"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10009462">Census ID 10009462: »Denarius of Augustus / Arch (RIC 267)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00088"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10018976">Census ID 10018976: »Denarius of Augustus / Gaius and Lucius Caesar (RIC 207)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00089"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10041764">Census ID 10041764: »Denarius of Augustus / Bull (RIC 167)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00090"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10024178">Census ID 10024178: »Denarius of Augustus / Trophy (RIC 265)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00091"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10041929">Census ID 10041929: »Denarius of Augustus / Male Figure (RIC 257)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00092"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10025265">Census ID 10025265: »Denarius of Augustus / Bull (RIC 475)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00093"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10041734">Census ID 10041734: »Denarius of Augustus / Soldiers (RIC 165)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00094"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10025208">Census ID 10025208: »Denarius of Augustus / Mars (RIC 150)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00095"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10018855">Census ID 10018855: »Denarius of Augustus / Horseman (RIC 199)«</ref><lb/>
+
+12. Coin not classified yet.<lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 34 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg8-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg8-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00097"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10040972">Census ID 10040972: »Denarius of Augustus / Oak-Wreath (RIC 40)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00098"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10024189">Census ID 10024189: »Denarius of Augustus / Capricorn (RIC 541)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00099"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10042789">Census ID 10042789: »Denarius of Augustus / Oak-Wreath (RIC 77)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00100"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10040184">Census ID 10040184: »Denarius of Augustus / Pegasus (RIC 297)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00101"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10036047">Census ID 10036047: »Denarius of Augustus / Crocodile (RIC 275b)«</ref><lb/>
+5. <ref target="http://census.bbaw.de/easydb/censusID=10036075">Census ID 10036075: »Denarius of Augustus / Crocodile (RIC 545)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00102"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10025214">Census ID 10025214: »Denarius of Augustus / Lion and Deer (RIC 318)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00103"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10052668">Census ID 10052668: »Denarius of Augustus / Apollo (RIC 180)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00104"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10042662">Census ID 10042662: »Cistophorus of Augustus / Triumphal Arch (RIC 510)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00105"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10049840">Census ID 10049840: »Denarius of Augustus / Terminal Figure (RIC 269a)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00106"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10042874">Census ID 10042874: »Denarius of Augustus (Toga Picta / Quadriga, RIC 99)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00107"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10042718">Census ID 10042718: »Denarius of Augustus / Candelabrum (RIC 540)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00108"/>
+		
+12. <ref target="http://census.bbaw.de/easydb/censusID=10037757">Census ID 10037757: »Denarius of Augustus / Quadriga (RIC 110)«</ref><lb/>
+
+</note>
+
+
+</p></div><pb n="Physical page number: 35 | Printed page number: 16"/><div><p>
+
+<figure rendition="#khiBox" n="img16-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img16-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+
+		<anchor xml:id="TN003_00109"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10042767">Census ID 10042767: »Denarius of Augustus / Temple (RIC 69)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00110"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10041572">Census ID 10041572: »Denarius of Augustus / Arch (RIC 144)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00111"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10025488">Census ID 10025488: »Denarius of Augustus / Temple (RIC 105)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00112"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10041998">Census ID 10041998: »Denarius of Augustus / Temple (RIC 266)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00113"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10037748">Census ID 10037748: »Denarius of Augustus / Quadriga (RIC 108)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00114"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10037762">Census ID 10037762: »Denarius of Augustus / Temple with Currus (RIC 115)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00115"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10019038">Census ID 10019038: »Denarius of Augustus / Laurel Branches (RIC 51)«</ref><lb/>
+7. <ref target="http://census.bbaw.de/easydb/censusID=10053219">Census ID 10053219: »Denarius of Augustus / Laurel Branches (RIC 33a)«</ref><lb/>
+7. <ref target="http://census.bbaw.de/easydb/censusID=10053229">Census ID 10053229: »Denarius of Augustus / Laurel Branches (RIC 33b)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00116"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10042617">Census ID 10042617: »Cistophorus of Augustus / Altar (RIC 479)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00117"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10041020">Census ID 10041020: »Denarius of Augustus /  Religious Instruments (RIC 410)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00118"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10050083">Census ID 10050083: »Denarius of Augustus (Mars / Shield, RIC 274)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00119"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10041855">Census ID 10041855: »Denarius of Augustus / Venus (RIC 250)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00120"/>
+		
+12. <ref target="http://census.bbaw.de/easydb/censusID=10025241">Census ID 10025241: »Denarius of Augustus / Shield (RIC 42)«</ref><lb/>
+
+</note>
+
+
+</p></div><pb n="Physical page number: 36 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg9-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg9-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+
+		<anchor xml:id="TN003_00121"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10040931">Census ID 10040931: »Denarius of Augustus / Quadriga (RIC 399)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00122"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10024585">Census ID 10024585: »Denarius of Augustus / Triumphal Arch (RIC 134)«</ref><lb/>
+2. <ref target="http://census.bbaw.de/easydb/censusID=10055404">Census ID 10055404: »Denarius of Augustus / Triumphal Arch (RIC 136)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00123"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10042031">Census ID 10042031: »Denarius of Augustus / Equestrian Statue (RIC 412)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00124"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10040944">Census ID 10040944: »Denarius of Augustus / Trophy (RIC 4)«</ref><lb/>
+4. <ref target="http://census.bbaw.de/easydb/censusID=10044004">Census ID 10044004: »Denarius of Augustus / Trophy (RIC 5)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00125"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10041007">Census ID 10041007: »Denarius of Augustus / Agrippa (RIC 408)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00126"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10054952">Census ID 10054952: »Denarius of Augustus / Pan (RIC 294)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00127"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10042066">Census ID 10042066: »Denarius of Augustus / Augustus and Caesar (?) (RIC 415)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00128"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10040987">Census ID 10040987: »Denarius of Augustus / Bust of Diana (RIC 403)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00129"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10040190">Census ID 10040190: »Denarius of Augustus / Star and Crescent (RIC 300)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00130"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10024606">Census ID 10024606: »Denarius of Augustus / Flower (RIC 309)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00131"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10037801">Census ID 10037801: »Denarius of Augustus / Agrippa (RIC 414)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00132"/>
+		
+12. <ref target="http://census.bbaw.de/easydb/censusID=10056100">Census ID 10056100: »Denarius of Augustus / Diana (RIC 183)«</ref><lb/>
+
+</note>
+
+
+</p></div><pb n="Physical page number: 37 | Printed page number: 17"/><div><p>
+
+<figure rendition="#khiBox" n="img17-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img17-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+
+		<anchor xml:id="TN003_00133"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10040199">Census ID 10040199: »Denarius of Augustus (Sol / Quadriga, RIC 303)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00134"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10042583">Census ID 10042583: »Denarius of Augustus / Temple (RIC 472)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00135"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10041956">Census ID 10041956: »Denarius of Augustus (Victory / Octavian in Quadriga, RIC 264)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00136"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10042088">Census ID 10042088: »Denarius of Augustus / Barbarian (RIC 416)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00137"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10056666">Census ID 10056666: »Denarius of Augustus / Augustus and Agrippa (RIC 397)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00138"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10056812">Census ID 10056812: »Denarius of Augustus / Diana (RIC 175)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00139"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10056829">Census ID 10056829: »Drachma of Augustus / Citharas (RPC 3309)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00140"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10041956">Census ID 10041956: »Denarius of Augustus (Victory / Octavian in Quadriga, RIC 264)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00141"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10042798">Census ID 10042798: »Denarius of Augustus /  Shield in Oak-wreath (RIC 79)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00142"/>
+		
+
+
+
+		<anchor xml:id="TN003_00143"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10041880">Census ID 10041880: »Denarius of Augustus /  Pax (RIC 252)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00144"/>
+		
+12. <ref target="http://census.bbaw.de/easydb/censusID=10025000">Census ID 10025000: »Denarius of Augustus / Cippus (RIC 360)«</ref><lb/>
+12. <ref target="http://census.bbaw.de/easydb/censusID=10056479">Census ID 10056479: »Denarius of Augustus / Cippus (RIC 361)«</ref><lb/>
+12. <ref target="http://census.bbaw.de/easydb/censusID=10056484">Census ID 10056484: »Denarius of Augustus (Equestrian Statue / Cippus, RIC 362)«</ref><lb/>
+
+</note>
+
+
+</p></div><pb n="Physical page number: 38 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg10-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg10-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00145"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10041579">Census ID 10041579: »Aureus of Augustus / Mars (RIC 149)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00146"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10059993">Census ID 10059993: »Aureus of Octavian and Antonius (RRC 529.1)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00147"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10041729">Census ID 10041729: »Aureus of Augustus / Soldiers (RIC 164)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00148"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10025222">Census ID 10025222: »Denarius of Augustus / Cippus (RIC 354)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00149"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10057493">Census ID 10057493: »Aureus of Augustus / Capricorn (RIC 125)«</ref><lb/>
+5. <ref target="http://census.bbaw.de/easydb/censusID=10057499">Census ID 10057499: »Aureus of Augustus / Capricorn (RIC 129)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00150"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10019495">Census ID 10019495: »Aureus of Augustus / Gaius and Lucius Caesar (RIC 205-6)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00151"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10041998">Census ID 10041998: »Denarius of Augustus / Temple (RIC 266)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00152"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10009462">Census ID 10009462: »Denarius of Augustus / Arch (RIC 267)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00153"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10057505">Census ID 10057505: »Aureus of Augustus / Temple (RIC 104)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00154"/>
+		
+10. <ref target="http://census.bbaw.de/easydb/censusID=10041791">Census ID 10041791: »Aureus of Augustus / Apollo (RIC 170)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00155"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10057512">Census ID 10057512: »Aureus of Augustus / Wreath (RIC 29)«</ref><lb/>
+
+</note>
+
+
+</p></div><pb n="Physical page number: 39 | Printed page number: 18"/><div><p>
+
+
+</p></div><pb n="Physical page number: 40 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg11-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg11-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+		<anchor xml:id="TN003_00158"/>
+		
+<lb/><note type="editorial" rendition="#khiBox"><label rendition="#b">Further links to external Census database:</label><lb/><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10057733">  · Census ID10057733: »As of Augustus (Tiberius / Altar, RIC 242)«</ref><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10057746">  · Census ID10057746: »Semis of Augustus (Tiberius / Altar, RIC 243)«</ref><lb/>
+</note><lb/>
+<hi rendition="#w">FV <ref target="http://d-nb.info/gnd/118622501">TIBERIO</ref> DI CORPO GRANDE, ET GAGLIARDO, LARGO NEL PETTO ET NE I FIANCHI ASSAI PROPORTIONATO, ERA DI COLOR BIANCO, PORTAVA I CAPELLI DISTESI, HAVEA GLI OCCHI GRANDI, ET ASSAI DI NOTTE VEDEVA PORTAVA LA TESTA CHINA, ET IL VISO RACCOLTO, ET ERA TARDO NEL PARLARE, ET DI NATVRA TACITVRNA, VISSE ANNI LXXX, REGNO ANNI XXV.</hi>
+
+</p></div><pb n="Physical page number: 41 | Printed page number: 19"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   <ref target="http://d-nb.info/gnd/118622501">T<hi rendition="#w">IBERIO</hi></ref> per la uirtu, &amp; disciplina militare chiamato Nerone, cioè forte, &amp; gagliardo in lingua de Sabini, aggiunse poi al predetto nome alcuna simiglianza de costumi, perche in fine dello imperio diuenne crudelissimo, &amp; pieno d'auaritia, &amp; per fidia, essendo stato prima humanissimo, &amp; pieno d'ogni uirtu. O'mutabile uolonta de gli huomini, quanto sono difcili da essere conosciuti i progressi tuoi, quãto è da temere, quanto da sperare, quanto d'aspettare il fine per giudicare drittamente. Vedi che hoggi <ref target="http://d-nb.info/gnd/118622501">Tiberio</ref> abbraccia gli amici, scaccia gli adulatori, &amp; con ogni gẽtilezza, &amp; nettezza si uede, &amp; dimane si spoglia di humanitade, &amp; di ueritade. hoggi è uerso i dei pietoso, uerso gl'huomini benigno, dimane di spreggia ogni culto, &amp; ogni deuuto officio. hoggi allui di uolonta si dona il senato, dimani prende letitia incredibile della morte sua, segno manifesto di strana mutation de costumi: doueui pure riguardare ò <ref target="http://d-nb.info/gnd/118622501">Tiberio</ref> come in uno specchio nelle uirtuti di <ref target="http://d-nb.info/gnd/118505122">Ottauio</ref>, cui prima figliastro, poi genero, &amp; in fine addottiuo figliuolo ti uedesti, doueua pure fino da <ref target="http://d-nb.info/gnd/4028586-8">Hierosolima</ref> peruenire à te l'odore della bonta di quello, che fu la salute nostra, &amp; con quello ricreare l'anima tua, come accennasti di uolere. doueui finalmente riconoscere la propia uirtu di te stesso, &amp; tenerla nei suoi gloriosi termini, che sono senza fine per honore della nobilita de Claudi, da i quali discendesti: troppo grande, &amp; generoso dono hauresti al mondo fatto conseruandoti uirtuoso. uedi di quanta pace, &amp; di quanto imperio herede rimaso sei, uedi
+<seg rendition="#khiFootnote"><lb/>3<lb/></seg>
+
+</p></div><pb n="Physical page number: 42 | Printed page number: "/><div><p>
+ che tanto dura la tua felicitade, quãto le tue uirtuti, ma poi che mutasti modi, &amp; costumi, &amp; che in parte peggiore te riuoltasti, turbossi la pace uniuersale; &amp; rimettendosi il uigore dell'antica militia, <ref target="http://d-nb.info/gnd/PJTN008-0">Parthi</ref>, la <ref target="http://d-nb.info/gnd/4085930-7">Armenia</ref>, <ref target="http://d-nb.info/gnd/4070197-9">Daci</ref>, la <ref target="http://d-nb.info/gnd/PJTN008-1">Misia</ref>, <ref target="http://d-nb.info/gnd/4105355-2">Sarmati</ref>, la <ref target="http://d-nb.info/gnd/4044473-9">Pannonia</ref>, &amp; i uicini popoli la <ref target="http://d-nb.info/gnd/4019150-3">Gallia</ref> saccheggiorno, &amp; la Chiesa comincio à sentire l'aspra percossa de i perfidi tiranni, e tu misero, &amp; infelice giudice delle male tue operationi, con la propia mano di quelle ne fai giusta, &amp; conueneuole uendetta.
+
+
+</p></div><pb n="Physical page number: 43 | Printed page number: 20"/><div><p>
+
+<figure rendition="#khiBox" n="img20-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img20-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00159"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10057752">Census ID 10057752: »Denarius of Tiberius / Female Figure (RIC 26)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00160"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10057760">Census ID 10057760: »Denarius of Augustus / Tiberius in Quadriga (RIC 224)«</ref><lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 44 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg12-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg12-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00161"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10030389">Census ID 10030389: »Aureus of Tiberius / Female Figure Seated (RIC 25)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00162"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10057977">Census ID 10057977: »Aureus of Tiberius / Augustus (RIC 24) «</ref><lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 45 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 46 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg13-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg13-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+		<anchor xml:id="TN003_00163"/>
+		
+<lb/><note type="editorial" rendition="#khiBox"><label rendition="#b">Further links to external Census database:</label><lb/><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10025292">  · Census ID10025292: »Sestertius of Caligula / Adlocutio (RIC 32)«</ref><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10025731">  · Census ID10025731: »Sestertius of Caligula / 3 Sisters (RIC 33)«</ref><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10025021">  · Census ID10025021: »Sestertius of Caligula / SPQR (RIC 37)«</ref><lb/>
+</note><lb/>
+<hi rendition="#w">FV <ref target="http://d-nb.info/gnd/118518410">GAIO</ref> ALTO DI STATVRA. BRVTTO DI CORPO, PALIDO DI COLORE. GLI OCCHI HAVEVA, ET LE TEMPIE RITTRATTE IN DENTRO. LA FRONTE LARGA, ET ARCIGNA, DI RARA CAPILLATVRA, MA PILOSO NEL RESTO, HORRIBILE NELLO ASPETTO, ET A QVESTA NATVRALE APPARENZA AGGIVGNEVA LA INDVSTRIA. LE GAMBE HAVEA SOTTILISSIME, ET ERA DI DEBOLE COMPLESSIONE PER CHE CADEVA DEL MALE CADVCO, ET SPESSO SPESSO GLI VENIVANO ALCVNI ISFINIMENTI DI VITA, ET ERA DA HORRIBILI SOGNI SPAVENTATO</hi>
+
+</p></div><pb n="Physical page number: 47 | Printed page number: 21"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   M<hi rendition="#w">OLTI</hi> essempi sono delle cose occulte, &amp; risseruate nello abisso della prouidenza diuina, tra lequali una uen'è degna di consideratione, che è questa, come da honestissimo. &amp; uirtuosissimo padre nasca figliuolo di natura de'l tutto contraria. Largo, &amp; ampio testimonio ne sono l'historie, &amp; tra le altre questa di <ref target="http://d-nb.info/gnd/118518410">Caio Cesare Caligula</ref> per cognome. il quale nacque di <ref target="http://d-nb.info/gnd/118538748">Germanico</ref> huomo senza pari ualoroso, &amp; da bene, &amp; sopra modo amato da ciescaduno, degno ueramente &amp; per la bellezza del corpo, &amp; per le uirtuti dello animo di hauere lo imperio di tutto il mondo, &amp; quello eternalmente possedere. ma bene indegno di cosi fatto figliuolo, ilquale con noui, &amp; inusitati modi, &amp; maniere de stratij, &amp; crudeltadi fè parere i uitij del suo precessore assai minori, &amp; tanto era horribile, &amp; brutto di aspetto, che monstruoso fu giudicato. fece ne prim'anni assai buona pruoua, ma seguendo il corso del suo naturale ingegno cadè in ogni sorte di sceleragine: puo ben essere i scusato d'alcuni, che Cesonia con incanti guasto l'hauea. ma chi considera bene quanto Iddio s'adira cõtra coloro, che lo disprezzano, &amp; pari allui si stimano, potrà chiaramente giudicare il peccato esser pena del peccato, la onde istimandosi <ref target="http://d-nb.info/gnd/118518410">Caligula</ref> eguale à tutti gli dei, &amp; per tale facendosi adorare, per giusto giudicio di quel dio, che lui non conobbe, rouinando in molti, &amp; in humani uitij, non lasciò adietro sorte di lussuria, di rapina, di perfidia, di crudeltà, &amp; atrocitade: imperoche tre sorelle bruttamente si sottomise, ne riguardo à matrona, che andata gli fusse per fantasia.
+<seg rendition="#khiFootnote"><lb/>4<lb/></seg>
+
+</p></div><pb n="Physical page number: 48 | Printed page number: "/><div><p>
+ Rubbò, &amp; ispogliò quanto puote, uccise, &amp; fè uccidere ogni sorte di persone, caualieri, senatori, amici, giuocatori, huomini, &amp; dõne; infinitamente dolendosi, che'l popolo Romano non hauesse un solo collo, accio che per un colpo spicare piu ageuolmente si potesse. ramaricauasi, che la terra non s'aprisse, che la fame gli huomini non consumasse, ò la pestilenza non gli togliesse. Non si deono cosi enormi errori commettere alle carte; però che forse nõ sono creduti, ò forse fanno dubitare alcuni della prouidenza diuina. ma nell'uno &amp; nell'altro caso in bene si puo ciascuno sano intelletto risoluere, considerando la seguente punitione, che al detto fu data: imperò che mentre che egli si ferignamente si gouernaua, fu per cõmissione del senato dalle sue guardie miseramente ucciso con trentatre ferite, essendo di anni uintiotto, &amp; molestando con l'ombra sua dopo la morte gli hortolani uicini alla sua sepultura. Regno anni III. mesi X. giorni VIII.
+
+
+</p></div><pb n="Physical page number: 49 | Printed page number: 22"/><div><p>
+
+<figure rendition="#khiBox" n="img22-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img22-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00164"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10025292">Census ID 10025292: »Sestertius of Caligula / Adlocutio (RIC 32)«</ref><lb/>
+1. <ref target="http://census.bbaw.de/easydb/censusID=10043074">Census ID 10043074: »Sestertius of Caligula / Adlocutio (RIC 40)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00165"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10025021">Census ID 10025021: »Sestertius of Caligula / SPQR (RIC 37)«</ref><lb/>
+2. <ref target="http://census.bbaw.de/easydb/censusID=10043079">Census ID 10043079: »Sestertius of Caligula / SPQR (RIC 46)«</ref><lb/>
+2. <ref target="http://census.bbaw.de/easydb/censusID=10043084">Census ID 10043084: »Sestertius of Caligula / SPQR (RIC 53)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00166"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10025731">Census ID 10025731: »Sestertius of Caligula / 3 Sisters (RIC 33)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00167"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10051192">Census ID 10051192: »Dupondius of Caligula (Nero and Drusus riding / SC, RIC 34)«</ref><lb/>
+4. <ref target="http://census.bbaw.de/easydb/censusID=10032852">Census ID 10032852: »Dupondius of Caligula (Nero and Drusus riding / SC, RIC 49)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00168"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10044178">Census ID 10044178: »Sestertius of Caligula (Pietas / Caligula, RIC 44)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00169"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10044178">Census ID 10044178: »Sestertius of Caligula (Pietas / Caligula, RIC 44)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00170"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10043089">Census ID 10043089: »As of Caligula / Vesta (RIC 38)«</ref><lb/>
+7. <ref target="http://census.bbaw.de/easydb/censusID=10044384">Census ID 10044384: »As of Caligula / Vesta (RIC 47)«</ref><lb/>
+
+</note>
+
+
+</p></div><pb n="Physical page number: 50 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg14-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg14-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00171"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10043046">Census ID 10043046: »Denarius of Caligula / Augustus (RIC 2)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00172"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10051201">Census ID 10051201: »Denarius of Caligula / Germanicus (RIC 12)«</ref><lb/>
+2. <ref target="http://census.bbaw.de/easydb/censusID=10025167">Census ID 10025167: »Denarius of Caligula / Germanicus (RIC 18)«</ref><lb/>
+
+</note>
+
+
+</p></div><pb n="Physical page number: 51 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg15-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg15-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+		<anchor xml:id="TN003_00173"/>
+		
+<lb/><note type="editorial" rendition="#khiBox"><label rendition="#b">Further links to external Census database:</label><lb/><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10025731">  · Census ID10025731: »Sestertius of Caligula / 3 Sisters (RIC 33)«</ref><lb/>
+</note><lb/>
+
+
+</p></div><pb n="Physical page number: 52 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg16-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg16-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+		<anchor xml:id="TN003_00174"/>
+		
+<lb/><note type="editorial" rendition="#khiBox"><label rendition="#b">Further links to external Census database:</label><lb/><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10050429">  · Census ID10050429: »Sestertius of Claudius / Legend in Oak (RIC 112)«</ref><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10050192">  · Census ID10050192: »Sestertius of Claudius / Arch (RIC 114)«</ref><lb/>
+<ref target="http://census.bbaw.de/easydb/censusID=10050378">  · Census ID10050378: »Sestertius of Claudius / Spes (RIC 115)«</ref><lb/>
+</note><lb/>
+<hi rendition="#w"><ref target="http://d-nb.info/gnd/118521063">CLAVDIO</ref> ERA DI BELLO ASPETTO, ET DEGNO DI VENERATIONE, DI STATVRA GRANDE, ET DI COLLO GROSSO. MANCAVANGLI LE GINOCCHIA DI SOTTO PER DEBOLEZZA DE NERVI. OGNI POCO DI MOVIMENTO DELLA BOCCA IL FACEVA DEFORME. TREMAVAGLI IL CAPO, ERA DI POCO SONNO, LVSSVRIOSO, ET DEDITO AL GIOCO. VISSE ANNI LXIIII REGNO ANNI XIIII.</hi>
+
+</p></div><pb n="Physical page number: 53 | Printed page number: 23"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   LE occasioni sogliono dimostrare il ualore de gl: huomini, &amp; come quelle sono spesso dal caso, &amp; dalla fortuna offerite, cosi dal giudicio, &amp; conoscimento de'mortali accettate sono. Destassi adũque la uirtute, &amp; si dimostra chiaramente, quando meno da gli huomini uiene aspettata, come apparue in <ref target="http://d-nb.info/gnd/118521063">T. Claudio</ref>, il quale dalla sua giouanezza fu da i suoi medesimi &amp; uile, &amp; negligente riputato, la onde niuno ardiua de imporgli carico alcuno dubitando del suo poco ualore. Era però honorato rispetto alla grande parentella, perche fu di <ref target="http://d-nb.info/gnd/118538748">Germanico</ref> fratello, &amp; di <ref target="http://d-nb.info/gnd/118622501">Tiberio</ref> figliuolo, &amp; per la uicinanza che hanno alcuni uitij con le uirtuti, essendo timido fugli attribuito à mansuetudine, essendo pegro fu stimato prudente, &amp; riseruato. per questo fu da soldati chiamato, et salutato imperatore. Destossi nello splendore di tanta grandezza, onde apoco apoco addestrandosi riusci lodato, &amp; istimato. Nel giudicare spesso si ritraggeua dal rigore delle leggi alla equitate. prouide alla copia delle uettouaglie, hebbe caro di conseruare gli edificij: &amp; molti ne fece piu presto grandi, che necessarij. fabricò il porto d'<ref target="http://d-nb.info/gnd/4044080-1">Ostia</ref>: era ne i conuiti sontuosissimo, &amp; ingordo. Macchiò la uita sua con alcuni homicidi, tra quali furono quegli di Pompeio, &amp; Lucio Sillano suoi generi, &amp; quegli di trentacinque senatori, &amp; di trecento caualieri. successero poi molte cose mal fatte rispetto alla mala uita di Messalina sua moglie, che à simiglianza della sua dishonesta uita ridusse molte uergini, &amp; matrone. per ilche i suoi liberti pigliata s'haueano troppo licentiosa maniera di peccati:
+<seg rendition="#khiFootnote"><lb/>5<lb/></seg>
+
+</p></div><pb n="Physical page number: 54 | Printed page number: "/><div><p>
+ in fine prese per moglie <ref target="http://d-nb.info/gnd/11864405X">Agrippina</ref> di <ref target="http://d-nb.info/gnd/118538748">Germanico</ref> suo fratello figliuola, laquale à suoi figliuoli proccacciando lo imperio, con insidie prima i figliastri, &amp; poi con ueleno uccise il marito.
+
+</p></div><pb n="Physical page number: 55 | Printed page number: 24"/><div><p>
+
+<figure rendition="#khiBox" n="img24-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img24-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00175"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10044231">Census ID 10044231: »Aureus of Claudius / Legend in Oak-Wreath (RIC 40)«</ref><lb/>
+1. <ref target="http://census.bbaw.de/easydb/censusID=10044300">Census ID 10044300: »Aureus of Claudius / Legend in Oak-Wreath (RIC 53)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00176"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10044215">Census ID 10044215: »Aureus of Claudius / Pax-Nemesis (RIC 27)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00177"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10044195">Census ID 10044195: »Aureus of Claudius / Constantia (RIC 2)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00178"/>
+		
+4. <ref target="http://census.bbaw.de/easydb/censusID=10050134">Census ID 10050134: »Aureus of Claudius / Agrippina (RIC 80)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00179"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10044210">Census ID 10044210: »Aureus of Claudius / Praetorian Camp (RIC 7)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00180"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10045169">Census ID 10045169: »Aureus of Claudius / Nero (RIC 82)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00181"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10025781">Census ID 10025781: »Aureus of Nero (Nero and Agrippina Minor / Elephant Carriage, RIC 6)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00182"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10052491">Census ID 10052491: »Aureus of Nero (Claudius / Quadriga of Horses, RIC 4)«</ref><lb/>
+
+9. Coin not classified yet.<lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 56 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg17-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg17-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note type="editorial" rendition="#khiBox"><label rendition="#b">Further links to external Census database:</label><lb/><lb/>
+
+</note><lb/>
+<hi rendition="#w">FV <ref target="http://d-nb.info/gnd/118586998">DOMITIO NERONE</ref> DI STATVRA RAGIONEVOLE. HAVEA LE CARNI BRVTTE, ET LENTIGINOSE. ERA DI FACCIA PIV BELLA, CHE GRATIATA, D'OCCHI CELESTI, ALQVANTO GROSSI. HAVEA IL COLLO, ET IL CORPO GROSSO, MA LE GAMBE SOTTILISSIME ERA SANO, ET DI BVONA COMPLESSIONE. BENCHE FVSSE LVSSVRIOSISSIMO. VISSE ANNI XXXII REGNO ANNI XIIII</hi>
+
+</p></div><pb n="Physical page number: 57 | Printed page number: 25"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   <ref target="http://d-nb.info/gnd/118586998">D<hi rendition="#w">OMITIO</hi> Nerone</ref> da cui tutti gli empi, &amp; scelerati, tutti i crudeli, &amp; feroci preso hanno il cognome, con il zio <ref target="http://d-nb.info/gnd/118518410">Caligula</ref> hebbe grande simiglianza di costumi, eccetto ne i primi cinque anni dello imperio, nei quali die segno di moderato, &amp; honesto principe. ma poi senza freno, &amp; sciolto in ogni homicidio, rapina, incesto, &amp; feritate proruppe. imperoche uccise gran parte del senato, molti de gli amici, i precettori, il fratello, la madre, &amp; finalmente se stesso. Arse di notabile incédio per diletto la cittate, sminui lo imperio, &amp; la riputatione, essendogli tolta l'<ref target="http://d-nb.info/gnd/4085930-7">Armenia</ref> da <ref target="http://d-nb.info/gnd/PJTN008-0">Parthi</ref>, &amp; sotto il giogo mandati i Romani. perdè la <ref target="http://d-nb.info/gnd/4069666-2">Bertagna</ref>, &amp; alhora il Romano imperio usci di mano de descendenti d'<ref target="http://d-nb.info/gnd/118505122">Augusto</ref>, &amp; di <ref target="http://d-nb.info/gnd/119226014">Liuia</ref>. Non è lecito commettere à gli scritti le cose fatte, &amp; sopportate nella persona sua: ne si conuiene dire la sua bestialitate. l'honore della madre, à questo richiama: il sesso uirile offeso si uergogna: la humanitate uituperata si risente di molte ingiurie, &amp; dispreggi horribili sopportati. in sine l'antica pace turbata, i capi della religione miseramente troncati, il culto diuino senza pietà negletto, &amp; sprezzato, conducono il misero Imperatore, solo schiauo de suoi peccati, per l'odio del senato, de gli amici, di Dio, &amp; di se stesso, à riuoltare il ferro nelle sue propie carni, con grande allegrezza d'ogn'uno.
+<seg rendition="#khiFootnote"><lb/>6<lb/></seg>
+
+</p></div><pb n="Physical page number: 58 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 59 | Printed page number: 26"/><div><p>
+
+<figure rendition="#khiBox" n="img26-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img26-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00185"/>
+		
+1. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00186"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10053293">Census ID 10053293: »Sestertius of Nero / Decursio (RIC 170)«</ref><lb/>
+
+3. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00188"/>
+		
+4. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00189"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10053298">Census ID 10053298: »Sestertius of Nero / Adlocutio (RIC 134)«</ref><lb/>
+
+6. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00191"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10056947">Census ID 10056947: »Dupondius of Nero / Securitas (RIC 597) (B. Christianus)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00192"/>
+		
+8. <ref target="http://census.bbaw.de/easydb/censusID=10052517">Census ID 10052517: »Sestertius of Nero / Ostia (RIC 178)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00193"/>
+		
+9. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00194"/>
+		
+10. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00195"/>
+		
+11. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00196"/>
+		
+12. <ref target="http://census.bbaw.de/easydb/censusID=10056369">Census ID 10056369: »As of Nero / Victory (RIC 316)«</ref><lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 60 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg18-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg18-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00197"/>
+		
+1. <ref target="http://census.bbaw.de/easydb/censusID=10052520">Census ID 10052520: »As of Nero / Apollo Citharoedus (RIC 380)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00198"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10009417">Census ID 10009417: »Sestertius of Nero / Arch (RIC 146)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00199"/>
+		
+3. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00200"/>
+		
+4. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00201"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10053305">Census ID 10053305: »Sestertius of Nero / Temple (RIC 323)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00202"/>
+		
+6. Coin not classified yet.<lb/>
+
+7. Coin not classified yet.<lb/>
+8. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00205"/>
+		
+9. <ref target="http://census.bbaw.de/easydb/censusID=10053265">Census ID 10053265: »Dupondius of Nero / Macellum (RIC 184)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00206"/>
+		
+10. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00207"/>
+		
+11. <ref target="http://census.bbaw.de/easydb/censusID=10053308">Census ID 10053308: »Sestertius of Nero / Decursio (RIC 107)«</ref><lb/>
+
+12. Coin not classified yet.<lb/>
+</note>
+
+
+</p></div><pb n="Physical page number: 61 | Printed page number: 27"/><div><p>
+
+<figure rendition="#khiBox" n="img27-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img27-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+<lb/><note rendition="#khiBox"><label rendition="#b">Legend:</label><lb/>Coin drawings starting from upper left:<lb/><lb/>
+
+		<anchor xml:id="TN003_00209"/>
+		
+1. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00210"/>
+		
+2. <ref target="http://census.bbaw.de/easydb/censusID=10044984">Census ID 10044984: »Aureus of Nero / Nero (RIC 46)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00211"/>
+		
+3. <ref target="http://census.bbaw.de/easydb/censusID=10045132">Census ID 10045132: »Aureus of Nero / Temple of Vesta (RIC 61)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00212"/>
+		
+4. Coin not classified yet.<lb/>
+
+
+		<anchor xml:id="TN003_00213"/>
+		
+5. <ref target="http://census.bbaw.de/easydb/censusID=10045061">Census ID 10045061: »Aureus of Nero / Jupiter Custos (RIC 52)«</ref><lb/>
+5. <ref target="http://census.bbaw.de/easydb/censusID=10045066">Census ID 10045066: »Aureus of Nero / Jupiter Custos (RIC 63)«</ref><lb/>
+5. <ref target="http://census.bbaw.de/easydb/censusID=10045075">Census ID 10045075: »Denarius of Nero / Jupiter Custos (RIC 69)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00214"/>
+		
+6. <ref target="http://census.bbaw.de/easydb/censusID=10045009">Census ID 10045009: »Aureus of Nero / Concordia Augusta (RIC 48)«</ref><lb/>
+
+
+		<anchor xml:id="TN003_00215"/>
+		
+7. <ref target="http://census.bbaw.de/easydb/censusID=10045093">Census ID 10045093: »Aureus of Nero / Roma (RIC 54)«</ref><lb/>
+
+</note>
+
+
+</p></div><pb n="Physical page number: 62 | Printed page number: "/><div><p>
+
+
+<figure rendition="#khiBox" n="imgg19-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg19-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure><hi rendition="#w">ERA <ref target="http://d-nb.info/gnd/118716166">SERGIO GALBA</ref> DI COMMVNE STATVRA. CALVO, DI OCCHI CELESTI, DI NASO AQVILINO. ALLE PODAGRE, ET CHIRAGRE STRANAMENTE SOTTOPOSTO, ET FVOR DI MISVRA DAL FIANCO DESTRO GLI ERA LA CARNE CRESCIVTA. POCO DI FEMINE SI DELETAVA, MA MOLTO ALLA GOLA DEDITO. VISSE ANNI LXXIII. REGNO MESI VII</hi>
+
+</p></div><pb n="Physical page number: 63 | Printed page number: 28"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   <ref target="http://d-nb.info/gnd/118716166">S<hi rendition="#w">ERGIO</hi> Galba</ref> di nobile famiglia de Sulpitij disceso essendo stato nella militia famoso, &amp; nei ciuili negotij prestante, fu dallo essercito in <ref target="http://d-nb.info/gnd/4055964-6">Hispagna</ref> imperator eletto; corresse la militia se ueramente, &amp; diede buono principio al regimento dello imperio. Ma diede poi ad intendere, che non è assai sicuro di uiuere honestamente, chiunque abbandona il consiglio propio, &amp; abbraccia quello d'altrui: imperò che talmente si diede in preda à tre persone, che egli nulla faceua senza la saputa, &amp; uolonta loro: l'uno era T. Giunio auarissimo huomo, che in <ref target="http://d-nb.info/gnd/4055964-6">Hispagna</ref> gli fu legato, l'altro Cornelio Lacone arrogante, bestiale, &amp; insupportabile, l'ultimo era Icello suo liberto indegnamente à grado salito: dal uario, &amp; diuerso consiglio di questi uariamente, &amp; diuersamente <ref target="http://d-nb.info/gnd/118716166">Galba</ref> si gouernaua, ne mai di uno proposito si uedeua. ò miseri, &amp; infelici Principi, che hauete si fatti consiglieri al lato. ò male auuenturati sudditi, che da si fatti principi siete gouernati: Hauendosi adunque l'Imperatore fatto suoi gli errori, &amp; le colpe altrui, benche egli non fusse senza alcun uitio; conuenne in fine anchora delle pene participare. conuertito adunque in odio, &amp; dispreggio quel fauore col quale egli prese l'imperio, fu ammazzato nel foro, per commissione di <ref target="http://d-nb.info/gnd/118787357">Siluio Ottone</ref>, fugli tagliata, &amp; uenduta la testa, &amp; lascio l'imperio, &amp; la morte al successore.
+<seg rendition="#khiFootnote"><lb/>7<lb/></seg>
+
+</p></div><pb n="Physical page number: 64 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 65 | Printed page number: 29"/><div><p>
+
+<figure rendition="#khiBox" n="img29-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img29-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 66 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg20-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg20-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 67 | Printed page number: 30"/><div><p>
+
+<figure rendition="#khiBox" n="img30-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img30-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 68 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg21-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg21-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 69 | Printed page number: 31"/><div><p>
+
+
+</p></div><pb n="Physical page number: 70 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg22-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg22-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure><hi rendition="#w">FRA <ref target="http://d-nb.info/gnd/118787357">OTHONE</ref> PICCIOLO DI PRSONA,MALE IN GAMBA, CALVO, ET PERO CON RIPOSTA, ET ACCONCIA ZAZERETTA SI COPRIVA. DILICATO, PVLITO, ET VSAVA DI RADERSI OGNI GIORNO. SIMILE A <ref target="http://d-nb.info/gnd/118622501">TIBERIO</ref> DI VOLTO, ET DI FATTEZZE VISSE ANNI XXXVII REGNO MESI IIII</hi>
+
+</p></div><pb n="Physical page number: 71 | Printed page number: 32"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   <ref target="http://d-nb.info/gnd/118787357">O<hi rendition="#w">THONE</hi> Siluio</ref> si contentò che la fortuna per breue spatio di tempo lo imperio dimostrato gli hauesse, perche in meno di mesi quattro, ch' egli regnò, uccise se medesimo nobile fu ueramente, come quello che da gli antichi Siluij da <ref target="http://d-nb.info/gnd/4256379-3">Ferento</ref> discendesse, fu seuero amministratore de i magistrati, &amp; in eseguire le sue sentenze nõ riguardaua ad alcuno: meritò che il senato con honore non usitato gli ponesse una statua su'l <ref target="http://d-nb.info/gnd/4262371-6">monte Palatino</ref>, &amp; <ref target="http://d-nb.info/gnd/118521063">Claudio</ref> lo annouerasse tra patritij, &amp; con bella, &amp; ornatà, oratione ne lo lodasse, per hauere una congiura d'uno caualiere romano contra esso <ref target="http://d-nb.info/gnd/118521063">Claudio</ref> manifestata. chi puo conoscere le uie, &amp; il fine de gli huomini? ecco <ref target="http://d-nb.info/gnd/118787357">Othone</ref> da primi anni prodigo, iniurioso, temerario, dal proprio padre biasimato, caro per la conformità de costumi à <ref target="http://d-nb.info/gnd/118586998">Nerone</ref>, &amp; occupatore dell'imperio con la uccisione del precessore, hauuto l'imperio alla liberalitate si uolge, odia la guerra ciuile, ama i soldati, fugge il nome odiato, &amp; desidera l'unione, &amp; la pace: imperò che à fauore, all'altezza dell'imperio solleuato abbraccia i soldati, s'offerisce al senato, che di commune consentimento reggerebbe. &amp; uedendo che la guerra presa con <ref target="http://d-nb.info/gnd/118805495">Vitellio</ref>, che era in <ref target="http://d-nb.info/gnd/4104343-1">Germania</ref>, benche al principio bene seguita gli fusse, pure alla fine dimostrandogli la occasione pericolo, &amp; perdita di' molti suoi soldati, con deliberato consiglio uccise se stesso, dicendo che egli non era di tanto prezzo, che per sua cagione si rinouasse la guerra ciuile, furono per tale morte spese molte lagrime da soldati, che infinitamente l'amauano,
+<seg rendition="#khiFootnote"><lb/>8<lb/></seg>
+
+</p></div><pb n="Physical page number: 72 | Printed page number: "/><div><p>
+ &amp; per segno maggiore di beniuolenza molti con l'uccidere se stessi lo uolsero in anima accompagnare.
+
+</p></div><pb n="Physical page number: 73 | Printed page number: 33"/><div><p>
+
+<figure rendition="#khiBox" n="img33-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img33-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 74 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg23-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg23-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 75 | Printed page number: 34"/><div><p>
+
+
+</p></div><pb n="Physical page number: 76 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg24-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg24-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure><hi rendition="#w"><ref target="http://d-nb.info/gnd/118805495">VITELLIO</ref> ERA DI STATVRA GRANDE SPROPORCIONATO, GRASSO, ET HAVEA LA FACCIA PER LO VINO, CHE EGLI SENZA RETENIMENTO BEVEA, ROSSA, ET MACCHIATA, RIDEVA NEL VEDERE VCCIDER GLI HVOMINI, ET CON VILISSIME PERSONE PRATICAVA VISSE ANNI. LVII REGNO MESI. VIII.</hi>
+
+</p></div><pb n="Physical page number: 77 | Printed page number: 35"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   P<hi rendition="#w">ERMETTE</hi> Iddio spesse fiate, che alcuni posti sieno in altezza di grado, &amp; di honore, perche poi nel conspetto de gli huomini si ueda la giustitia diuina. Nacque <ref target="http://d-nb.info/gnd/118805495">Vitellio</ref> di honoreuole, &amp; illustre famiglia, ma con la crudeltade, auaritia, &amp; intemperanza sua oscurò la poco da lui pregiata nobilitade, fu dotto, &amp; eloquẽte, ma di reo, &amp; peruerso animo, &amp; come sollecito imitatore di <ref target="http://d-nb.info/gnd/118586998">Nerone</ref> fu d'ogni humana, &amp; diuina legge dispreggiatore, uccise gli amici, arse i tempi, spogliò la città, &amp; in breue spatio di tempo non huomo reo, non tiranno crudele, ma fiera empia, et feroce diuenne. ma ecco à passi lenti la uendetta di Dio lo cogliè in <ref target="http://d-nb.info/gnd/4050471-2">Roma</ref>, ritornato che fu di <ref target="http://d-nb.info/gnd/4104343-1">Germania</ref>, doue i soldati l'haueano salutato imperatore, &amp; fa che l'antiguarda di <ref target="http://d-nb.info/gnd/11862671X">Vespasiano</ref>, che d'<ref target="http://d-nb.info/gnd/4075699-3">Oriente</ref> ritornaua, lo piglia, lo schernisce, &amp; lo afflige per tutta la città, &amp; finalmente da piu ponture di ferro trappassato lo getta nel <ref target="http://d-nb.info/gnd/4119609-0">Teuere</ref>. fine conueniente &amp; alle sceleraggine della sua passata uita, &amp; à i precedenti segni del suo nascimento.
+
+</p></div><pb n="Physical page number: 78 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 79 | Printed page number: 36"/><div><p>
+
+<figure rendition="#khiBox" n="img36-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img36-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 80 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg25-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg25-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 81 | Printed page number: 37"/><div><p>
+
+<figure rendition="#khiBox" n="img37-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img37-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 82 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg26-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg26-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure><hi rendition="#w"><ref target="http://d-nb.info/gnd/11862671X">VESPASIANO</ref> FV DI STATVRA QVADRATA, ET SODA. LA FACCIA HAVEVA GONFIA, ERA SANO, ET PROSPEROSO, LIETO, ET MOTTEGGIEVOLE BENIGNO, E GRATO QVANTO SI PVO DIRE. VISSE ANNI LXVIIII, MESE I DI III REGNO ANNI VIIII.</hi>
+
+</p></div><pb n="Physical page number: 83 | Printed page number: 38"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   P<hi rendition="#w">IACQVE</hi> à Iddio dopo molte oscure, &amp; tra uagliose procelle, dalle quali era stata la republica trauagliata, dimostrare al mondo la luce, &amp; la quiete del buon gouerno permettendo, &amp; quasi chiaramente prononciando il successore ad <ref target="http://d-nb.info/gnd/118787357">Othone</ref>, dal che nacque, che <ref target="http://d-nb.info/gnd/11862671X">Vespasiano</ref> per sue proprie uirtuti chiaro, &amp; illustre abbraccio lo imperio da lddio offertogli molte uolte. confirmò quello usitato &amp; trito prouerbio, che dice non sa bene commandare, chi non ha saputo ubidire. imperò che prima, che egli pigliasse la signoria, in ogni impresa doue egli era mandato, con somma diligenza il tutto regeua, &amp; al desiderato fine mirabilmente conduceua. &amp; però sendo gouernatore in <ref target="http://d-nb.info/gnd/4104343-1">Germania</ref>, &amp; in <ref target="http://d-nb.info/gnd/PJTN004-3">Anglia</ref> trenta uolte gloriosamente con gli inimici fece giornata, &amp; sottopose allo imperio due ferocissime nationi, &amp; piu di uinti città, &amp; l'<ref target="http://d-nb.info/gnd/PJTN007-8">isola di Vette</ref>: hebbe il gouerno in <ref target="http://d-nb.info/gnd/4084774-3">Africa</ref>, fu capitano dello esercito in <ref target="http://d-nb.info/gnd/4028805-5">Giudea</ref>, ridusse in forma di prouincia la <ref target="http://d-nb.info/gnd/4079611-5">Achaia</ref>, la <ref target="http://d-nb.info/gnd/4036748-4">Licia</ref>, <ref target="http://d-nb.info/gnd/4049859-1">Rhodi</ref>, <ref target="http://d-nb.info/gnd/4073697-0">Constantinopoli</ref>, &amp; quanto di buono faceua di fuori, tanto di dentro miglioraua; fabricando palagi, tempi, &amp; strade publiche, &amp; tenendo ragione con ordini merauigliosi: era nel maneggio piaceuole, &amp; accarezzaua ogni letterato, &amp; ingenioso, che à suoi tempi si ritrouaua, benignamente sententiaua, &amp; confermaua con benificij gli animi de cittadini;&amp; in uero como saputo, &amp; prestante medico le passate piaghe della afflitta republica risanaua: scordandosi di tutte le ingiurie, &amp; motteggiando cõ quelli, che lo mordeuano; trionfò di Giudei insieme con
+<seg rendition="#khiFootnote"><lb/>10<lb/></seg>
+
+</p></div><pb n="Physical page number: 84 | Printed page number: "/><div><p>
+ <ref target="http://d-nb.info/gnd/118622951">Tito</ref> suo figliuolo, &amp; quasi disprezzaua ogni honore, doue che à pena nel fine del suo imperio acconsenti di essere chiamato padre della patria: uolle in piedi morire, benche debole, &amp; sostenuto da suoi; dicendo questo conuenirsi ad imperatore, &amp; quasi indouino, predisse la successione de suoi figliuoli nello imperio. Lodisi Iddio giusto riconoscitore de i meriti humani.
+
+</p></div><pb n="Physical page number: 85 | Printed page number: 39"/><div><p>
+
+<figure rendition="#khiBox" n="img39-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img39-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 86 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg27-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg27-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 87 | Printed page number: 40"/><div><p>
+
+<figure rendition="#khiBox" n="img40-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img40-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 88 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg28-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg28-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 89 | Printed page number: 41"/><div><p>
+
+<figure rendition="#khiBox" n="img41-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img41-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 90 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg29-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg29-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 91 | Printed page number: 42"/><div><p>
+
+<figure rendition="#khiBox" n="img42-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img42-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 92 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg30-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg30-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 93 | Printed page number: 43"/><div><p>
+
+
+</p></div><pb n="Physical page number: 94 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg31-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg31-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure><hi rendition="#w">BENCHE FVSSE <ref target="http://d-nb.info/gnd/118622951">TITO</ref> DI PERSONA MENO CHE LA COMMVNE, ET AL QVANTO CORPVLENTO PVRE ERA BELLO, GRATIOSO, ET GAGLIARDO. ATTO ALLE FATICHE, VALSE IN MEMORIA, ET IN MOLTE ARTI DEGNE DE LIBERI ET NOBILI HVOMINI, ET NELLE LINGVE PERITO VISSE ANNI XLII. REGNO ANNI II MESI II GIORNI XX</hi>
+
+</p></div><pb n="Physical page number: 95 | Printed page number: 44"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   P<hi rendition="#w">ARVE</hi> da lungi una certa nuuoletta di uitij di <ref target="http://d-nb.info/gnd/118622951">Tito</ref>, prima, che egli pigliasse lo imperio, la quale fece paura, che le antiche miserie, e tempestati non ritornassero in <ref target="http://d-nb.info/gnd/4050471-2">Roma</ref>, doue ogn'uno n'era quasi sbigottito, ma questa sospettione si riuolse in gratia, &amp; letitia d'ogniuno, imperò che il uero essempio di humanitate, &amp; mansuetudine era stimato essere nel nouello imperatore, doue che da ogn'uno era stimato, &amp; chiamato delitie della humana generatione. per essere in ogni tempo, &amp; in ogni luogo, &amp; in ogni maneggio temperato, giusto, forte, &amp; saputo, &amp; in uero si puo giudicare che <ref target="http://d-nb.info/gnd/118622951">Tito</ref> da Iddio stato fusse al mondo concesso, come il braccio della sua giustitia, imperò che si stranamente il secondo anno dello imperio di suo padre afflisse la perfida, &amp; iniqua città di <ref target="http://d-nb.info/gnd/4028586-8">Hierosolima</ref>, che non si troua essempio di diuina uendetta piu horribile, &amp; spauenteuole di quella, come chiaramente si uede nelle antiche memorie de passati. egli stesso conobbe questo essere uolere di Dio, &amp; esser stato da diuina potenza fauorito, per ilche ne riportò glorioso &amp; memorabile trionfo. Morì di sua morte nello istesso luogo doue era morto il suo uirtuosissimo padre accompagnando le uirtu sue con le uirtu di quello.
+<seg rendition="#khiFootnote"><lb/>11<lb/></seg>
+
+</p></div><pb n="Physical page number: 96 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 97 | Printed page number: 45"/><div><p>
+
+<figure rendition="#khiBox" n="img45-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img45-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 98 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg32-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg32-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 99 | Printed page number: 46"/><div><p>
+
+<figure rendition="#khiBox" n="img46-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img46-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 100 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg33-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg33-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 101 | Printed page number: 47"/><div><p>
+
+<figure rendition="#khiBox" n="img47-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img47-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 102 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg34-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg34-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 103 | Printed page number: 48"/><div><p>
+
+
+</p></div><pb n="Physical page number: 104 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg35-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg35-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure><hi rendition="#w">FV <ref target="http://d-nb.info/gnd/118672231">DOMITIANO</ref> DI GRAN DE STATVRA, MODERATO NEL VOLTO, ET DI ROSSORE PIENO. HAVEA LA VISTA CVRTA, ET GLI OCCHI GRANDI, CALVO ERA, ET CORPVLENTO, MA LE GAMBE SOTTILI HAVEA, ET DIFFICILMENTE NELLA FATICA SI REGGEA VISSE ANNI XL V. REGNO ANNI XV.</hi>
+
+</p></div><pb n="Physical page number: 105 | Printed page number: 49"/><div><p>
+
+<milestone type="separator" unit="nonstructural"/>
+<lb/>   C<hi rendition="#w">OME</hi> che la natura de gli huomini difficilmente si cuopra, però impossibile è certamente coprirla quando si ha il potere, &amp; il maneggio de le cose, &amp; però sta bene, che nei principi del suo imperio ò poco prima potesse <ref target="http://d-nb.info/gnd/118672231">Domitiano</ref> di <ref target="http://d-nb.info/gnd/11862671X">Vespasiano</ref> figliuolo parere &amp; modesto, &amp; liberale, ma poi conoscendo hauere il freno del gouerno nelle mani, mescolasse prima le uirtuti coniuitij, &amp; poi lasciato il bene al male in tutto si riuolgesse, come quello, che dalla prima sua giouanezza, nel qual tempo difficilmente si puo celare la naturale inclinatione, &amp; dishonesto, &amp; crudele fusse giudicato. uccise del senato trentasette e piu nobili, &amp; i cugini, &amp; uolle per Dio esse readorato, fu de intolerabile arroganza: quattro fiate cõbattè contra <ref target="http://d-nb.info/gnd/4105355-2">Sarmati</ref>, l'una, l'altra contra à <ref target="http://d-nb.info/gnd/4229460-5">Cati</ref>, &amp; due contra <ref target="http://d-nb.info/gnd/4070197-9">Daci</ref>. di <ref target="http://d-nb.info/gnd/4105355-2">Sarmati</ref>, hebbe solamente la corona dello alloro, de <ref target="http://d-nb.info/gnd/4070197-9">Daci</ref>, &amp; <ref target="http://d-nb.info/gnd/4229460-5">Cati</ref> due trionfi riportando. sostenne in quelle guerre molte aduersitade: diedesi in <ref target="http://d-nb.info/gnd/4050471-2">Roma</ref> alle fabriche, &amp; però fece il <ref target="http://d-nb.info/gnd/4027833-5">Campidoglio</ref>, il foro Odeo, il portico Isio, &amp; il Serapio, &amp; lo Stadio, &amp; quanto piu fabricaua di edificij, tanto piu rouinaua di huomini. per ilche fece scordarei meriti del padre con le sue sceleragini, contra le quali congiurorno molti, &amp; la congiura al desiderato fine condussero con grande allegrezza del senato, ilquale con nomi de infamia lo chiamaua, facendo gettare à terra gli scudi, &amp; le imagine, &amp; leuando i decreti, &amp; i titoli, &amp; le memorie di esso; che gia uilmente da beccamorti era stato sepolto.
+<seg rendition="#khiFootnote"><lb/>12<lb/></seg>
+
+</p></div><pb n="Physical page number: 106 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 107 | Printed page number: 50"/><div><p>
+
+<figure rendition="#khiBox" n="img50-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img50-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 108 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg36-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg36-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 109 | Printed page number: 51"/><div><p>
+
+<figure rendition="#khiBox" n="img51-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img51-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 110 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg37-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg37-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 111 | Printed page number: 52"/><div><p>
+
+<figure rendition="#khiBox" n="img52-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img52-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 112 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg38-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg38-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 113 | Printed page number: 53"/><div><p>
+
+<figure rendition="#khiBox" n="img53-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_img53-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 114 | Printed page number: "/><div><p>
+
+<figure rendition="#khiBox" n="imgg39-1">
+<label rendition="#b">
+            Figure (place holder)
+        </label>
+<lb/>
+<graphic url="b304255f/obj_imgg39-1.jpg"/>
+<figDesc>Type: drawing</figDesc>
+</figure>
+
+</p></div><pb n="Physical page number: 115 | Printed page number: 54"/><div><p>
+
+
+</p></div><pb n="Physical page number: 116 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 117 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 118 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 119 | Printed page number: "/><div><p>
+
+
+</p></div><pb n="Physical page number: 120 | Printed page number: "/><div><p>
+
+</p></div>
+        </body>
+  </text>
+</TEI>

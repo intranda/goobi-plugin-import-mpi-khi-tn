@@ -2,8 +2,12 @@ package de.intranda.goobi.plugins;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +29,6 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.input.sax.XMLReaders;
 
 import de.sub.goobi.forms.MassImportForm;
-import de.sub.goobi.helper.StorageProvider;
 import de.sub.goobi.helper.exceptions.ImportPluginException;
 import lombok.Getter;
 import lombok.Setter;
@@ -64,6 +67,29 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     private Namespace XSI_NS = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
     private Namespace XS_NS = Namespace.getNamespace("xs", "http://www.w3.org/2001/XMLSchema");
 
+    /*
+    images korrigieren:
+    E_5016_a/flb000006_0515.tif fehlt
+
+    rm BSB_2_H_ant_34_t/2010-09-21-16-16-15_00465.jpg
+    rm BSB_2_H_ant_34_t_Beibd_1/2010-09-21-16-21-43_00089.jpg
+    rm BSB_Rar_23/2010-09-21-16-00-15_00053.jpg
+    rm BSB_Rar_23/2010-09-21-16-00-15_00054.jpg
+    rm BSB_Rar_23/2010-09-21-16-00-15_00563.jpg
+    rm BSB_Res_2_H_ant_34_r/2010-09-21-16-04-21_00365.jpg
+    rm SUB-2-NUM-3682/00000489.tif
+    rm SUB-4-ANT-I-1088/00000541.tif
+    rm SUB-4-ANT-I-1088/Log.txt
+    rm SUB-4-ANT-I-1088/readme.txt
+    rm SUB-4-H-ROM-2621/00000351.tif
+    rm SUB-2-NUM-3983/00000379.tif
+    rm SUB-8-NUM-3370/00000373.tif
+    RM SUB-8-NUM-3575/00000165.tif
+    rm SUB-8-NUM-3932/00000441.tif
+
+
+     */
+
     @Getter
     private String title = "mpi-khi-tn";
 
@@ -82,7 +108,14 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     private List<ImportType> importTypes = null;
 
     @Setter
-    private String dataFolder = "/home/robert/Downloads/xmldaten_khi_tn_projekt/xml";
+    private String dataFolder = "/opt/digiverso/tn/xml";
+
+    @Setter
+    private String teiFolder = "/opt/digiverso/tn/tei/";
+    @Setter
+    private String imageFolder = "/opt/digiverso/tn/";
+    @Setter
+    private String areaFolder = "/opt/digiverso/tn/digital_tn_objects/";
 
     private String currentIdentifier;
 
@@ -94,7 +127,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     private DocStructType otherType;
 
     private Map<String, MetadataType> metadataTypeMap = new HashedMap<>();
-
+    @Getter
     private Map<String, String> imageFolderMap = new HashedMap<>();
     private Map<String, String> gndMap = new HashedMap<>();
 
@@ -107,7 +140,6 @@ public class TNImportPlugin implements IImportPluginVersion2 {
             currentIdentifier = record.getId();
             ImportObject io = new ImportObject();
             io.setProcessTitle(getProcessTitle());
-
             Element metsElement = readXmlDocument(record.getData());
             if (!metsElement.getName().equals("mets")) {
                 continue;
@@ -140,10 +172,185 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                 addAdditionalMetadata(metsElement, digDoc);
 
                 io.setMetsFilename(importFolder + "/" + getProcessTitle() + ".xml");
-                fileformat.write(io.getMetsFilename());
 
-                // TODO copy/move images
-                // TODO copy/move tei file
+                Path processData = Paths.get(importFolder, getProcessTitle());
+
+                if (!Files.exists(processData)) {
+                    try {
+                        Files.createDirectories(processData);
+                    } catch (IOException e) {
+                        log.error(e);
+                    }
+                }
+
+                Path imagesFolder = Paths.get(processData.toString(), "images", "master_" + getProcessTitle() + "_media");
+                Path sourceFolder = Paths.get(processData.toString(), "images", getProcessTitle() + "_source");
+
+                if (!Files.exists(imagesFolder)) {
+                    try {
+                        Files.createDirectories(imagesFolder);
+                    } catch (IOException e) {
+                        log.error(e);
+                    }
+                }
+
+                // copy tei file
+                List<String> teiFilenameList = list(teiFolder);
+                for (String teifile : teiFilenameList) {
+                    if (teifile.startsWith(currentIdentifier)) {
+                        try {
+                            if (!Files.exists(sourceFolder)) {
+                                try {
+                                    Files.createDirectories(sourceFolder);
+                                } catch (IOException e) {
+                                    log.error(e);
+                                }
+                            }
+
+                            Files.copy(Paths.get(teiFolder.toString(), teifile), Paths.get(sourceFolder.toString(), "tei.xml"));
+                        } catch (IOException e) {
+                            log.error(e);
+                        }
+                    }
+                }
+                // copy/move images
+                String imageFolderName = imageFolderMap.get(currentIdentifier);
+                Path imageFolderToImport;
+
+                imageFolderToImport = Paths.get(imageFolder, imageFolderName);
+                DocStruct physicalDocstruct = digDoc.getPhysicalDocStruct();
+                //  add filename to phys object
+                List<Path> files;
+                switch (imageFolderName) {
+                    case "E_5015_x_Band_1":
+                        // 0001-0186
+                        imageFolderToImport = Paths.get(imageFolder, "E_5015_x");
+                        files = listFiles(imageFolderToImport);
+                        for (int i = 0; i < 186; i++) {
+                            Path fileToCopy = files.get(i);
+                            DocStruct page = physicalDocstruct.getAllChildren().get(i);
+                            page.setImageName(fileToCopy.getFileName().toString());
+                            try {
+                                Files.copy(fileToCopy, Paths.get(imagesFolder.toString(), fileToCopy.getFileName().toString()));
+                            } catch (IOException e) {
+                            }
+                        }
+                        break;
+                    case "E_5015_x_Band_2":
+                        // 0187 - 0446
+                        imageFolderToImport = Paths.get(imageFolder, "E_5015_x");
+                        files = listFiles(imageFolderToImport);
+                        for (int i = 186; i < 446; i++) {
+                            Path fileToCopy = files.get(i);
+
+                            DocStruct page = physicalDocstruct.getAllChildren().get(i - 186);
+                            page.setImageName(fileToCopy.getFileName().toString());
+                            try {
+                                Files.copy(fileToCopy, Paths.get(imagesFolder.toString(), fileToCopy.getFileName().toString()));
+                            } catch (IOException e) {
+                            }
+                        }
+                        break;
+                    case "E_5016_Band_1":
+                        // 1-188
+                        imageFolderToImport = Paths.get(imageFolder, "E_5016");
+                        files = listFiles(imageFolderToImport);
+
+                        for (int i = 0; i < 188; i++) {
+                            Path fileToCopy = files.get(i);
+                            DocStruct page = physicalDocstruct.getAllChildren().get(i);
+                            page.setImageName(fileToCopy.getFileName().toString());
+                            try {
+                                Files.copy(fileToCopy, Paths.get(imagesFolder.toString(), fileToCopy.getFileName().toString()));
+                            } catch (IOException e) {
+                            }
+                        }
+                        break;
+                    case "E_5016_Band_2":
+                        // 189-450
+                        imageFolderToImport = Paths.get(imageFolder, "E_5016");
+                        files = listFiles(imageFolderToImport);
+                        for (int i = 189; i < 450; i++) {
+                            Path fileToCopy = files.get(i);
+
+                            DocStruct page = physicalDocstruct.getAllChildren().get(i - 189);
+                            page.setImageName(fileToCopy.getFileName().toString());
+                            try {
+                                Files.copy(fileToCopy, Paths.get(imagesFolder.toString(), fileToCopy.getFileName().toString()));
+                            } catch (IOException e) {
+                            }
+                        }
+                        break;
+                    case "E_5016_a_Band_1":
+                        // 1-188
+                        imageFolderToImport = Paths.get(imageFolder, "E_5016_a");
+                        files = listFiles(imageFolderToImport);
+                        for (int i = 0; i < 188; i++) {
+                            Path fileToCopy = files.get(i);
+                            DocStruct page = physicalDocstruct.getAllChildren().get(i);
+                            page.setImageName(fileToCopy.getFileName().toString());
+                            try {
+                                Files.copy(fileToCopy, Paths.get(imagesFolder.toString(), fileToCopy.getFileName().toString()));
+                            } catch (IOException e) {
+                            }
+                        }
+                        break;
+                    case "E_5016_a_Band_2":
+                        //189-516
+                        imageFolderToImport = Paths.get(imageFolder, "E_5016_a");
+                        files = listFiles(imageFolderToImport);
+                        for (int i = 189; i < 516; i++) {
+                            Path fileToCopy = files.get(i);
+                            DocStruct page = physicalDocstruct.getAllChildren().get(i - 189);
+                            page.setImageName(fileToCopy.getFileName().toString());
+                            try {
+                                Files.copy(fileToCopy, Paths.get(imagesFolder.toString(), fileToCopy.getFileName().toString()));
+                            } catch (IOException e) {
+                            }
+                        }
+                        break;
+                    default:
+                        files = listFiles(imageFolderToImport);
+                        for (int i = 0; i < files.size(); i++) {
+                            Path fileToCopy = files.get(i);
+                            DocStruct page = physicalDocstruct.getAllChildren().get(i);
+                            page.setImageName(fileToCopy.getFileName().toString());
+                            try {
+                                Files.copy(fileToCopy, Paths.get(imagesFolder.toString(), fileToCopy.getFileName().toString()));
+                            } catch (IOException e) {
+                            }
+                        }
+                        break;
+                }
+
+                // Paths.get(areaFolder, currentIdentifier) -> img_obj*
+
+                Path pageAreaFolder = Paths.get(areaFolder, currentIdentifier);
+                List<Path> pageAreaNames = listFiles(pageAreaFolder);
+                for (Path file : pageAreaNames) {
+                    if (Files.isRegularFile(file) && file.getFileName().toString().startsWith("obj_img")) {
+                        try {
+                            Files.copy(file, Paths.get(imagesFolder.toString(), file.getFileName().toString()));
+                        } catch (IOException e) {
+                        }
+
+                        //
+                        try {
+                            DocStruct pageStruct = digDoc.createDocStruct(pageType);
+                            //
+                            Metadata physPageNumber = new Metadata(metadataTypeMap.get("physPageNumber"));
+                            physPageNumber.setValue("" + (physicalDocstruct.getAllChildren().size() + 1));
+                            pageStruct.addMetadata(physPageNumber);
+                            pageStruct.setImageName(file.getFileName().toString());
+                            physicalDocstruct.addChild(pageStruct);
+                        } catch (Exception e) {
+                            log.error(e);
+                        }
+
+                    }
+                }
+
+                fileformat.write(io.getMetsFilename());
                 io.setImportReturnValue(ImportReturnValue.ExportFinished);
             } catch (PreferencesException | WriteException e) {
                 log.error(e);
@@ -345,6 +552,8 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     }
 
     private void initializeTypes() {
+        // TODO get folder from config
+
         if (boundBookType == null) {
             boundBookType = prefs.getDocStrctTypeByName("BoundBook");
             pageType = prefs.getDocStrctTypeByName("page");
@@ -371,6 +580,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
             metadataTypeMap.put("CatalogIDSource", prefs.getMetadataTypeByName("CatalogIDSource"));
             metadataTypeMap.put("CatalogIDDigital", prefs.getMetadataTypeByName("CatalogIDDigital"));
             metadataTypeMap.put("singleDigCollection", prefs.getMetadataTypeByName("singleDigCollection"));
+            metadataTypeMap.put("CatalogIdentifier", prefs.getMetadataTypeByName("CatalogIdentifier"));
 
             metadataTypeMap.put("pathimagefiles", prefs.getMetadataTypeByName("pathimagefiles"));
 
@@ -417,7 +627,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
     @Override
     public List<String> getAllFilenames() {
-        List<String> filenameList = StorageProvider.getInstance().list(dataFolder);
+        List<String> filenameList = list(dataFolder);
         return filenameList;
     }
 
@@ -508,14 +718,11 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
     }
 
-
-
     private void fillMaps() {
-        imageFolderMap.clear();
-        gndMap.clear();
         imageFolderMap.put("b181034r", "E_6119");
         imageFolderMap.put("b229517f", "E_6103");
-        imageFolderMap.put("b230031f", "X_6920");
+        imageFolderMap.put("b277436f", "E_6115");
+        imageFolderMap.put("b309785f", "E_5015_o");
         imageFolderMap.put("b258350f", "E_6118");
         imageFolderMap.put("b304253f", "E_6112");
         imageFolderMap.put("b304254f", "E_6110");
@@ -523,8 +730,8 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         //        bd1060570cr     - was E_5015_x  --> Buch in entsprechende B<E4>nde geteilt, also Ordner existiert so nicht mehr, sondern so:
         //bd1060570br             - was E_5015_x_Band_1
         //bd1060570cr             - was E_5015_x_Band_2
-        imageFolderMap.put("bd1060570cr", "E_5015_x_Band_1"); // 1-186
-        imageFolderMap.put("bd1060570br", "E_5015_x_Band_2"); // 187 - 446
+        imageFolderMap.put("bd1060570br", "E_5015_x_Band_1"); // 1-186
+        imageFolderMap.put("bd1060570cr", "E_5015_x_Band_2"); // 187 - 446
         imageFolderMap.put("bd1080404r", "E_5015_r");
         imageFolderMap.put("bd1260181r", "E_5015");
         imageFolderMap.put("bd3590238r", "E_5015_t");
@@ -537,31 +744,30 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         //bd3610345am             - was E_5016_a_Band_1
         //bd3610345bm             - was E_5016_a_Band_2
         imageFolderMap.put("bd3610345am", "E_5016_a_Band_1"); // 1-188
-        imageFolderMap.put("bd3610345bm", "E_5016_a_Band_2"); // 327 -516 TODO 1 Bild zu viel
+        imageFolderMap.put("bd3610345bm", "E_5016_a_Band_2"); // 189 -516
 
         imageFolderMap.put("foreign_bsb_2_h_ant_34_t", "BSB_2_H_ant_34_t");
         imageFolderMap.put("foreign_sub_2_num_3682", "SUB-2-NUM-3682");
         imageFolderMap.put("foreign_bsb_2_h_ant_34_t_beibd_1", "BSB_2_H_ant_34_t_Beibd_1");
         imageFolderMap.put("foreign_sub_4_h_rom_2621", "SUB-4-H-ROM-2621");
         imageFolderMap.put("foreign_bsb_rar_23", "BSB_Rar_23");
-        imageFolderMap.put("foreign_sub_4_num_3983_1", "SUB-4-NUM-3983_1");
+        imageFolderMap.put("foreign_sub_4_num_3983_1", "SUB-2-NUM-3983");
         imageFolderMap.put("foreign_bsb_res_2_h_ant_34_r", "BSB_Res_2_H_ant_34_r");
         imageFolderMap.put("foreign_sub_8_num_3370", "SUB-8-NUM-3370");
         imageFolderMap.put("foreign_bsb_res_4_l_eleg_m_205", "BSB_Res_4_L_eleg_m_205");
         imageFolderMap.put("foreign_sub_8_num_3575", "SUB-8-NUM-3575");
         imageFolderMap.put("foreign_bsb_res_biogr_227_beibd_5", "BSB_Res_Biogr_227_Beibd_5");
         imageFolderMap.put("foreign_sub_8_num_3932", "SUB-8-NUM-3932");
-        imageFolderMap.put("foreign_bsu_a_7_inv_26", "Uffizien1Augustin");
-        imageFolderMap.put("foreign_bsu_h_1_inv_1215", "Uffizien2Commentariorum");
+        imageFolderMap.put("foreign_bsu_a_7_inv_26", "BSU_a_7_inv_26");
+        imageFolderMap.put("foreign_bsu_h_1_inv_1215", "BSU_H_1_inv_1215");
+        imageFolderMap.put("foreign_bbaw_va_7005", "BBAW_Va_7005");
 
+        imageFolderMap.put("foreign_sub_4_ant_i_1088", "SUB-4-ANT-I-1088");
         // unklar:
-        imageFolderMap.put("foreign_bbaw_va_7005", "");
-        imageFolderMap.put("foreign_smb_gris_1598_1_mtl", "");
-        imageFolderMap.put("bd2830393r", "");
-        imageFolderMap.put("b277436f", "");
-        imageFolderMap.put("b309785f", "");
-        imageFolderMap.put("e6110-nachbe", "");
-        imageFolderMap.put("foreign_flb_ubw_15a_015370", "");
+        imageFolderMap.put("foreign_smb_gris_1598_1_mtl", "foreign_smb_gris_1598_1_mtl");
+        imageFolderMap.put("foreign_flb_ubw_15a_015370", "flb_ubw_15a_015370");
+        imageFolderMap.put("bd2830393r", "X_7920_t");
+        imageFolderMap.put("b230031f", "X_6920");
 
         gndMap.put("SWD:4062501-1", "Venedig");
         gndMap.put("SWD:4050471-2", "Rom");
@@ -576,4 +782,31 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         gndMap.put("SWD:9999999-9", "s.l.");
     }
 
+    public List<String> list(String folder) {
+        List<String> fileNames = new ArrayList<>();
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get(folder))) {
+            for (Path path : directoryStream) {
+                if (!path.getFileName().toString().startsWith(".")) {
+                    fileNames.add(path.getFileName().toString());
+                }
+            }
+        } catch (IOException ex) {
+        }
+        Collections.sort(fileNames);
+        return fileNames;
+    }
+
+    public List<Path> listFiles(Path folder) {
+        List<Path> fileNames = new ArrayList<>();
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(folder)) {
+            for (Path path : directoryStream) {
+                if (!path.getFileName().toString().startsWith(".")) {
+                    fileNames.add(path);
+                }
+            }
+        } catch (IOException ex) {
+        }
+        Collections.sort(fileNames);
+        return fileNames;
+    }
 }

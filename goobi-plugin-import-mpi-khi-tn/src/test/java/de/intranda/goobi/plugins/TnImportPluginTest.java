@@ -2,7 +2,9 @@ package de.intranda.goobi.plugins;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -16,7 +18,9 @@ import org.goobi.production.importer.ImportObject;
 import org.goobi.production.importer.Record;
 import org.jdom2.Element;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
 import ugh.dl.DigitalDocument;
 import ugh.dl.DocStruct;
@@ -26,6 +30,10 @@ import ugh.dl.Prefs;
 public class TnImportPluginTest {
 
     private TNImportPlugin plugin;
+
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
+    private File tempFolder;
 
     @Before
     public void setUp() throws Exception {
@@ -37,8 +45,14 @@ public class TnImportPluginTest {
         plugin.setPrefs(prefs);
 
         plugin.setDataFolder("src/test/resources/data/xml/");
+        plugin.setTeiFolder("src/test/resources/data/tei/");
+        plugin.setImageFolder("src/test/resources/data/master/");
+        plugin.setAreaFolder("src/test/resources/data/pagearea/");
 
-        plugin.setImportFolder("/tmp");
+
+        tempFolder = folder.newFolder("tmp");
+
+        plugin.setImportFolder(tempFolder.getAbsolutePath());
     }
 
     @Test
@@ -55,40 +69,63 @@ public class TnImportPluginTest {
     }
 
     @Test
-    public void testGenerateFiles() {
+    public void testFileGeneration() {
         List<Record> records = new ArrayList<>();
         Record fixture = new Record();
-        fixture.setData("src/test/resources/data/xml/b181034r.xml");
-        fixture.setId("b181034r");
+        fixture.setData("src/test/resources/data/xml/b304255f.xml");
+        fixture.setId("b304255f");
         records.add(fixture);
 
         List<ImportObject> returnlist = plugin.generateFiles(records);
 
         assertEquals(1, returnlist.size());
 
-        assertEquals("khi_tn_b181034r", returnlist.get(0).getProcessTitle());
+        assertEquals("khi_tn_b304255f", returnlist.get(0).getProcessTitle());
+
+        Path metsFile = Paths.get(tempFolder.getAbsolutePath(), "khi_tn_b304255f.xml");
+        assertTrue(Files.exists(metsFile));
+
+        Path teiFile = Paths.get(tempFolder.getAbsolutePath(), "khi_tn_b304255f", "images", "khi_tn_b304255f_source", "tei.xml");
+        assertTrue(Files.exists(teiFile));
+
+        Path imageFolder = Paths.get(tempFolder.getAbsolutePath(), "khi_tn_b304255f", "images", "master_khi_tn_b304255f_media");
+        assertTrue(Files.exists(imageFolder));
+        List<String> imageNames = plugin.list(imageFolder.toString());
+        assertEquals(188, imageNames.size());
+        int numberOfMasterFiles = 0;
+        int numberOfPageAreas = 0;
+        for (String imageName : imageNames) {
+            if (imageName.startsWith("flb000008")) {
+                numberOfMasterFiles++;
+            } else {
+                numberOfPageAreas++;
+            }
+        }
+        assertEquals(120, numberOfMasterFiles);
+        assertEquals(68, numberOfPageAreas);
 
     }
 
     @Test
-    public void runAllFiles() {
-        List<String> xmlFiles = listData();
-
+    public void testGenerateImagesSubList() {
         List<Record> records = new ArrayList<>();
-        for (String xmlName : xmlFiles) {
-            Record fixture = new Record();
-            fixture.setData("src/test/resources/data/xml/" + xmlName);
-            fixture.setId(xmlName.replace(".xml", ""));
-            records.add(fixture);
-        }
+        Record fixture = new Record();
+        fixture.setData("src/test/resources/data/xml/bd1060570br.xml");
+        fixture.setId("bd1060570br");
+        records.add(fixture);
+
         List<ImportObject> returnlist = plugin.generateFiles(records);
+
+        assertEquals(1, returnlist.size());
+
+        assertEquals("khi_tn_bd1060570br", returnlist.get(0).getProcessTitle());
 
     }
 
     @Test
     public void testParsePhysicalMap() {
 
-        Element mets = plugin.readXmlDocument("src/test/resources/data/xml/b181034r.xml");
+        Element mets = plugin.readXmlDocument("src/test/resources/data/xml/foreign_sub_4_h_rom_2621.xml");
         Element physicalStructMap = null;
 
         for (Element element : mets.getChildren()) {
@@ -101,11 +138,11 @@ public class TnImportPluginTest {
 
         List<ImportedDocStruct> fixture = plugin.parsePhysicalMap(physicalStructMap, digDoc);
 
-        assertEquals(427, fixture.size());
+        assertEquals(351, fixture.size());
 
         ImportedDocStruct boundBook = fixture.get(0);
         assertEquals("BoundBook", boundBook.getDocstruct().getType().getName());
-        assertEquals("b181034r_-_DM0000", boundBook.getDmdId());
+        assertEquals("foreign_sub_4_h_rom_2621_-_DM0000", boundBook.getDmdId());
 
         ImportedDocStruct firstPage = fixture.get(1);
         assertEquals("page", firstPage.getDocstruct().getType().getName());
@@ -115,9 +152,9 @@ public class TnImportPluginTest {
         assertEquals("Physical Page Number: 1", firstPage.getOrderLabel());
         assertEquals(5, firstPage.getRelatedPages().size());
 
-        assertEquals(426, boundBook.getDocstruct().getAllChildren().size());
+        assertEquals(350, boundBook.getDocstruct().getAllChildren().size());
 
-        DocStruct lastPage = boundBook.getDocstruct().getAllChildren().get(425);
+        DocStruct lastPage = boundBook.getDocstruct().getAllChildren().get(320);
         Metadata log = null;
         Metadata phys = null;
         for (Metadata md : lastPage.getAllMetadata()) {
@@ -130,8 +167,8 @@ public class TnImportPluginTest {
         assertNotNull(log);
         assertNotNull(phys);
 
-        assertEquals("426", phys.getValue());
-        assertEquals("-", log.getValue());
+        assertEquals("321", phys.getValue());
+        assertEquals("303", log.getValue());
 
     }
 
