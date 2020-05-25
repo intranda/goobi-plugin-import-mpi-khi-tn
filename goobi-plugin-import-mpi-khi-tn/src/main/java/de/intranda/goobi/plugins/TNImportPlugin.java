@@ -208,6 +208,8 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                             }
 
                             Files.copy(Paths.get(teiFolder.toString(), teifile), Paths.get(sourceFolder.toString(), "tei.xml"));
+                            // TODO convert graphic urls
+
                         } catch (IOException e) {
                             log.error(e);
                         }
@@ -270,7 +272,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                         // 189-450
                         imageFolderToImport = Paths.get(imageFolder, "E_5016");
                         files = listFiles(imageFolderToImport);
-                        for (int i = 189; i < 450; i++) {
+                        for (int i = 188; i < 450; i++) {
                             Path fileToCopy = files.get(i);
 
                             DocStruct page = physicalDocstruct.getAllChildren().get(i - 189);
@@ -299,9 +301,9 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                         //189-516
                         imageFolderToImport = Paths.get(imageFolder, "E_5016_a");
                         files = listFiles(imageFolderToImport);
-                        for (int i = 189; i < 516; i++) {
+                        for (int i = 188; i < 515; i++) {
                             Path fileToCopy = files.get(i);
-                            DocStruct page = physicalDocstruct.getAllChildren().get(i - 189);
+                            DocStruct page = physicalDocstruct.getAllChildren().get(i - 188);
                             page.setImageName(fileToCopy.getFileName().toString());
                             try {
                                 Files.copy(fileToCopy, Paths.get(imagesFolder.toString(), fileToCopy.getFileName().toString()));
@@ -552,7 +554,6 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     }
 
     private void initializeTypes() {
-        // TODO get folder from config
 
         if (boundBookType == null) {
             boundBookType = prefs.getDocStrctTypeByName("BoundBook");

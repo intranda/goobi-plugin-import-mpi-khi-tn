@@ -173,6 +173,37 @@ public class TnImportPluginTest {
     }
 
     @Test
+    public void testMissingFilesInBetween() {
+        List<Record> records = new ArrayList<>();
+        Record fixture = new Record();
+        fixture.setData("src/test/resources/data/xml/bd3610345bm.xml");
+        fixture.setId("bd3610345bm");
+        records.add(fixture);
+
+        List<ImportObject> returnlist = plugin.generateFiles(records);
+
+        assertEquals(1, returnlist.size());
+
+        assertEquals("khi_tn_bd3610345bm", returnlist.get(0).getProcessTitle());
+
+        Path imageFolder = Paths.get(tempFolder.getAbsolutePath(), "khi_tn_bd3610345bm", "images", "master_khi_tn_bd3610345bm_media");
+        assertTrue(Files.exists(imageFolder));
+
+        List<String> imageNames = plugin.list(imageFolder.toString());
+        int numberOfMasterFiles = 0;
+        int numberOfPageAreas = 0;
+        for (String imageName : imageNames) {
+            if (imageName.startsWith("flb000006")) {
+                numberOfMasterFiles++;
+            } else {
+                numberOfPageAreas++;
+            }
+        }
+        assertEquals(327, numberOfMasterFiles);
+        assertEquals(311, numberOfPageAreas);
+    }
+
+    @Test
     public void testParsePLogicalMap() {
 
         Element mets = plugin.readXmlDocument("src/test/resources/data/xml/b181034r.xml");
