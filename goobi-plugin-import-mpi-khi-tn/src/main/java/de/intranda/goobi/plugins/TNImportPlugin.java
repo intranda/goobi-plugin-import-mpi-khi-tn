@@ -2,6 +2,7 @@ package de.intranda.goobi.plugins;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,6 +28,8 @@ import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.input.sax.XMLReaders;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 import de.sub.goobi.forms.MassImportForm;
 import de.sub.goobi.helper.exceptions.ImportPluginException;
@@ -60,16 +63,15 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
     private Namespace MODS_NS = Namespace.getNamespace("mods", "http://www.loc.gov/mods/v3");
 
-    private Namespace RIGHTS_NS = Namespace.getNamespace("rights", "http://cosimo.stanford.edu/sdr/metsrights/");
-
-    private Namespace XLINK_NS = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
-    private Namespace MIX_NS = Namespace.getNamespace("mix", "http://www.loc.gov/standards/mix10/");
-    private Namespace XSI_NS = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-    private Namespace XS_NS = Namespace.getNamespace("xs", "http://www.w3.org/2001/XMLSchema");
+    //    private Namespace RIGHTS_NS = Namespace.getNamespace("rights", "http://cosimo.stanford.edu/sdr/metsrights/");
+    //
+    //    private Namespace XLINK_NS = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
+    //    private Namespace MIX_NS = Namespace.getNamespace("mix", "http://www.loc.gov/standards/mix10/");
+    //    private Namespace XSI_NS = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+    //    private Namespace XS_NS = Namespace.getNamespace("xs", "http://www.w3.org/2001/XMLSchema");
 
     /*
-    images korrigieren:
-    E_5016_a/flb000006_0515.tif fehlt
+    image changes:
 
     rm BSB_2_H_ant_34_t/2010-09-21-16-16-15_00465.jpg
     rm BSB_2_H_ant_34_t_Beibd_1/2010-09-21-16-21-43_00089.jpg
@@ -84,7 +86,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     rm SUB-4-H-ROM-2621/00000351.tif
     rm SUB-2-NUM-3983/00000379.tif
     rm SUB-8-NUM-3370/00000373.tif
-    RM SUB-8-NUM-3575/00000165.tif
+    rm SUB-8-NUM-3575/00000165.tif
     rm SUB-8-NUM-3932/00000441.tif
 
 
@@ -108,7 +110,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     private List<ImportType> importTypes = null;
 
     @Setter
-    private String dataFolder = "/opt/digiverso/tn/xml";
+    private String dataFolder = "/opt/digiverso/tn/xml/";
 
     @Setter
     private String teiFolder = "/opt/digiverso/tn/tei/";
@@ -119,7 +121,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
     private String currentIdentifier;
 
-    // ALTER VIEWER: http://tn.khi.fi.it/index.php?id=20&L=1&data=b181034r&type=content
+    // old viewer: http://tn.khi.fi.it/index.php?id=20&L=1&data=b181034r&type=content
 
     private DocStructType boundBookType;
     private DocStructType pageType;
@@ -138,6 +140,9 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         List<ImportObject> importList = new ArrayList<>(recordList.size());
         for (Record record : recordList) {
             currentIdentifier = record.getId();
+            if (record.getId().equals(record.getData())) {
+                record.setData(dataFolder +record.getId() + ".xml");
+            }
             ImportObject io = new ImportObject();
             io.setProcessTitle(getProcessTitle());
             Element metsElement = readXmlDocument(record.getData());
@@ -206,10 +211,10 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                                     log.error(e);
                                 }
                             }
+                            Path destination = Paths.get(sourceFolder.toString(), "tei.xml");
+                            Files.copy(Paths.get(teiFolder.toString(), teifile), destination);
 
-                            Files.copy(Paths.get(teiFolder.toString(), teifile), Paths.get(sourceFolder.toString(), "tei.xml"));
-                            // TODO convert graphic urls
-
+                            convertGraphicUrls(destination);
                         } catch (IOException e) {
                             log.error(e);
                         }
@@ -363,6 +368,44 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         }
 
         return importList;
+
+    }
+
+    private void convertGraphicUrls(Path xmlFile) {
+
+        Document doc = readFile(xmlFile);
+
+        Element rootElement = doc.getRootElement();
+
+        checkElement(rootElement);
+        try {
+            XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
+            OutputStream os = Files.newOutputStream(xmlFile);
+            out.output(doc, os);
+            os.close();
+        } catch (IOException e) {
+            log.error(e);
+        }
+
+    }
+
+    private void checkElement(Element element) {
+
+        if (element.getName().equals("graphic")) {
+            // https://mpiviewer.intranda.com/viewer/rest/image/khi_tn_[ID]/[IMG]/full/800,/0/default.jpg
+            // old: <graphic url="b304255f/obj_img1-1.jpg"/>
+            // new: <graphic url="https://mpiviewer.intranda.com/viewer/rest/image/khi_tn_b304255f/obj_img1-1.jpg/full/800,/0/default.jpg"/>
+            String url = element.getAttributeValue("url");
+            url = "https://mpiviewer.intranda.com/viewer/rest/image/khi_tn_" + url + "/full/800,/0/default.jpg";
+            element.setAttribute("url", url);
+        }
+        List<Element> children = element.getChildren();
+        if (children != null) {
+            for (Element child : children) {
+                checkElement(child);
+            }
+        }
+
     }
 
     private void parseDmdSec(List<Element> dmdSecList, Map<String, ImportedMetadata> dmdMap) {
@@ -809,5 +852,22 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         }
         Collections.sort(fileNames);
         return fileNames;
+    }
+
+    private Document readFile(Path xmlFile) {
+
+        SAXBuilder builder = new SAXBuilder(XMLReaders.NONVALIDATING);
+        builder.setFeature("http://xml.org/sax/features/validation", false);
+        builder.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
+        builder.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+
+        Document doc;
+        try {
+            doc = builder.build(xmlFile.toFile());
+            return doc;
+        } catch (JDOMException | IOException e) {
+            log.error(e);
+        }
+        return null;
     }
 }
