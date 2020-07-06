@@ -254,6 +254,25 @@ public class TnImportPluginTest {
         assertEquals("379", log.getValue());
     }
 
+
+    public void generateTei() {
+        plugin.setDataFolder("/opt/digiverso/tn/xml/");
+        plugin.setTeiFolder("/opt/digiverso/tn/tei/");
+        plugin.setImageFolder("/opt/digiverso/tn/");
+        plugin.setAreaFolder("/opt/digiverso/tn/digital_tn_objects/");
+        plugin.setImportFolder("/tmp");
+
+        List<String> filesInFolder = listData();
+        List<Record> records = new ArrayList<>();
+        for (String file : filesInFolder) {
+            Record fixture = new Record();
+            fixture.setData("src/test/resources/data/xml/" + file);
+            fixture.setId(file.replace(".xml", ""));
+            records.add(fixture);
+        }
+        List<ImportObject> returnlist = plugin.generateFiles(records);
+    }
+
     private List<String> listData() {
         List<String> fileNames = new ArrayList<>();
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get("src/test/resources/data/xml"))) {

@@ -89,7 +89,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     rm SUB-8-NUM-3575/00000165.tif
     rm SUB-8-NUM-3932/00000441.tif
 
-
+rm E_6110/flb000009_0240.tif
      */
 
     @Getter
@@ -127,6 +127,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     private DocStructType pageType;
     private DocStructType monographType;
     private DocStructType otherType;
+    private DocStructType indexType;
 
     private Map<String, MetadataType> metadataTypeMap = new HashedMap<>();
     @Getter
@@ -280,7 +281,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                         for (int i = 188; i < 450; i++) {
                             Path fileToCopy = files.get(i);
 
-                            DocStruct page = physicalDocstruct.getAllChildren().get(i - 189);
+                            DocStruct page = physicalDocstruct.getAllChildren().get(i - 188);
                             page.setImageName(fileToCopy.getFileName().toString());
                             try {
                                 Files.copy(fileToCopy, Paths.get(imagesFolder.toString(), fileToCopy.getFileName().toString()));
@@ -333,8 +334,25 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                 // Paths.get(areaFolder, currentIdentifier) -> img_obj*
 
                 Path pageAreaFolder = Paths.get(areaFolder, currentIdentifier);
+
+                // TODO remove it when image detection works
+                DocStruct index = null;
+
                 List<Path> pageAreaNames = listFiles(pageAreaFolder);
                 for (Path file : pageAreaNames) {
+
+                    if (index == null) {
+                        try {
+                            index = digDoc.createDocStruct(indexType);
+                            digDoc.getLogicalDocStruct().addChild(index);
+                            Metadata title = new Metadata(metadataTypeMap.get("TitleDocMain"));
+                            title.setValue("Index");
+                            index.addMetadata(title);
+                        } catch (Exception e) {
+                            log.error(e);
+                        }
+                    }
+
                     if (Files.isRegularFile(file) && file.getFileName().toString().startsWith("obj_img")) {
                         try {
                             Files.copy(file, Paths.get(imagesFolder.toString(), file.getFileName().toString()));
@@ -348,8 +366,9 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                             Metadata physPageNumber = new Metadata(metadataTypeMap.get("physPageNumber"));
                             physPageNumber.setValue("" + (physicalDocstruct.getAllChildren().size() + 1));
                             pageStruct.addMetadata(physPageNumber);
-                            pageStruct.setImageName(file.getFileName().toString());
+                            pageStruct.setImageName(file.getFileName().toString().replace(".jpg", ".tif"));
                             physicalDocstruct.addChild(pageStruct);
+                            index.addReferenceTo(pageStruct, "logical_physical");
                         } catch (Exception e) {
                             log.error(e);
                         }
@@ -396,7 +415,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
             // old: <graphic url="b304255f/obj_img1-1.jpg"/>
             // new: <graphic url="https://mpiviewer.intranda.com/viewer/rest/image/khi_tn_b304255f/obj_img1-1.jpg/full/800,/0/default.jpg"/>
             String url = element.getAttributeValue("url");
-            url = "https://mpiviewer.intranda.com/viewer/rest/image/khi_tn_" + url + "/full/800,/0/default.jpg";
+            url = "https://dlc.mpg.de//viewer/rest/image/khi_tn_" + url.replace(".jpg", ".tif") + "/full/800,/0/default.jpg";
             element.setAttribute("url", url);
         }
         List<Element> children = element.getChildren();
@@ -603,6 +622,8 @@ public class TNImportPlugin implements IImportPluginVersion2 {
             pageType = prefs.getDocStrctTypeByName("page");
             monographType = prefs.getDocStrctTypeByName("Monograph");
             otherType = prefs.getDocStrctTypeByName("OtherDocStrct");
+            indexType = prefs.getDocStrctTypeByName("Index");
+
             metadataTypeMap.put("logicalPageNumber", prefs.getMetadataTypeByName("logicalPageNumber"));
             metadataTypeMap.put("physPageNumber", prefs.getMetadataTypeByName("physPageNumber"));
 
