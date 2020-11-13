@@ -49,7 +49,7 @@ public class FindSubImage {
 
                 for (Path objPath : objPaths) {
 
-                    Optional<LocationWithDist> foundPosition = findSubImage(p, objPath);
+                    Optional<RectWithDist> foundPosition = findSubImage(p, objPath);
                     if (foundPosition.isPresent()) {
                         objImageToMasterCount.get(objPath).increment();
                         Files.createDirectories(destFolder);
@@ -70,35 +70,37 @@ public class FindSubImage {
 
     }
 
-    public static Optional<LocationWithDist> findSubImage(Path pathToBigImage, Path pathToSmallImage) throws IOException {
+    public static Optional<RectWithDist> findSubImage(Path pathToBigImage, Path pathToSmallImage) throws IOException {
+        final int scaleFactor = 5;
 
-        BufferedImage bigImage = readImage(pathToBigImage);
-        BufferedImage smallImage = readImage(pathToSmallImage);
+        BufferedImage bigImage = readImage(pathToBigImage, scaleFactor);
+        BufferedImage smallImage = readImage(pathToSmallImage, scaleFactor);
 
-        List<LocationWithDist> locs = new ArrayList<>();
+        List<RectWithDist> locs = new ArrayList<>();
         IntStream.range(0, bigImage.getHeight() - smallImage.getHeight() + 1).forEach(y -> {
             for (int x = 0; x < bigImage.getWidth() - smallImage.getWidth() + 1; x++) {
                 double distance = imageDistance(bigImage, x, y, smallImage);
                 if (distance < 0.08) {
-                    locs.add(new LocationWithDist(x, y, distance));
+                    locs.add(new RectWithDist(x * scaleFactor, y * scaleFactor, smallImage.getHeight() * scaleFactor,
+                            smallImage.getWidth() * scaleFactor, distance));
                 }
             }
         });
 
-        return locs.stream().sorted(Comparator.comparing(LocationWithDist::getDistance)).findFirst();
+        return locs.stream().sorted(Comparator.comparing(RectWithDist::getDistance)).findFirst();
     }
 
-    private static BufferedImage readImage(Path pathToBigImage) throws IOException {
+    private static BufferedImage readImage(Path pathToBigImage, int scaleFactor) throws IOException {
         BufferedImage bigImage = null;
         try (InputStream in = Files.newInputStream(pathToBigImage)) {
             BufferedImage desktopIn = ImageIO.read(in);
-            bigImage = scaleImage(desktopIn);
+            bigImage = scaleImage(desktopIn, scaleFactor);
         }
         return bigImage;
     }
 
-    private static BufferedImage scaleImage(BufferedImage desktop) {
-        Image toolkitImage = desktop.getScaledInstance(desktop.getWidth() / 5, desktop.getHeight() / 5, Image.SCALE_FAST);
+    private static BufferedImage scaleImage(BufferedImage desktop, int scaleFactor) {
+        Image toolkitImage = desktop.getScaledInstance(desktop.getWidth() / scaleFactor, desktop.getHeight() / scaleFactor, Image.SCALE_FAST);
         int width = toolkitImage.getWidth(null);
         int height = toolkitImage.getHeight(null);
 
