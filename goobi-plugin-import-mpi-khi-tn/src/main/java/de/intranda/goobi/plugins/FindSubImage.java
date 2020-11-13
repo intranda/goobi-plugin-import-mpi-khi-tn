@@ -81,8 +81,8 @@ public class FindSubImage {
             for (int x = 0; x < bigImage.getWidth() - smallImage.getWidth() + 1; x++) {
                 double distance = imageDistance(bigImage, x, y, smallImage);
                 if (distance < 0.08) {
-                    locs.add(new RectWithDist(x * scaleFactor, y * scaleFactor, smallImage.getHeight() * scaleFactor,
-                            smallImage.getWidth() * scaleFactor, distance));
+                    locs.add(new RectWithDist(x * scaleFactor, y * scaleFactor, smallImage.getWidth() * scaleFactor,
+                            smallImage.getHeight() * scaleFactor, distance));
                 }
             }
         });
