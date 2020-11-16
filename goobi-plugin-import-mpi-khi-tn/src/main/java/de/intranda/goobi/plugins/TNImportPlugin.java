@@ -9,8 +9,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
 
 import org.apache.commons.collections4.map.HashedMap;
 import org.apache.commons.lang.StringUtils;
@@ -89,7 +92,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     rm SUB-8-NUM-3575/00000165.tif
     rm SUB-8-NUM-3932/00000441.tif
 
-rm E_6110/flb000009_0240.tif
+    rm E_6110/flb000009_0240.tif
      */
 
     @Getter
@@ -129,10 +132,12 @@ rm E_6110/flb000009_0240.tif
     private DocStructType otherType;
     private DocStructType indexType;
 
-    private Map<String, MetadataType> metadataTypeMap = new HashedMap<>();
+    private Map<String, MetadataType> metadataTypeMap = new HashMap<>();
     @Getter
-    private Map<String, String> imageFolderMap = new HashedMap<>();
-    private Map<String, String> gndMap = new HashedMap<>();
+    private Map<String, String> imageFolderMap = new HashMap<>();
+    private Map<String, String> gndMap = new HashMap<>();
+
+    private Map<DocStruct, String> pageMap;
 
     @Override
     public List<ImportObject> generateFiles(List<Record> recordList) {
@@ -142,7 +147,7 @@ rm E_6110/flb000009_0240.tif
         for (Record record : recordList) {
             currentIdentifier = record.getId();
             if (record.getId().equals(record.getData())) {
-                record.setData(dataFolder +record.getId() + ".xml");
+                record.setData(dataFolder + record.getId() + ".xml");
             }
             ImportObject io = new ImportObject();
             io.setProcessTitle(getProcessTitle());
@@ -354,23 +359,56 @@ rm E_6110/flb000009_0240.tif
                     }
 
                     if (Files.isRegularFile(file) && file.getFileName().toString().startsWith("obj_img")) {
-                        try {
-                            Files.copy(file, Paths.get(imagesFolder.toString(), file.getFileName().toString()));
-                        } catch (IOException e) {
+                        List<DocStruct> possibleMatches = new ArrayList<>();
+                        String pageOrder = file.getFileName().toString();
+                        pageOrder = pageOrder.substring(7, pageOrder.indexOf("-"));
+
+                        for (Entry<DocStruct, String> entry : pageMap.entrySet()) {
+                            if (file.getFileName().toString().startsWith("obj_imgg") && entry.getValue().equals("-")) {
+                                possibleMatches.add(entry.getKey());
+                            } else if (entry.getValue().equals(pageOrder)) {
+                                possibleMatches.add(entry.getKey());
+                            }
                         }
 
-                        //
-                        try {
-                            DocStruct pageStruct = digDoc.createDocStruct(pageType);
+                        for (DocStruct page : possibleMatches) {
+                            System.out.println("Compare " + page.getImageName() + " and " + file.toString());
+                            if (Files.size(file) > 0) {
+
+                                try {
+                                    Optional<RectWithDist> foundPosition =
+                                            FindSubImage.findSubImage(Paths.get(imageFolderToImport.toString(), page.getImageName()), file);
+                                    if (foundPosition.isPresent()) {
+                                        RectWithDist lwd = foundPosition.get();
+                                        System.out.println(lwd.getX());
+                                        System.out.println(lwd.getY());
+                                        System.out.println(lwd.getHeight());
+                                        System.out.println(lwd.getWidth());
+                                    }
+                                } catch (IOException e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                                }
+                            }
+                            // TODO old method:
+                            try {
+                                Files.copy(file, Paths.get(imagesFolder.toString(), file.getFileName().toString()));
+                            } catch (IOException e) {
+                            }
+
                             //
-                            Metadata physPageNumber = new Metadata(metadataTypeMap.get("physPageNumber"));
-                            physPageNumber.setValue("" + (physicalDocstruct.getAllChildren().size() + 1));
-                            pageStruct.addMetadata(physPageNumber);
-                            pageStruct.setImageName(file.getFileName().toString().replace(".jpg", ".tif"));
-                            physicalDocstruct.addChild(pageStruct);
-                            index.addReferenceTo(pageStruct, "logical_physical");
-                        } catch (Exception e) {
-                            log.error(e);
+                            try {
+                                DocStruct pageStruct = digDoc.createDocStruct(pageType);
+                                //
+                                Metadata physPageNumber = new Metadata(metadataTypeMap.get("physPageNumber"));
+                                physPageNumber.setValue("" + (physicalDocstruct.getAllChildren().size() + 1));
+                                pageStruct.addMetadata(physPageNumber);
+                                pageStruct.setImageName(file.getFileName().toString().replace(".jpg", ".tif"));
+                                physicalDocstruct.addChild(pageStruct);
+                                index.addReferenceTo(pageStruct, "logical_physical");
+                            } catch (Exception e) {
+                                log.error(e);
+                            }
                         }
 
                     }
@@ -378,7 +416,7 @@ rm E_6110/flb000009_0240.tif
 
                 fileformat.write(io.getMetsFilename());
                 io.setImportReturnValue(ImportReturnValue.ExportFinished);
-            } catch (PreferencesException | WriteException e) {
+            } catch (PreferencesException | WriteException | IOException e) {
                 log.error(e);
                 io.setImportReturnValue(ImportReturnValue.InvalidData);
             }
@@ -515,6 +553,8 @@ rm E_6110/flb000009_0240.tif
     }
 
     public List<ImportedDocStruct> parsePhysicalMap(Element physicalStructMap, DigitalDocument digDoc) {
+        pageMap = new HashMap<>();
+
         List<ImportedDocStruct> physicalList = new ArrayList<>();
         Element div = physicalStructMap.getChild("div", METS_NS);
         DocStruct physical = null;
@@ -548,6 +588,9 @@ rm E_6110/flb000009_0240.tif
                         logicalPageNumber.setValue(page.getOrderLabel().substring(page.getOrderLabel().lastIndexOf(":") + 1).trim());
                     }
                     pageStruct.addMetadata(logicalPageNumber);
+
+                    pageMap.put(pageStruct, logicalPageNumber.getValue());
+
                 }
                 physical.addChild(pageStruct);
             } catch (TypeNotAllowedForParentException | TypeNotAllowedAsChildException | MetadataTypeNotAllowedException e) {
