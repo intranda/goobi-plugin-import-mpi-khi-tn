@@ -359,58 +359,59 @@ public class TNImportPlugin implements IImportPluginVersion2 {
                     }
 
                     if (Files.isRegularFile(file) && file.getFileName().toString().startsWith("obj_img")) {
-                        List<DocStruct> possibleMatches = new ArrayList<>();
-                        String pageOrder = file.getFileName().toString();
-                        pageOrder = pageOrder.substring(7, pageOrder.indexOf("-"));
-
-                        for (Entry<DocStruct, String> entry : pageMap.entrySet()) {
-                            if (file.getFileName().toString().startsWith("obj_imgg") && entry.getValue().equals("-")) {
-                                possibleMatches.add(entry.getKey());
-                            } else if (entry.getValue().equals(pageOrder)) {
-                                possibleMatches.add(entry.getKey());
-                            }
+                        try {
+                            Files.copy(file, Paths.get(imagesFolder.toString(), file.getFileName().toString()));
+                        } catch (IOException e) {
                         }
 
-                        for (DocStruct page : possibleMatches) {
-                            System.out.println("Compare " + page.getImageName() + " and " + file.toString());
-                            if (Files.size(file) > 0) {
+                        //
+                        try {
+                            DocStruct pageStruct = digDoc.createDocStruct(pageType);
+                            //
+                            Metadata physPageNumber = new Metadata(metadataTypeMap.get("physPageNumber"));
+                            physPageNumber.setValue("" + (physicalDocstruct.getAllChildren().size() + 1));
+                            pageStruct.addMetadata(physPageNumber);
+                            pageStruct.setImageName(file.getFileName().toString().replace(".jpg", ".tif"));
+                            physicalDocstruct.addChild(pageStruct);
+                            index.addReferenceTo(pageStruct, "logical_physical");
+                        } catch (Exception e) {
+                            log.error(e);
+                        }
+                        if (false) {
+                            List<DocStruct> possibleMatches = new ArrayList<>();
+                            String pageOrder = file.getFileName().toString();
+                            pageOrder = pageOrder.substring(7, pageOrder.indexOf("-"));
 
-                                try {
-                                    Optional<RectWithDist> foundPosition =
-                                            FindSubImage.findSubImage(Paths.get(imageFolderToImport.toString(), page.getImageName()), file);
-                                    if (foundPosition.isPresent()) {
-                                        RectWithDist lwd = foundPosition.get();
-                                        System.out.println(lwd.getX());
-                                        System.out.println(lwd.getY());
-                                        System.out.println(lwd.getHeight());
-                                        System.out.println(lwd.getWidth());
-                                    }
-                                } catch (IOException e) {
-                                    // TODO Auto-generated catch block
-                                    e.printStackTrace();
+                            for (Entry<DocStruct, String> entry : pageMap.entrySet()) {
+                                if (file.getFileName().toString().startsWith("obj_imgg") && entry.getValue().equals("-")) {
+                                    possibleMatches.add(entry.getKey());
+                                } else if (entry.getValue().equals(pageOrder)) {
+                                    possibleMatches.add(entry.getKey());
                                 }
                             }
-                            // TODO old method:
-                            try {
-                                Files.copy(file, Paths.get(imagesFolder.toString(), file.getFileName().toString()));
-                            } catch (IOException e) {
-                            }
 
-                            //
-                            try {
-                                DocStruct pageStruct = digDoc.createDocStruct(pageType);
-                                //
-                                Metadata physPageNumber = new Metadata(metadataTypeMap.get("physPageNumber"));
-                                physPageNumber.setValue("" + (physicalDocstruct.getAllChildren().size() + 1));
-                                pageStruct.addMetadata(physPageNumber);
-                                pageStruct.setImageName(file.getFileName().toString().replace(".jpg", ".tif"));
-                                physicalDocstruct.addChild(pageStruct);
-                                index.addReferenceTo(pageStruct, "logical_physical");
-                            } catch (Exception e) {
-                                log.error(e);
+                            for (DocStruct page : possibleMatches) {
+                                System.out.println("Compare " + page.getImageName() + " and " + file.toString());
+                                if (Files.size(file) > 0) {
+
+                                    try {
+                                        Optional<RectWithDist> foundPosition =
+                                                FindSubImage.findSubImage(Paths.get(imageFolderToImport.toString(), page.getImageName()), file);
+                                        if (foundPosition.isPresent()) {
+                                            RectWithDist lwd = foundPosition.get();
+                                            System.out.println(lwd.getX());
+                                            System.out.println(lwd.getY());
+                                            System.out.println(lwd.getHeight());
+                                            System.out.println(lwd.getWidth());
+                                        }
+                                    } catch (IOException e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
+                                    }
+                                }
+
                             }
                         }
-
                     }
                 }
 
