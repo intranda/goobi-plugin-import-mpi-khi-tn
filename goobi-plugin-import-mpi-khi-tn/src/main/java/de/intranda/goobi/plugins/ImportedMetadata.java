@@ -20,7 +20,7 @@ public class ImportedMetadata {
     private List<Metadata> metadataList = new ArrayList<>();
     private List<Person> personList = new ArrayList<>();
 
-    public ImportedMetadata(Element modsSection, Map<String, MetadataType> typeMap, Map<String,String> gndMap) throws UGHException {
+    public ImportedMetadata(Element modsSection, Map<String, MetadataType> typeMap, Map<String, String> gndMap) throws UGHException {
         for (Element element : modsSection.getChildren()) {
             switch (element.getName()) {
                 case "titleInfo":
@@ -46,9 +46,9 @@ public class ImportedMetadata {
                         }
                     }
                     if (StringUtils.isNotBlank(title)) {
-                        Metadata sortTitle = new Metadata(typeMap.get("TitleDocMainShort"));
-                        sortTitle.setValue(title);
-                        metadataList.add(sortTitle);
+                        //                        Metadata sortTitle = new Metadata(typeMap.get("TitleDocMainShort"));
+                        //                        sortTitle.setValue(title);
+                        //                        metadataList.add(sortTitle);
 
                         if (StringUtils.isNotBlank(nonSort)) {
                             title = nonSort + " " + title;
@@ -97,18 +97,32 @@ public class ImportedMetadata {
 
                         for (Element roleTerm : roleTermList) {
                             String role = roleTerm.getValue().trim();
-                            Person p = new Person(typeMap.get(role));
-                            p.setFirstname(firstname);
-                            p.setLastname(lastname);
-                            if (description != null) {
-                                String identifier = description.getValue();
-                                identifier = identifier.replace("PND:", "").trim();
-                                if (StringUtils.isNumeric(identifier)) {
-                                    p.setAutorityFile("gnd", "http://d-nb.info/gnd/", identifier);
+                            if (role.equals("Publisher")) {
+                                Metadata md = new Metadata(typeMap.get(role));
+                                md.setValue(name);
+                                if (description != null) {
+                                    String identifier = description.getValue();
+                                    identifier = identifier.replace("PND:", "").trim();
+                                    if (StringUtils.isNumeric(identifier)) {
+                                        md.setAutorityFile("gnd", "http://d-nb.info/gnd/", identifier);
 
+                                    }
                                 }
+                                metadataList.add(md);
+                            } else {
+                                Person p = new Person(typeMap.get(role));
+                                p.setFirstname(firstname);
+                                p.setLastname(lastname);
+                                if (description != null) {
+                                    String identifier = description.getValue();
+                                    identifier = identifier.replace("PND:", "").trim();
+                                    if (StringUtils.isNumeric(identifier)) {
+                                        p.setAutorityFile("gnd", "http://d-nb.info/gnd/", identifier);
+
+                                    }
+                                }
+                                personList.add(p);
                             }
-                            personList.add(p);
                         }
                     }
 
@@ -150,7 +164,7 @@ public class ImportedMetadata {
                     if (StringUtils.isNotBlank(value)) {
                         String type = element.getAttributeValue("type");
                         if (type == null || type.equals("Bearbeitungsstand")) {
-                            Metadata md = new Metadata(typeMap.get("ContentDescription"));
+                            Metadata md = new Metadata(typeMap.get("Abstract"));
                             md.setValue(value);
                             metadataList.add(md);
                         } else if (type.equals("handwritten")) {

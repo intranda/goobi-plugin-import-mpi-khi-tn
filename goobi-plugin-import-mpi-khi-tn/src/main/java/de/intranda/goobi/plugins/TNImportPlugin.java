@@ -676,15 +676,15 @@ public class TNImportPlugin implements IImportPluginVersion2 {
 
             metadataTypeMap.put("Information", prefs.getMetadataTypeByName("Information"));
             metadataTypeMap.put("Author", prefs.getMetadataTypeByName("Author"));
-            metadataTypeMap.put("Publisher", prefs.getMetadataTypeByName("PublisherPerson"));
-            metadataTypeMap.put("Artist", prefs.getMetadataTypeByName("Artist"));
+            metadataTypeMap.put("Publisher", prefs.getMetadataTypeByName("PublisherName"));
+            metadataTypeMap.put("Artist", prefs.getMetadataTypeByName("OtherPerson"));
             metadataTypeMap.put("PlaceOfPublication", prefs.getMetadataTypeByName("PlaceOfPublication"));
             metadataTypeMap.put("PublisherName", prefs.getMetadataTypeByName("PublisherName"));
             metadataTypeMap.put("PublicationYear", prefs.getMetadataTypeByName("PublicationYear"));
             metadataTypeMap.put("HandwrittenNote", prefs.getMetadataTypeByName("HandwrittenNote"));
             metadataTypeMap.put("PhysicalLocation", prefs.getMetadataTypeByName("PhysicalLocation"));
             metadataTypeMap.put("Copyright", prefs.getMetadataTypeByName("Copyright"));
-            metadataTypeMap.put("ContentDescription", prefs.getMetadataTypeByName("ContentDescription"));
+            metadataTypeMap.put("Abstract", prefs.getMetadataTypeByName("Abstract"));
             metadataTypeMap.put("CatalogIDSource", prefs.getMetadataTypeByName("CatalogIDSource"));
             metadataTypeMap.put("CatalogIDDigital", prefs.getMetadataTypeByName("CatalogIDDigital"));
             metadataTypeMap.put("singleDigCollection", prefs.getMetadataTypeByName("singleDigCollection"));
