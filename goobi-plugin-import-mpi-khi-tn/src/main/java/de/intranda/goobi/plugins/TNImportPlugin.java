@@ -454,7 +454,7 @@ public class TNImportPlugin implements IImportPluginVersion2 {
             // old: <graphic url="b304255f/obj_img1-1.jpg"/>
             // new: <graphic url="https://mpiviewer.intranda.com/viewer/rest/image/khi_tn_b304255f/obj_img1-1.jpg/full/800,/0/default.jpg"/>
             String url = element.getAttributeValue("url");
-            url = "https://dlc.mpg.de//viewer/rest/image/khi_tn_" + url.replace(".jpg", ".tif") + "/full/800,/0/default.jpg";
+            url = "https://dlc.mpg.de/viewer/rest/image/khi_tn_" + url.replace(".jpg", ".tif") + "/full/800,/0/default.jpg";
             element.setAttribute("url", url);
         }
         List<Element> children = element.getChildren();
@@ -519,13 +519,14 @@ public class TNImportPlugin implements IImportPluginVersion2 {
         List<Element> identifier = metsElement.getChild("metsHdr", METS_NS).getChildren("altRecordID", METS_NS);
         for (Element i : identifier) {
             if (i.getAttributeValue("TYPE").equals("AlephSys")) {
-                try {
-                    Metadata md = new Metadata(metadataTypeMap.get("CatalogIDSource"));
-                    md.setValue(i.getValue());
-                    logical.addMetadata(md);
-                } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e) {
-                    log.error(e);
-                }
+                // ignore it
+                //                try {
+                //                    Metadata md = new Metadata(metadataTypeMap.get("CatalogIdentifier"));
+                //                    md.setValue(i.getValue());
+                //                    logical.addMetadata(md);
+                //                } catch (MetadataTypeNotAllowedException | DocStructHasNoTypeException e) {
+                //                    log.error(e);
+                //                }
             } else {
                 try {
                     Metadata md = new Metadata(metadataTypeMap.get("CatalogIdentifier"));
