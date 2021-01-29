@@ -450,11 +450,18 @@ public class TNImportPlugin implements IImportPluginVersion2 {
     private void checkElement(Element element) {
 
         if (element.getName().equals("graphic")) {
-            // https://mpiviewer.intranda.com/viewer/rest/image/khi_tn_[ID]/[IMG]/full/800,/0/default.jpg
+            // https://dlc.mpg.de/viewer/rest/image/khi_tn_[ID]/[IMG]/full/800,/0/default.jpg
             // old: <graphic url="b304255f/obj_img1-1.jpg"/>
-            // new: <graphic url="https://mpiviewer.intranda.com/viewer/rest/image/khi_tn_b304255f/obj_img1-1.jpg/full/800,/0/default.jpg"/>
+
+            // https://dlc.mpg.de/api/v1/records/khi_tn_b229517f/files/images/obj_img8-1.tif/full/800,/0/default.jpg
+
+
+            // new: <graphic url="https://dlc.mpg.de/viewer/rest/image/khi_tn_b304255f/obj_img1-1.jpg/full/800,/0/default.jpg"/>
             String url = element.getAttributeValue("url");
-            url = "https://dlc.mpg.de/viewer/rest/image/khi_tn_" + url.replace(".jpg", ".tif") + "/full/800,/0/default.jpg";
+            String id = url.substring(0, url.indexOf("/"));
+            String filename = url.substring(url.indexOf("/") +1).replace(".jpg", ".tif");
+            url = "https://dlc.mpg.de/api/v1/records/khi_tn_" + id + "/files/images/" + filename + "/full/800,/0/default.jpg";
+            //            url = "https://dlc.mpg.de/viewer/rest/image/khi_tn_" + url.replace(".jpg", ".tif") + "/full/800,/0/default.jpg";
             element.setAttribute("url", url);
         }
         List<Element> children = element.getChildren();
