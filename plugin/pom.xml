@@ -109,4 +109,8 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+    <scm>
+    <url>scm:git:ssh://git@gitea.intranda.com:goobi-workflow/goobi-plugin-step-folderimport.git</url>
+    <connection>scm:git:ssh://git@gitea.intranda.com:goobi-workflow/goobi-plugin-step-folderimport.git</connection>
+  </scm>
 </project>
