@@ -6,7 +6,7 @@
   <properties>
     <jar.name>plugin_intranda_import_mpi_kh_tn</jar.name>
     <dest.folder>/opt/digiverso/goobi/plugins/import/</dest.folder>
-    <goobi.version>21.11.1</goobi.version>
+    <goobi.version>21.11.2</goobi.version>
   </properties>
   <distributionManagement>
     <repository>
@@ -109,7 +109,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-    <scm>
+  <scm>
     <url>scm:git:ssh://git@gitea.intranda.com:goobi-workflow/goobi-plugin-step-folderimport.git</url>
     <connection>scm:git:ssh://git@gitea.intranda.com:goobi-workflow/goobi-plugin-step-folderimport.git</connection>
   </scm>
