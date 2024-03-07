@@ -7,7 +7,7 @@
     <relativePath />
   </parent>
   <groupId>io.goobi.workflow.plugin</groupId>
-  <artifactId>plugin-import-goobi-plugin-mpi-khi-tn</artifactId>
+  <artifactId>plugin-import-mpi-khi-tn</artifactId>
   <packaging>pom</packaging>
   <modules>
     <module>module-base</module>
